@@ -3,8 +3,8 @@
 
 // typography
 
-$base-font-size: 16px;
-$base-line-height: 24px;
+$base-font-size: 12px;
+$base-line-height: 18px;
 $rhythm-unit: "px";
 $rem-with-px-fallback: false;
 
@@ -15,7 +15,7 @@ $grid-background-baseline-color: rgba(black,.9);
 $myColumns: 12;
 
 $susy: (
-	container: 1170px,
+	container: 1115px,
 	columns: $myColumns,
 	gutters: 0,
 	global-box-sizing: border-box,
@@ -43,7 +43,7 @@ $susy: (
 
 // responsive min-width
 
-@mixin min-w($width) {
+@mixin break-min($width) {
 	@media only screen and (min-width: #{$width}px) {
 		@content;
 	}

@@ -2,6 +2,6 @@
 *        FONTS        *
 ***********************/
 
-// fonts location - ./fonts/font_name/font_name.* 
-//
-// @include my-font( font_name, $eot: false, $otf: false, $ttf: false, $woff: false, $woff2: false );
+@include my-font( CodaRegular, $ttf: true );
+@include my-font( CodaHeavy, $ttf: true );
+@include my-font( ImpactRegular, $eot: true, $ttf: true, $woff: true );
