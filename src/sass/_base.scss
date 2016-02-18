@@ -1,0 +1,21 @@
+/**********************
+*        BASE         *
+***********************/
+
+@include establish-baseline;
+@include border-box-sizing(true);
+
+%clear:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+body {
+	height: 2000px;
+}
+
+.wrapper {
+	@include container;
+	height: 100%;
+}
