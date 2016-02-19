@@ -1,15 +1,42 @@
 // header 
-header#header
-	.header--nav
+header.header
+	.header__nav
 		.wrapper
 			ul.social-nav
-				li.social-nav--item
-					i.fa.fa-twitter
-				li.social-nav--item
-				li.social-nav--item
-				li.social-nav--item
-				li.social-nav--item
-				li.social-nav--item
-				li.social-nav--item
+				li.social-nav__item
+					a.social-nav__link( href="#" )
+						i.fa.fa-twitter
+				li.social-nav__item
+					a.social-nav__link( href="#" )
+						i.fa.fa-facebook
+				li.social-nav__item
+					a.social-nav__link( href="#" )
+						i.fa.fa-dribbble
+				li.social-nav__item
+					a.social-nav__link( href="#" )
+						i.fa.fa-lastfm
+				li.social-nav__item
+					a.social-nav__link( href="#" )
+						i.fa.fa-linkedin
+				li.social-nav__item
+					a.social-nav__link( href="#" )
+						i.fa.fa-tumblr
+				li.social-nav__item.social-nav__item--form
+					form.search-form
+						input.search-form__input( type='text' placeholder="Search" )
+						button.search-form__submit
+							i.fa.fa-search
 			ul.main-nav
-	.header--news
+				li.main-nav__item
+					a.main-nav__link( href="#" ) Entertainment
+				li.main-nav__item
+					a.main-nav__link( href="#" ) Lifestyle
+				li.main-nav__item
+					a.main-nav__link( href="#" ) Technology
+				li.main-nav__item
+					a.main-nav__link( href="#" ) Entertainment
+				li.main-nav__item
+					a.main-nav__link( href="#" ) Lifestyle
+				li.main-nav__item.main-nav__item--last
+					a.main-nav__link( href="#" ) Sports
+	.header__news

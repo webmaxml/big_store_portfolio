@@ -8,7 +8,7 @@ $base-line-height: 18px;
 $rhythm-unit: "px";
 $rem-with-px-fallback: false;
 
-$grid-background-baseline-color: rgba(black,.9);
+$grid-background-baseline-color: rgba(#ea9155,.9);
 
 // susy
 
@@ -21,7 +21,7 @@ $susy: (
 	global-box-sizing: border-box,
 	debug: (
 			image: show,
-			output: background,
+			output: overlay,
 			// color: rgba(#66f, .1)
 		),
 	use-custom: (

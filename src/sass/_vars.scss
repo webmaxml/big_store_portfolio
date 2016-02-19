@@ -4,13 +4,26 @@ $f_caption_2: "CodaHeavy", "Arial", sans-serif;
 $f_text: "Arial", sans-serif;
 $f_logo: "ImpactRegular", "Arial", sans-serif;
 
-// Type scale 1.333
+// typography
+$cat: 12px;
+$fox: 13px;
+$duck: 14px;
+$hippo: 16px;
 
-$ts_1: $base-font-size * 0.422;
-$ts_2: $base-font-size * 0.563;
-$ts_3: $base-font-size * 0.75;
-$ts_4: $base-font-size;
-$ts_5: $base-font-size * 1.333;
-$ts_6: $base-font-size * 1.777;
-$ts_7: $base-font-size * 2.369;
-$ts_8: $base-font-size * 3.157;
+// colors
+
+// header
+$bg_header__nav: #404040;
+$bg_header__news: #252525;
+// social-nav
+$bg_social-nav: #fff;
+$bg_social-nav__item: #363636;
+$sh1_social-nav__item: rgba(#111, .26);
+$sh2_social-nav__item: rgba(#fff, .07);
+$hv_social-nav__item: darken(#363636, 1%);
+// main-nav
+$bg_main-nav: #363636;
+$c_main-nav: #c9c9c9;
+$br_main-nav: #252525;
+$sh_main-nav: #404040;
+$hv_main-nav__item: darken(#363636, 1%);

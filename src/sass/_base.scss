@@ -9,7 +9,9 @@
 	@include container;
 }
 
-%clear:after {
+
+/* clearfix placeholder */
+%clearfix:after {
 	content: "";
 	display: block;
 	clear: both;

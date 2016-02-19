@@ -11,22 +11,34 @@
   </head>
   <body>
     <!-- header -->
-    <header id="header">
-      <div class="header--nav">
+    <header class="header">
+      <div class="header__nav">
         <div class="wrapper">
           <ul class="social-nav">
-            <li class="social-nav--item"><i class="fa fa-twitter"></i></li>
-            <li class="social-nav--item"></li>
-            <li class="social-nav--item"></li>
-            <li class="social-nav--item"></li>
-            <li class="social-nav--item"></li>
-            <li class="social-nav--item"></li>
-            <li class="social-nav--item"></li>
+            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-twitter"></i></a></li>
+            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-facebook"></i></a></li>
+            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-dribbble"></i></a></li>
+            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-lastfm"></i></a></li>
+            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-linkedin"></i></a></li>
+            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-tumblr"></i></a></li>
+            <li class="social-nav__item social-nav__item--form">
+              <form class="search-form">
+                <input type="text" placeholder="Search" class="search-form__input">
+                <button class="search-form__submit"><i class="fa fa-search"></i></button>
+              </form>
+            </li>
           </ul>
-          <ul class="main-nav"></ul>
+          <ul class="main-nav">
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Technology</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
+            <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
+            <li class="main-nav__item main-nav__item--last"><a href="#" class="main-nav__link">Sports</a></li>
+          </ul>
         </div>
       </div>
-      <div class="header--news"></div>
+      <div class="header__news"></div>
     </header>
     <script src="js/libs.js"></script>
     <script src="libs/jqueryUI/jquery-ui.min.js"></script>

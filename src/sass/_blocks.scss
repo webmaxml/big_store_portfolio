@@ -1,0 +1,108 @@
+/**********************
+*        BLOCKS       *
+***********************/
+
+/* header */
+.header {
+	width: 100%;
+
+	&__nav{
+		background-color: $bg_header__nav;
+	}
+
+	&__news {
+		background-color: $bg_header__news;
+	}
+}
+
+/* social-nav */
+.social-nav {
+	float: right;
+	@include rhythm-padding;
+	color: $bg_social-nav;
+
+	&__item {
+		float: left;
+		@include adjust-font-size-to($hippo, 2);
+		width: $base-line-height * 2;
+		height: $base-line-height * 2;
+		background-color: $bg_social-nav__item;
+		margin-right: 9px;	
+		border-radius: 100%;
+		box-shadow: 2px 2px 2px -1px $sh1_social-nav__item inset, 
+					1px 1px 2px 0 $sh2_social-nav__item;
+
+		&:hover { background-color: $hv_social-nav__item; }
+
+		&--form {
+			width: 200px;
+			border-radius: $base-line-height * 2;
+
+			&:hover { background-color: $bg_social-nav__item; }
+		}
+	}
+
+	&__link {
+		display: block;
+		text-align: center;
+	}
+}
+
+/* search-form */
+.search-form {
+	@extend %clearfix;
+
+	&__input {
+		float: left;
+		width: 165px;
+		@include adjust-font-size-to($cat, 2);
+		padding-left: 15px;
+		padding-right: 15px;
+		font-family: $f_text;
+
+		&:focus::placeholder {
+			opacity: 0;
+		}
+	}
+
+	&__submit {
+		float: left;
+		width: 35px;
+		@include adjust-font-size-to($hippo, 2);
+	}
+}
+
+/* main nav */
+.main-nav {
+	@extend %clearfix;
+	text-align: center;
+	color: $c_main-nav;
+	font-family: $f_caption_1;
+	text-transform: uppercase;
+	background-color: $bg_main-nav;
+	clear: both;
+	border-radius: 12px 12px 0 0;
+	box-shadow: 0 0 0 1px $br_main-nav inset, 0 0 0 2px $sh_main-nav inset;
+	padding-left: 20%;
+
+	&__item {
+		float: left;
+		@include adjust-font-size-to($fox, 3);
+		vertical-align: top;
+		box-shadow: 1px 1px 0 0 $br_main-nav inset, 2px 1px 0 0 $sh_main-nav inset;	
+
+		&:hover { background-color: $hv_main-nav__item; }
+
+		&--last {
+			box-shadow: 1px 1px 0 0 $br_main-nav inset, 
+						2px 1px 0 0 $sh_main-nav inset,
+					   -1px 1px 0 0 $br_main-nav inset;	
+		}
+	}
+
+	&__link {
+		display: block;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}

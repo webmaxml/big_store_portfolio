@@ -35,7 +35,7 @@ gulp.task('sass', function () {
         browsers: ['last 15 versions'],
         cascade: false
     }))
-    .pipe(csscomb())
+    // .pipe(csscomb())
     .pipe(gulp.dest('./dist/css/'));
 });
 
