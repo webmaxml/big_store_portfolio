@@ -5,7 +5,8 @@
        webserver = require('gulp-webserver'),
     autoprefixer = require('gulp-autoprefixer'),
          compass = require('gulp-compass'),
-            jade = require('gulp-jade');
+            jade = require('gulp-jade'),
+         csscomb = require('gulp-csscomb');
 
 
 gulp.task('watch', function() {
@@ -34,6 +35,7 @@ gulp.task('sass', function () {
         browsers: ['last 15 versions'],
         cascade: false
     }))
+    .pipe(csscomb())
     .pipe(gulp.dest('./dist/css/'));
 });
 

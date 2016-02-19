@@ -41,14 +41,6 @@ $susy: (
 	left: -(100% / ($myColumns / $cols));
 }
 
-// responsive min-width
-
-@mixin break-min($width) {
-	@media only screen and (min-width: #{$width}px) {
-		@content;
-	}
-}
-
 // custom font-face
 
 @mixin my-font($name, $eot: false, $otf: false, $ttf: false, $woff: false, $woff2: false, $weight: normal, $style: normal) {

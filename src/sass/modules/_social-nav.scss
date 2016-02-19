@@ -1,0 +1,17 @@
+/* social-nav */
+.social-nav {
+	@include span(6);
+	@include pre(6);
+	@include rhythm-padding;
+	color: #fff;
+
+	&--item {
+		float: left;
+		@include adjust-font-size-to($ts_6);
+		width: $base-line-height * 2;
+		height: $base-line-height * 2;
+		background-color: #363636;
+		margin-right: 10px;
+		text-align: center;
+	}
+}

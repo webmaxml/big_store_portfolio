@@ -5,3 +5,4 @@
 @include my-font( CodaRegular, $ttf: true );
 @include my-font( CodaHeavy, $ttf: true );
 @include my-font( ImpactRegular, $eot: true, $ttf: true, $woff: true );
+@include my-font( FontAwesome, $eot: true, $ttf: true, $woff: true );
