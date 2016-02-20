@@ -5,7 +5,7 @@
 @include establish-baseline;
 @include border-box-sizing(true);
 
-.wrapper {
+%wrapper {
 	@include container;
 }
 
