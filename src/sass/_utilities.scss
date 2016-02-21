@@ -29,6 +29,12 @@ $susy: (
 		)
 	);
 
+// custom span
+
+@mixin my-span($cols: 1) {
+	width: 100% / ($myColumns / $cols);
+}
+
 // custom pull/push 
 
 @mixin move-right($cols: 1) {

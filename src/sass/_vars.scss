@@ -1,29 +1,74 @@
-// fonts
-$f_caption_1: "CodaRegular", "Arial", sans-serif;
-$f_caption_2: "CodaHeavy", "Arial", sans-serif;
-$f_text: "Arial", sans-serif;
-$f_logo: "ImpactRegular", "Arial", sans-serif;
+// 
+// base
+//
 
-// typography
-$cat: 12px;
-$fox: 13px;
-$duck: 14px;
-$hippo: 16px;
+$base-lh: $base-line-height;
 
-// colors
+// 
+// font-family
+//
+
+$ff_caption_1: "CodaRegular", "Arial", sans-serif;
+$ff_caption_2: "CodaHeavy", "Arial", sans-serif;
+$ff_text: "Arial", sans-serif;
+$ff_logo: "ImpactRegular", "Arial", sans-serif;
+
+//
+// font-size 
+//
+
+// social-nav
+$fz_social-nav__item: 16px;
+// search-form
+$fz_search-form__input: 12px;
+$fz_search-form__submit: 14px;
+// main-nav
+$fz_main-nav__item: 13px;
+// logo
+$fz_logo__strong: 80px;
+$fz_logo__small: 40px;
+// news-feed
+$fz_news-feed: 12px;
+// shopping-cart
+$fz_shopping-cart: 12px;
+$fz_shopping-cart__amount: 14px;
+$fz_shopping-cart__currency: 14px;
+$fz_shopping-cart__price: 14px;
+$fz_shopping-cart__taggle: 20px;
+
+// 
+// theming 
+//
 
 // header
-$bg_header__nav: #404040;
-$bg_header__news: #252525;
+$bgc_header__nav: #404040;
+$bgc_header__news: #252525;
+$bo_header__news: 1px solid #161616;
 // social-nav
 $c_social-nav: #fff;
-$bg_social-nav__item: #363636;
-$sh1_social-nav__item: rgba(#111, .26);
-$sh2_social-nav__item: rgba(#fff, .07);
-$hv_social-nav__item: darken(#363636, 1%);
+$bgc_social-nav__item: #363636;
+$bgc_hv_social-nav__item: darken(#363636, 1%);
+$bsh_social-nav__item: 2px 2px 2px -1px rgba(#111, .26) inset, 1px 1px 2px 0 rgba(#fff, .07);
 // main-nav
-$bg_main-nav: #363636;
 $c_main-nav: #c9c9c9;
-$br_main-nav: #252525;
-$sh_main-nav: #404040;
-$hv_main-nav__item: darken(#363636, 1%);
+$bgc_main-nav: #363636;
+$bo_main-nav: 1px solid #252525;
+$bsh_main-nav__item: -1px 1px 0 0 #404040 inset;
+$bgc_hv_main-nav__item: darken(#363636, 1%);
+// logo
+$c_logo: #fff;
+$bg_logo: linear-gradient(top, #fe1f1f 0%, #fe1f1f 80%, #000 160%);
+$bg_before_logo: linear-gradient(top, #fe1f1f 0%, #000 315%);
+$bgc_after_logo: #4d0000;
+// news-feed
+$c_news-feed: #9a9a9a;
+// shopping-cart
+$c_shopping-cart__label: #9a9a9a;
+$c_shopping-cart__amount: #fff;
+$c_shopping-cart__currency: #fff;
+$c_shopping-cart__price: #fff;
+$c_shopping-cart__taggle: #fff;
+$bg_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, #b20101 100%);
+$bg_hv_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, lighten(#b20101, 3%) 100%);
+$bo_shopping-cart__taggle: 1px solid #fe1f1f;
+$tsh_shopping-cart__taggle: 0 1px 0 #000;
