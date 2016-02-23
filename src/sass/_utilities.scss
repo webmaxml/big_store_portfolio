@@ -15,7 +15,7 @@ $grid-background-baseline-color: rgba(#ea9155,.9);
 $myColumns: 12;
 
 $susy: (
-	container: 1115px,
+	container: 1145px,
 	columns: $myColumns,
 	gutters: 0,
 	global-box-sizing: border-box,
@@ -23,6 +23,7 @@ $susy: (
 			image: show,
 			output: overlay,
 			// color: rgba(#66f, .1)
+			toggle: top left
 		),
 	use-custom: (
 			rem: false

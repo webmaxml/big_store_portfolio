@@ -17,6 +17,8 @@ $ff_logo: "ImpactRegular", "Arial", sans-serif;
 // font-size 
 //
 
+// header
+$fz_header__mobile-toggle: 22px;
 // social-nav
 $fz_social-nav__item: 16px;
 // search-form
@@ -26,7 +28,11 @@ $fz_search-form__submit: 14px;
 $fz_main-nav__item: 13px;
 // logo
 $fz_logo__strong: 80px;
+	$fz_1_logo__strong: 60px;
+		$fz_2_logo__strong: 40px;
 $fz_logo__small: 40px;
+	$fz_1_logo__small: 30px;
+		$fz_2_logo__small: 20px;
 // news-feed
 $fz_news-feed: 12px;
 // shopping-cart
@@ -35,26 +41,42 @@ $fz_shopping-cart__amount: 14px;
 $fz_shopping-cart__currency: 14px;
 $fz_shopping-cart__price: 14px;
 $fz_shopping-cart__taggle: 20px;
+$fz_shopping-cart__basket: 14px;
+
+// 
+// z-index 
+//
+
+$z_header__news: 6;
+$z_header__mobile-menu: 10;
+$z_header__mobile-toggle: 11;
+$z_logo: 7;
+$z_shopping-cart__basket: 8;
 
 // 
 // theming 
 //
 
 // header
-$bgc_header__nav: #404040;
+$bg_header__nav: #404040 url('../img/bg_overlay.png');
 $bgc_header__news: #252525;
 $bo_header__news: 1px solid #161616;
+$bgc_header__mobile-menu: rgba(#000, .9);
+$c_header__mobile-toggle: #d1d1d1;
+$c_hv_header__mobile-toggle: #fff;
+$bgc_header__mobile-toggle: #363636;
 // social-nav
 $c_social-nav: #fff;
-$bgc_social-nav__item: #363636;
+$bg_social-nav__item: #363636 url('../img/bg_overlay.png');
 $bgc_hv_social-nav__item: darken(#363636, 1%);
 $bsh_social-nav__item: 2px 2px 2px -1px rgba(#111, .26) inset, 1px 1px 2px 0 rgba(#fff, .07);
 // main-nav
 $c_main-nav: #c9c9c9;
-$bgc_main-nav: #363636;
+$bg_main-nav: #363636 url('../img/bg_overlay.png');
 $bo_main-nav: 1px solid #252525;
 $bsh_main-nav__item: -1px 1px 0 0 #404040 inset;
-$bgc_hv_main-nav__item: darken(#363636, 1%);
+	$bsh_1_main-nav__item: 0 -1px 0 0 #404040 inset;
+$bg_hv_main-nav__item: darken(#363636, 1%) url('../img/bg_overlay.png');
 // logo
 $c_logo: #fff;
 $bg_logo: linear-gradient(top, #fe1f1f 0%, #fe1f1f 80%, #000 160%);
@@ -72,3 +94,5 @@ $bg_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, #b20101 100%);
 $bg_hv_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, lighten(#b20101, 3%) 100%);
 $bo_shopping-cart__taggle: 1px solid #fe1f1f;
 $tsh_shopping-cart__taggle: 0 1px 0 #000;
+$bgc_shopping-cart__basket: #252525;
+$c_shopping-cart__basket: #fff;

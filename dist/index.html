@@ -12,45 +12,57 @@
   <body>
     <!-- header -->
     <header class="header">
-      <div class="header__nav">
+      <article class="header__nav">
         <div class="header__wrap">
-          <ul class="social-nav">
-            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-twitter"></i></a></li>
-            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-facebook"></i></a></li>
-            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-dribbble"></i></a></li>
-            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-lastfm"></i></a></li>
-            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-linkedin"></i></a></li>
-            <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-tumblr"></i></a></li>
-            <li class="social-nav__item social-nav__item--form">
-              <form class="search-form">
-                <input type="text" placeholder="Search" class="search-form__input">
-                <button class="search-form__submit"><i class="fa fa-search"></i></button>
-              </form>
-            </li>
-          </ul>
-          <ul class="main-nav">
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Technology</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
-            <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
-            <li class="main-nav__item main-nav__item--last"><a href="#" class="main-nav__link">Sports</a></li>
-          </ul><a href="#" class="logo"><strong class="logo__strong">Big</strong><small class="logo__small">Store</small></a>
+          <div class="header__mobile-menu">
+            <!-- social-nav -->
+            <ul class="social-nav">
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-twitter"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-facebook"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-dribbble"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-lastfm"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-linkedin"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-tumblr"></i></a></li>
+              <li class="social-nav__item social-nav__item--form">
+                <form class="search-form">
+                  <input type="text" placeholder="Search" class="search-form__input">
+                  <button class="search-form__submit"><i class="fa fa-search"></i></button>
+                </form>
+              </li>
+            </ul>
+            <!-- main-nav -->
+            <ul class="main-nav">
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Technology</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
+              <li class="main-nav__item main-nav__item--last"><a href="#" class="main-nav__link">Sports</a></li>
+            </ul>
+          </div>
+          <button type="button" class="header__mobile-toggle"><i class="fa fa-bars header__mobile-open"></i><i class="fa fa-times header__mobile-close"></i></button>
+          <!-- logo --><a href="#" class="logo"><strong class="logo__strong">Big</strong><small class="logo__small">Store</small></a>
         </div>
-      </div>
-      <div class="header__news">
+      </article>
+      <article class="header__news">
         <div class="header__wrap">
+          <!-- news-feed -->
           <div class="news-feed"><span class="news-feed__date">August .12 .2012 - </span><span class="news-feed__content">Syrian prime minister defects, fighting goes on</span></div>
+          <!-- shopping-cart -->
           <div class="shopping-cart">
             <div class="shopping-cart__label">Shopping Cart:</div>
             <div class="shopping-cart__amount">0</div>
             <div class="shopping-cart__label">item(s) - </div>
             <div class="shopping-cart__currency">$</div>
             <div class="shopping-cart__price">0.00</div>
-            <button type="button" class="shopping-cart__toggle"><i class="fa fa-caret-down shopping-cart__toggle-icon"></i></button>
+            <button type="button" class="shopping-cart__toggle"><i class="fa fa-caret-down shopping-cart__icon-closed"></i><i class="fa fa-caret-up shopping-cart__icon-opened"></i></button>
+            <ul class="shopping-cart__basket">
+              <li class="shopping-cart__item">Some item</li>
+              <li class="shopping-cart__item">Some item</li>
+            </ul>
           </div>
         </div>
-      </div>
+      </article>
     </header>
     <script src="js/libs.js"></script>
     <script src="libs/jqueryUI/jquery-ui.min.js"></script>
