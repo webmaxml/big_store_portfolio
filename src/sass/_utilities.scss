@@ -32,7 +32,7 @@ $susy: (
 
 // custom span
 
-@mixin my-span($cols: 1) {
+@mixin width-span($cols: 1) {
 	width: 100% / ($myColumns / $cols);
 }
 

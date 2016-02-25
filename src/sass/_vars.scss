@@ -42,16 +42,23 @@ $fz_shopping-cart__currency: 14px;
 $fz_shopping-cart__price: 14px;
 $fz_shopping-cart__taggle: 20px;
 $fz_shopping-cart__basket: 14px;
+// top-slider
+$fz_top-slider__header: 36px;
+$fz_top-slider__text: 13px;
+$fz_top-slider__btn: 18px;
+$fz_top-slider__controls: 50px;
 
 // 
 // z-index 
 //
 
 $z_header__news: 6;
-$z_header__mobile-menu: 10;
-$z_header__mobile-toggle: 11;
+$z_header__mobile-menu: 11;
+$z_header__mobile-toggle: 12;
 $z_logo: 7;
-$z_shopping-cart__basket: 8;
+$z_shopping-cart__basket: 9;
+$z_top-slider__img: 8;
+$z_top-slider__controls: 10;
 
 // 
 // theming 
@@ -91,8 +98,26 @@ $c_shopping-cart__currency: #fff;
 $c_shopping-cart__price: #fff;
 $c_shopping-cart__taggle: #fff;
 $bg_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, #b20101 100%);
-$bg_hv_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, lighten(#b20101, 3%) 100%);
+$bg_hv_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, darken(#b20101, 6%) 100%);
 $bo_shopping-cart__taggle: 1px solid #fe1f1f;
 $tsh_shopping-cart__taggle: 0 1px 0 #000;
 $bgc_shopping-cart__basket: #252525;
 $c_shopping-cart__basket: #fff;
+// main
+$bg_main: url('../img/left_shadow_line.png') -7% 0% no-repeat, 
+		  url('../img/right_shadow_line.png') 107% 0% no-repeat;
+$bgc_main: #eaebef;
+// top-slider
+$c_top-slider__header: #252525;
+$c_top-slider__text: #4b4b4b;
+$bg_top-slider__btn: linear-gradient(to top, #f71818 0%, #fe1f1f 100%);
+$bg_hv_top-slider__btn: linear-gradient(to top, darken(#f71818, 10%) 0%, darken(#fe1f1f, 10%) 100%);
+$bo_top-slider__btn: 1px solid #c20101;
+$bsh_top-slider__btn: 0.6px 0.8px 1px rgba(255, 255, 255, 0.22) inset;
+$c_top-slider__btn: #fff;
+$tsh_top-slider__btn-text: 0.6px 0.8px 1px rgba(0, 0, 0, 0.5);
+$bo_top-slider__controls: 5px solid rgba(255, 255, 255, 1);
+$c_top-slider__controls: #fff;
+$bg_top-slider__controls: linear-gradient(to top, #a6a7aa 0%, #e2e2e2 100%);
+$bg_hv_top-slider__controls: linear-gradient(to top, darken(#a6a7aa, 3%) 0%, darken(#e2e2e2, 3%) 100%);
+

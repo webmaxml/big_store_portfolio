@@ -40,5 +40,28 @@ jQuery( function( $ ) {
 	// 	console.log( this.innerWidth );
 	// };
 
+	// top slider
+	var     $topSlider = $( document.getElementsByClassName( 'top-slider' )[0] ),
+		$topSliderWrap = $( document.getElementsByClassName( 'main__slider-wrap' )[0] ),
+		$topSliderPrev = $( document.getElementsByClassName( 'top-slider__btn-prev' )[0] ),
+		$topSliderNext = $( document.getElementsByClassName( 'top-slider__btn-next' )[0] );
+
+	$topSlider.owlCarousel({
+		singleItem: true,
+		pagination: false,
+		mouseDrag: false,
+		transitionStyle: 'fadeUp'
+	});
+
+	$topSliderWrap.on( 'click', '.top-slider__btn-prev, .top-slider__btn-next', topSliderMove );
+
+	function topSliderMove( event ) {
+		var target = event.target;
+		var isPrev = target.classList.contains( 'top-slider__btn-prev' );
+		var isNext = target.classList.contains( 'top-slider__btn-next' );
+
+		if ( isPrev ) { $topSlider.trigger( 'owl.prev' ); }
+		if ( isNext ) { $topSlider.trigger( 'owl.next' ); }
+	};
 
 } );
