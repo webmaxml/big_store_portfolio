@@ -54,6 +54,11 @@ $fz_featured__current-price: 14px;
 $fz_featured__old-price: 14px;
 // btn-cart
 $fz_btn-cart: 20px;
+// new-products
+$fz_new-products__header: 20px;
+$fz_new-products__item-name: 13px;
+$fz_new-products__current-price: 14px;
+$fz_new-products__old-price: 14px;
 
 // 
 // z-index 
@@ -66,6 +71,7 @@ $z_logo: 7;
 $z_shopping-cart__basket: 9;
 $z_top-slider__img: 8;
 $z_top-slider__controls: 10;
+$z_new-products__img: 8;
 
 // 
 // theming 
@@ -141,3 +147,14 @@ $bo_btn-cart: 1px solid #c20101;
 $bg_btn-cart: linear-gradient(to top, #f71818 0%, #fe1f1f 100%);
 $bg_hv_btn-cart: linear-gradient(to top, darken(#f71818, 10%) 0%, darken(#fe1f1f, 10%) 100%);
 $bsh_btn-cart: 0.6px 0.8px 1px rgba(255, 255, 255, 0.22) inset;
+// new-products
+$bgc_new-products: #f3f3f3;
+$c_new-products__header: #272727;
+$bob_new-products__header: 1px solid #e5e5e5;
+$bgc_new-products__header: #fafafa;
+$bgc_new-products__img-box: #fafafa;
+$bo_new-products__img-box: 1px solid #e5e5e5;
+$c_new-products__item-name: #3e3e3e;
+$c_new-products__current-price: #a90b0b;
+$c_new-products__old-price: #9c9c9c;
+

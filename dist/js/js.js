@@ -69,7 +69,8 @@ jQuery( function( $ ) {
 	$featuredSlider.owlCarousel({
 		singleItem: true,
 		pagination: false,
-		mouseDrag: false
+		mouseDrag: false,
+		transitionStyle: 'backSlide'
 	});
 
 	$featured.on( 'click', '.featured__btn-prev, .featured__btn-next', featureSliderMove );
