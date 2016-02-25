@@ -47,6 +47,13 @@ $fz_top-slider__header: 36px;
 $fz_top-slider__text: 13px;
 $fz_top-slider__btn: 18px;
 $fz_top-slider__controls: 50px;
+// featured
+$fz_featured__header: 20px;
+$fz_featured__item-name: 13px;
+$fz_featured__current-price: 14px;
+$fz_featured__old-price: 14px;
+// btn-cart
+$fz_btn-cart: 20px;
 
 // 
 // z-index 
@@ -120,4 +127,17 @@ $bo_top-slider__controls: 5px solid rgba(255, 255, 255, 1);
 $c_top-slider__controls: #fff;
 $bg_top-slider__controls: linear-gradient(to top, #a6a7aa 0%, #e2e2e2 100%);
 $bg_hv_top-slider__controls: linear-gradient(to top, darken(#a6a7aa, 3%) 0%, darken(#e2e2e2, 3%) 100%);
-
+// featured
+$c_featured__header: #fff;
+$tsh_featured__header: 0.6px 0.8px 1px rgba(0, 0, 0, 0.5);
+$bg_featured__header: linear-gradient(to top, #f71818 0%, #c60202 100%);
+$bgc_featured__content: #fafafa;
+$c_featured__item-name: #3e3e3e;
+$c_featured__current-price: #a90b0b;
+$c_featured__old-price: #9c9c9c;
+// btn-cart
+$c_btn-cart: #fff;
+$bo_btn-cart: 1px solid #c20101;
+$bg_btn-cart: linear-gradient(to top, #f71818 0%, #fe1f1f 100%);
+$bg_hv_btn-cart: linear-gradient(to top, darken(#f71818, 10%) 0%, darken(#fe1f1f, 10%) 100%);
+$bsh_btn-cart: 0.6px 0.8px 1px rgba(255, 255, 255, 0.22) inset;

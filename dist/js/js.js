@@ -42,9 +42,7 @@ jQuery( function( $ ) {
 
 	// top slider
 	var     $topSlider = $( document.getElementsByClassName( 'top-slider' )[0] ),
-		$topSliderWrap = $( document.getElementsByClassName( 'main__slider-wrap' )[0] ),
-		$topSliderPrev = $( document.getElementsByClassName( 'top-slider__btn-prev' )[0] ),
-		$topSliderNext = $( document.getElementsByClassName( 'top-slider__btn-next' )[0] );
+		$topSliderWrap = $( document.getElementsByClassName( 'main__slider-wrap' )[0] );
 
 	$topSlider.owlCarousel({
 		singleItem: true,
@@ -62,6 +60,27 @@ jQuery( function( $ ) {
 
 		if ( isPrev ) { $topSlider.trigger( 'owl.prev' ); }
 		if ( isNext ) { $topSlider.trigger( 'owl.next' ); }
+	};
+
+	// featured slider
+	var $featuredSlider = $( document.getElementsByClassName( 'featured__content' )[0] ),
+		      $featured = $( document.getElementsByClassName( 'featured' )[0] );
+
+	$featuredSlider.owlCarousel({
+		singleItem: true,
+		pagination: false,
+		mouseDrag: false
+	});
+
+	$featured.on( 'click', '.featured__btn-prev, .featured__btn-next', featureSliderMove );
+
+	function featureSliderMove( event ) {
+		var target = event.target;
+		var isPrev = target.classList.contains( 'featured__btn-prev' );
+		var isNext = target.classList.contains( 'featured__btn-next' );
+
+		if ( isPrev ) { $featuredSlider.trigger( 'owl.prev' ); }
+		if ( isNext ) { $featuredSlider.trigger( 'owl.next' ); }
 	};
 
 } );
