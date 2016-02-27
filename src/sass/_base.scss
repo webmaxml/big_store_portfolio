@@ -12,7 +12,15 @@
 }
 
 %clearfix:after {
-	content: "";
 	display: block;
+	content: "";
 	clear: both;
+}
+
+%justify-helper:after {
+	display: inline-block;
+	content: "";
+
+	width: 100%;
+	height: 0;
 }

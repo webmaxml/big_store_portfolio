@@ -59,6 +59,9 @@ $fz_new-products__header: 20px;
 $fz_new-products__item-name: 13px;
 $fz_new-products__current-price: 14px;
 $fz_new-products__old-price: 14px;
+$fz_new-products__handle: 12px;
+// sale-badge
+$fz_sale-badge: 16px;
 
 // 
 // z-index 
@@ -71,7 +74,10 @@ $z_logo: 7;
 $z_shopping-cart__basket: 9;
 $z_top-slider__img: 8;
 $z_top-slider__controls: 10;
+$z_new-products__img-box: 5;
 $z_new-products__img: 8;
+$z_new-products__handle: 2;
+$z_sale-badge: 9;
 
 // 
 // theming 
@@ -134,6 +140,7 @@ $c_top-slider__controls: #fff;
 $bg_top-slider__controls: linear-gradient(to top, #a6a7aa 0%, #e2e2e2 100%);
 $bg_hv_top-slider__controls: linear-gradient(to top, darken(#a6a7aa, 3%) 0%, darken(#e2e2e2, 3%) 100%);
 // featured
+$bsh_featured: 95px -92px 26px -109px #000;
 $c_featured__header: #fff;
 $tsh_featured__header: 0.6px 0.8px 1px rgba(0, 0, 0, 0.5);
 $bg_featured__header: linear-gradient(to top, #f71818 0%, #c60202 100%);
@@ -152,9 +159,22 @@ $bgc_new-products: #f3f3f3;
 $c_new-products__header: #272727;
 $bob_new-products__header: 1px solid #e5e5e5;
 $bgc_new-products__header: #fafafa;
+$bo_new-products__content: 24px solid #f3f3f3;
 $bgc_new-products__img-box: #fafafa;
 $bo_new-products__img-box: 1px solid #e5e5e5;
 $c_new-products__item-name: #3e3e3e;
 $c_new-products__current-price: #a90b0b;
 $c_new-products__old-price: #9c9c9c;
+$bo_new-products__scrollbar: 1px solid #dadfe6;
+$bgc_new-products__scrollbar: #fff;
+$bgc_new-products__handle: #fe1f1f;
+$c_new-products__handle: #fff;
+// sale-badge
+$c_sale-badge: #fff;
+$bgc_before_sale-badge: rgba(white, .4);
+$bob_sale-badge: 30px solid #f21717;
+$bol_sale-badge: 30px solid transparent;
+$bot_sale-badge__back: 5px solid #a42929;
+$bor_sale-badge__back: 5px solid transparent;
+
 
