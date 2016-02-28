@@ -3,7 +3,7 @@ section.main
 	.main__wrap
 		.main__slider-wrap
 			// top-slider 
-			.top-slider.owl-carousel
+			article.top-slider.owl-carousel
 				.top-slider__item
 					.top-slider__img-box
 						img.top-slider__img( src="img/slider_item.png" alt="slider_item" )
@@ -45,15 +45,15 @@ section.main
 			button.top-slider__btn-next( type="button" )
 				i.fa.fa-angle-right.top-slider__icon-next
 		// featured 
-		.featured
+		article.featured
 			h2.featured__header
 				span.featured__header-text Featured
 				button.featured__btn-next( type="button" )
 					i.fa.fa-chevron-right.featured__header-icon
 				button.featured__btn-prev( type="button" )
 					i.fa.fa-chevron-left.featured__header-icon
-			.featured__content.owl-carousel
-				.featured__item
+			ul.featured__content.owl-carousel
+				li.featured__item
 					img.featured__img( src="img/featured_item.jpg" alt="featured_item" )
 					.featured__info
 						.featured__about
@@ -68,7 +68,7 @@ section.main
 						button.btn-cart( type="button" )
 							i.fa.fa-shopping-cart.btn-cart__icon
 						.featured__justify-helper
-				.featured__item
+				li.featured__item
 					img.featured__img( src="img/featured_item.jpg" alt="featured_item" )
 					.featured__info
 						.featured__about
@@ -83,7 +83,7 @@ section.main
 						button.btn-cart( type="button" )
 							i.fa.fa-shopping-cart.btn-cart__icon
 						.featured__justify-helper
-				.featured__item
+				li.featured__item
 					img.featured__img( src="img/featured_item.jpg" alt="featured_item" )
 					.featured__info
 						.featured__about
@@ -99,11 +99,11 @@ section.main
 							i.fa.fa-shopping-cart.btn-cart__icon
 						.featured__justify-helper
 		// new-products 
-		.new-products
+		article.new-products
 			h2.new-products__header New products
 			.new-products__content
-				.new-products__item-box
-					.new-products__item.new-products__item--sale
+				ul.new-products__item-box
+					li.new-products__item.new-products__item--sale
 						.new-products__img-box
 							img.new-products__img( src="img/new_item_1.png" alt="new_item_1" )
 						.new-products__info
@@ -118,7 +118,7 @@ section.main
 							// btn-cart
 							button.btn-cart( type="button" )
 								i.fa.fa-shopping-cart.btn-cart__icon
-					.new-products__item
+					li.new-products__item
 						.new-products__img-box
 							img.new-products__img( src="img/new_item_2.png" alt="new_item_2" )
 						.new-products__info
@@ -133,7 +133,7 @@ section.main
 							// btn-cart
 							button.btn-cart( type="button" )
 								i.fa.fa-shopping-cart.btn-cart__icon
-					.new-products__item
+					li.new-products__item
 						.new-products__img-box
 							img.new-products__img( src="img/new_item_3.png" alt="new_item_3" )
 						.new-products__info
@@ -148,7 +148,7 @@ section.main
 							// btn-cart
 							button.btn-cart( type="button" )
 								i.fa.fa-shopping-cart.btn-cart__icon
-					.new-products__item
+					li.new-products__item
 						.new-products__img-box
 							img.new-products__img( src="img/new_item_1.png" alt="new_item_1" )
 						.new-products__info
@@ -163,7 +163,7 @@ section.main
 							// btn-cart
 							button.btn-cart( type="button" )
 								i.fa.fa-shopping-cart.btn-cart__icon
-					.new-products__item
+					li.new-products__item
 						.new-products__img-box
 							img.new-products__img( src="img/new_item_2.png" alt="new_item_2" )
 						.new-products__info
@@ -178,7 +178,7 @@ section.main
 							// btn-cart
 							button.btn-cart( type="button" )
 								i.fa.fa-shopping-cart.btn-cart__icon
-					.new-products__item
+					li.new-products__item
 						.new-products__img-box
 							img.new-products__img( src="img/new_item_3.png" alt="new_item_3" )
 						.new-products__info
@@ -196,3 +196,77 @@ section.main
 			.new-products__scroll-box
 				.new-products__scrollbar-wrap
 					.new-products__scrollbar
+		// trending
+		article.trending
+			.trending__menu
+				h2.trending__header Trending now
+				ul.trending__nav
+					li.trending__nav-item.trending__nav-item--active Man
+					li.trending__nav-item Women
+					li.trending__nav-item Kids
+					li.trending__nav-item Accessories
+			ul.trending__item-box
+				li.trending__item.trending__item--sale
+					.trending__img-box
+						img.trending__img( src="img/man_1.png" )
+					.trending__info
+						h3.trending__item-name Shop t-shirt
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item
+					.trending__img-box
+						img.trending__img( src="img/man_2.png" )
+					.trending__info
+						h3.trending__item-name Sneaker
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item
+					.trending__img-box
+						img.trending__img( src="img/man_3.png" )
+					.trending__info
+						h3.trending__item-name Backpack
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item
+					.trending__img-box
+						img.trending__img( src="img/man_4.png" )
+					.trending__info
+						h3.trending__item-name Heritage
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart

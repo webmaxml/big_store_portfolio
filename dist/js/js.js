@@ -109,17 +109,40 @@ jQuery( function( $ ) {
 	$scrollHandle.html('|||');
 
 	// sale-badge
-	var saleBadge = '<div class="sale-badge">Sale</div>';
+	var saleBadge = '<div class="sale-badge sale-badge--trending">Sale</div>';
 	var saleBadgewithBack = '<div class="sale-badge">Sale<div class="sale-badge__back-left"></div><div class="sale-badge__back-right"></div></div>';
 
-	var $itemsSale = $( document.getElementsByClassName( 'new-products__item--sale' ) );
+	var $itemsSale = $( document.getElementsByClassName( 'trending__item--sale' ) );
+	var $itemsSaleWithBack = $( document.getElementsByClassName( 'new-products__item--sale' ) );
 
 	if ( $itemsSale.length > 0 ) {
-		$itemsSale
+		$itemsSale.append( saleBadge );
+	};
+	
+	if ( $itemsSaleWithBack.length > 0 ) {
+		$itemsSaleWithBack
 			.find('.new-products__img-box')
 			.append( saleBadgewithBack );
 	};
-	
+
+	// trending menu
+
+	var $trendingNav = $( document.getElementsByClassName( 'trending__nav' ) );
+	var $trendingNavActive = $trendingNav
+								.children()
+								.first()
+								.addClass( 'trending__nav-item--active' );
+
+	$trendingNav.on( 'click', '.trending__nav-item', trendingNavSelect );
+
+	function trendingNavSelect( event ) {
+		var $target = $( event.target );
+
+		$trendingNavActive.removeClass( 'trending__nav-item--active' );
+		$trendingNavActive = $target.addClass( 'trending__nav-item--active' );
+	};
+
+
 
 	// function debounce(func, wait, immediate) {
 	// 	var timeout;
