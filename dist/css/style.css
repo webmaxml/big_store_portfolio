@@ -384,7 +384,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   background-position: left top;
 }
 
-.search-form:after, .main-nav:after, .top-slider__item:after, .top-slider__btn:after, .featured__info:after, .new-products__item-box:after, .trending:after, .footer__brand-slider-wrap:after, .about__item:after, .tweets__item:after {
+.search-form:after, .main-nav:after, .top-slider__item:after, .top-slider__btn:after, .featured__info:after, .new-products__item-box:after, .trending:after, .footer__brand-slider-wrap:after, .footer__bottom-line:after, .about__item:after, .tweets__item:after {
   display: block;
   content: "";
   clear: both;
@@ -1427,6 +1427,27 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   background: -webkit-gradient(linear, left bottom, left top, from(#f9f9f9), color-stop(88%, #f3f2f2), to(#dcdbdc));
   background: -webkit-linear-gradient(bottom, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
   background: linear-gradient(to top, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
+}
+.footer__bottom-line {
+  padding: 18px 0;
+  background-color: #0d0d0d;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #6d6d6d;
+}
+.footer__copy {
+  float: left;
+}
+.footer__nav {
+  float: right;
+}
+.footer__nav-item {
+  float: left;
+  margin: 0 10px;
+}
+.footer__nav-link:hover {
+  text-decoration: underline;
 }
 
 /* brand slider */

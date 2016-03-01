@@ -658,10 +658,6 @@
 		margin-right: 10px;
 	}
 
-	&__content {	
-
-	}
-
 	&__item {
 		padding: 24px 24px 18px 24px;
 
@@ -1235,6 +1231,37 @@
 
 		background: $bg_footer__brand-slider-wrap;
 	}
+
+	&__bottom-line {
+		@extend %clearfix;
+
+		padding: $base-lh 0;
+
+		background-color: $bgc_footer__bottom-line;
+
+		font-family: $ff_text;
+		font-size: $fz_footer__bottom-line;
+		line-height: $base-lh;
+		color: $c_footer__bottom-line;
+	}
+
+	&__copy {
+		float: left;
+	}
+
+	&__nav {
+		float: right;
+	}
+
+	&__nav-item {
+		float: left;
+
+		margin: 0 10px;
+	}
+
+	&__nav-link {
+		&:hover { text-decoration: underline; }
+	}
 }
 
 /* brand slider */
@@ -1303,10 +1330,6 @@
 		font-size: $fz_about__text;
 		line-height: $base-lh;
 		color: $c_about__text;
-	}
-
-	&__info {
-
 	}
 
 	&__item {

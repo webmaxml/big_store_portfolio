@@ -82,6 +82,8 @@ $fz_categories__item: 12px;
 $fz_tweets__header: 24px;
 $fz_tweets__twitter-link: 25px;
 $fz_tweets__info: 12px;
+// footer
+$fz_footer__bottom-line: 12px;
 
 
 // 
@@ -224,6 +226,8 @@ $c_trending__item-text: #646464;
 $bg_footer: url('../img/bottom_shadow_line.png') 104% 100% no-repeat, url('../img/footer_texture.jpg') repeat;
 $bgc_footer: white;
 $bg_footer__brand-slider-wrap: linear-gradient(to top, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
+$bgc_footer__bottom-line: #0d0d0d;
+$c_footer__bottom-line: #6d6d6d;
 // brand-slider
 $c_brand-slider__controls: #b6b6b6;
 $tsh_brand-slider__controls: 0px 0px 2px #000;
