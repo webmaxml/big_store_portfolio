@@ -36,7 +36,7 @@ jQuery( function( $ ) {
 	
 	// top slider
 	var $topSlider = $( document.getElementsByClassName( 'top-slider' )[0] );
-	var $topSliderWrap = $( document.getElementsByClassName( 'main__slider-wrap' )[0] );
+	var $topSliderWrap = $( document.getElementsByClassName( 'main__top-slider-wrap' )[0] );
 
 	$topSlider.owlCarousel({
 		singleItem: true,
@@ -76,6 +76,26 @@ jQuery( function( $ ) {
 
 		if ( isPrev ) { $featuredSlider.trigger( 'owl.prev' ); }
 		if ( isNext ) { $featuredSlider.trigger( 'owl.next' ); }
+	};
+
+	// brand slider
+	var $brandSlider = $( document.getElementsByClassName( 'brand-slider' )[0] );
+	var $brandSliderWrap = $( document.getElementsByClassName( 'footer__brand-slider-wrap' )[0] );
+
+	$brandSlider.owlCarousel({
+		items: 4,
+		pagination: false,
+	});
+
+	$brandSliderWrap.on( 'click', '.brand-slider__btn-prev, .brand-slider__btn-next', brandSliderMove );
+
+	function brandSliderMove( event ) {
+		var target = event.target;
+		var isPrev = target.classList.contains( 'brand-slider__btn-prev' );
+		var isNext = target.classList.contains( 'brand-slider__btn-next' );
+
+		if ( isPrev ) { $brandSlider.trigger( 'owl.prev' ); }
+		if ( isNext ) { $brandSlider.trigger( 'owl.next' ); }
 	};
 
 	// new-products scrollbar
