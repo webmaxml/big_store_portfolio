@@ -71,6 +71,18 @@ $fz_trending__item-text: 12px;
 // brand-slider
 $fz_brand-slider__controls: 42px;
 $fz_hover_brand-slider__controls: 44px;
+// about
+$fz_about__header: 24px;
+$fz_about__text: 12px;
+$fz_about__icons: 15px;
+// categories
+$fz_categories__header: 24px;
+$fz_categories__item: 12px;
+// tweets
+$fz_tweets__header: 24px;
+$fz_tweets__twitter-link: 25px;
+$fz_tweets__info: 12px;
+
 
 // 
 // z-index 
@@ -209,9 +221,24 @@ $bsh_trending__item: 1.9px -2.3px 8px rgba(174, 174, 174, 0.28) inset;
 $c_trending__item-name: #272727;
 $c_trending__item-text: #646464;
 // footer
-$bg_footer: url('../img/bottom_shadow_line.png') 104% 125% no-repeat, url('../img/footer_texture.jpg') repeat;
+$bg_footer: url('../img/bottom_shadow_line.png') 104% 100% no-repeat, url('../img/footer_texture.jpg') repeat;
 $bgc_footer: white;
 $bg_footer__brand-slider-wrap: linear-gradient(to top, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
 // brand-slider
 $c_brand-slider__controls: #b6b6b6;
 $tsh_brand-slider__controls: 0px 0px 2px #000;
+// about
+$c_about__header: #c6c6c6;
+$c_about__text: #9b9b9b;
+$c_about__icons: #f71818;
+// categories
+$c_categories__header: #c6c6c6;
+$c_categories__item: #9b9b9b;
+$bob_categories__item: 1px dotted #9b9b9b;
+// tweets
+$c_tweets__header: #c6c6c6;
+$bgc_tweets__twitter-link: rgba(12, 14, 18, 0.24);
+$bgc_hv_tweets__twitter-link: darken(rgba(12, 14, 18, 0.24), 10%);
+$bsh_tweets__twitter-link: 0.6px 0.8px 0 rgba(255, 255, 255, 0.07), 1.3px 1.5px 3px rgba(0, 0, 0, 0.26) inset;
+$c_tweets__twitter-link: #c6c6c6;
+$c_tweets__info: #9b9b9b;

@@ -384,13 +384,13 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   background-position: left top;
 }
 
-.search-form:after, .main-nav:after, .top-slider__item:after, .top-slider__btn:after, .featured__info:after, .new-products__item-box:after, .trending:after, .footer__brand-slider-wrap:after {
+.search-form:after, .main-nav:after, .top-slider__item:after, .top-slider__btn:after, .featured__info:after, .new-products__item-box:after, .trending:after, .footer__brand-slider-wrap:after, .about__item:after, .tweets__item:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.new-products__info:after {
+.new-products__info:after, .categories__item-box:after {
   display: inline-block;
   content: "";
   width: 100%;
@@ -1417,12 +1417,13 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 
 /* footer */
 .footer {
-  background: url("../img/bottom_shadow_line.png") 104% 125% no-repeat, url("../img/footer_texture.jpg") repeat;
+  background: url("../img/bottom_shadow_line.png") 104% 100% no-repeat, url("../img/footer_texture.jpg") repeat;
 }
 .footer__brand-slider-wrap {
   overflow: hidden;
   -webkit-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
+  margin-bottom: 18px;
   background: -webkit-gradient(linear, left bottom, left top, from(#f9f9f9), color-stop(88%, #f3f2f2), to(#dcdbdc));
   background: -webkit-linear-gradient(bottom, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
   background: linear-gradient(to top, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
@@ -1463,6 +1464,132 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 .brand-slider__btn-next {
   float: right;
   width: 66px;
+}
+
+/* about */
+.about {
+  float: left;
+  width: 33.33333%;
+  padding: 18px 30px 18px 0;
+}
+.about__header {
+  font-family: "CodaRegular", "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  color: #c6c6c6;
+  text-transform: capitalize;
+}
+.about__text {
+  padding: 18px 0;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #9b9b9b;
+}
+.about__item {
+  padding-top: 18px;
+}
+.about__address, .about__phone, .about__mail {
+  float: left;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #9b9b9b;
+}
+.about__address:hover, .about__phone:hover, .about__mail:hover {
+  text-decoration: underline;
+}
+.about__address-icon, .about__phone-icon, .about__mail-icon {
+  float: left;
+  width: 16px;
+  margin-right: 15px;
+  font-size: 15px;
+  color: #f71818;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* categories */
+.categories {
+  float: left;
+  width: 33.33333%;
+  padding: 18px 30px 18px 0;
+}
+.categories__header {
+  font-family: "CodaRegular", "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  color: #c6c6c6;
+  text-transform: capitalize;
+}
+.categories__item-box {
+  padding-top: 18px;
+  font-size: 0;
+  text-align: justify;
+}
+.categories__item {
+  display: inline-block;
+  vertical-align: top;
+  width: 95px;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #9b9b9b;
+}
+.categories__item:not(:nth-last-child(-n+3)) {
+  border-bottom: 1px dotted #9b9b9b;
+  padding-bottom: 18px;
+  margin-bottom: 17px;
+}
+.categories__item-link:hover {
+  text-decoration: underline;
+}
+
+/* tweets */
+.tweets {
+  float: right;
+  width: 33.33333%;
+  padding: 18px 30px 18px 0;
+}
+.tweets__header {
+  font-family: "CodaRegular", "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  color: #c6c6c6;
+  text-transform: capitalize;
+}
+.tweets__item-box {
+  padding-top: 18px;
+}
+.tweets__item {
+  padding-bottom: 18px;
+}
+.tweets__twitter-link {
+  float: left;
+  width: 47px;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  margin-right: 20px;
+  font-size: 25px;
+  line-height: 47px;
+  color: #c6c6c6;
+  text-align: center;
+  background-color: rgba(12, 14, 18, 0.24);
+  -webkit-box-shadow: 0.6px 0.8px 0 rgba(255, 255, 255, 0.07), 1.3px 1.5px 3px rgba(0, 0, 0, 0.26) inset;
+  box-shadow: 0.6px 0.8px 0 rgba(255, 255, 255, 0.07), 1.3px 1.5px 3px rgba(0, 0, 0, 0.26) inset;
+}
+.tweets__twitter-link:hover {
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.tweets__info {
+  float: left;
+  font-family: "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #9b9b9b;
+}
+.tweets__link:hover {
+  text-decoration: underline;
 }
 
 /**********************
