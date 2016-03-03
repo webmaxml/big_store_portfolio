@@ -41,7 +41,10 @@ $fz_shopping-cart__amount: 14px;
 $fz_shopping-cart__currency: 14px;
 $fz_shopping-cart__price: 14px;
 $fz_shopping-cart__taggle: 20px;
-$fz_shopping-cart__basket: 14px;
+// shopping-basket
+$fz_shopping-basket: 12px;
+$fz_shopping-basket__delete: 12px;
+$fz_hv_shopping-basket__delete: 14px;
 // top-slider
 $fz_top-slider__header: 36px;
 $fz_top-slider__text: 13px;
@@ -94,7 +97,7 @@ $z_header__news: 6;
 $z_header__mobile-menu: 11;
 $z_header__mobile-toggle: 12;
 $z_logo: 7;
-$z_shopping-cart__basket: 9;
+$z_shopping-basket: 9;
 $z_top-slider__img: 8;
 $z_top-slider__controls: 10;
 $z_new-products__img-box: 5;
@@ -145,8 +148,13 @@ $bg_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, #b20101 100%);
 $bg_hv_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, darken(#b20101, 6%) 100%);
 $bo_shopping-cart__taggle: 1px solid #fe1f1f;
 $tsh_shopping-cart__taggle: 0 1px 0 #000;
-$bgc_shopping-cart__basket: #252525;
-$c_shopping-cart__basket: #fff;
+// shoppipng-basket
+$bgc_shopping-basket__img-box: #fafafa;
+$bo_shopping-basket__item: 1px solid #363636;
+$bgc_shopping-basket: #252525;
+$c_shopping-basket: #fff;
+$c_shopping-basket__delete: #f71818;
+$bgc_hv_shopping-basket__delete-btn: #363636;
 // main
 $bg_main: url('../img/left_shadow_line.png') -7% 0% no-repeat, 
 		  url('../img/right_shadow_line.png') 107% 0% no-repeat;
@@ -183,6 +191,8 @@ $bg_btn-cart__text: linear-gradient(to top, #e1e1e1 0%, #fbfbfb 100%);
 $bg_hv_btn-cart__icon: linear-gradient(to top, darken(#f71818, 10%) 0%, darken(#fe1f1f, 10%) 100%);
 $bg_hv_btn-cart__text: linear-gradient(to top, darken(#e1e1e1, 6%) 0%, darken(#fbfbfb, 6%) 100%);
 $bsh_btn-cart__icon: 0.6px 0.8px 1px rgba(255, 255, 255, 0.22) inset;
+$bg_btn-cart--added__icon: linear-gradient(to top, #44aa1c 0%, #5fbf38 100%);
+$bo_btn-cart--added__icon: 1px solid #5fbf38;
 // new-products
 $bgc_new-products: #f3f3f3;
 $c_new-products__header: #272727;
