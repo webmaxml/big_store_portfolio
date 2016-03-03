@@ -219,12 +219,12 @@ section.main
 			.trending__menu
 				h2.trending__header Trending now
 				ul.trending__nav
-					li.trending__nav-item.trending__nav-item--active Man
-					li.trending__nav-item Women
-					li.trending__nav-item Kids
-					li.trending__nav-item Accessories
+					li.trending__nav-item.trending__nav-item--active( data-filter="man" ) Man
+					li.trending__nav-item( data-filter="women" ) Women
+					li.trending__nav-item( data-filter="kids" ) Kids
+					li.trending__nav-item( data-filter="accessories" ) Accessories
 			ul.trending__item-box
-				li.trending__item.trending__item--sale
+				li.trending__item.trending__item--sale( data-filter="women" )
 					.trending__img-box
 						a.trending__link( href="#" )
 							img.trending__img( src="img/man_1.png" )
@@ -242,7 +242,43 @@ section.main
 						button.btn-cart.btn-cart--trending( type="button" )
 							i.fa.fa-shopping-cart.btn-cart__icon
 							span.btn-cart__text Add to cart
-				li.trending__item
+				li.trending__item.trending__item--sale( data-filter="women accessories" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_1.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Shop t-shirt
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item.trending__item--sale( data-filter="women" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_1.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Shop t-shirt
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item( data-filter="man accessories" )
 					.trending__img-box
 						a.trending__link( href="#" )
 							img.trending__img( src="img/man_2.png" )
@@ -260,7 +296,61 @@ section.main
 						button.btn-cart.btn-cart--trending( type="button" )
 							i.fa.fa-shopping-cart.btn-cart__icon
 							span.btn-cart__text Add to cart
-				li.trending__item
+				li.trending__item( data-filter="man accessories" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_2.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Sneaker
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item( data-filter="man" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_2.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Sneaker
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item( data-filter="man" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_2.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Sneaker
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item( data-filter="kids accessories" )
 					.trending__img-box
 						a.trending__link( href="#" )
 							img.trending__img( src="img/man_3.png" )
@@ -278,7 +368,43 @@ section.main
 						button.btn-cart.btn-cart--trending( type="button" )
 							i.fa.fa-shopping-cart.btn-cart__icon
 							span.btn-cart__text Add to cart
-				li.trending__item
+				li.trending__item( data-filter="kids accessories" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_4.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Heritage
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item( data-filter="kids" )
+					.trending__img-box
+						a.trending__link( href="#" )
+							img.trending__img( src="img/man_3.png" )
+					.trending__info
+						h3.trending__item-name 
+							a.trending__link( href="#" ) Backpack
+						p.trending__item-text Lorem ipsum dolor sit amet, consectetur.
+						.trending__current-price
+							span.trending__current-currency $
+							span.trending__current-value 34.99
+						.trending__old-price
+							span.trending__old-currency $
+							span.trending__old-value 69.99
+						// btn-cart 
+						button.btn-cart.btn-cart--trending( type="button" )
+							i.fa.fa-shopping-cart.btn-cart__icon
+							span.btn-cart__text Add to cart
+				li.trending__item( data-filter="kids accessories" )
 					.trending__img-box
 						a.trending__link( href="#" )
 							img.trending__img( src="img/man_4.png" )

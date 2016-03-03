@@ -1461,6 +1461,9 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   line-height: 90px;
   text-align: center;
 }
+.brand-slider__link {
+  display: block;
+}
 .brand-slider__img {
   vertical-align: middle;
   max-width: 246px;

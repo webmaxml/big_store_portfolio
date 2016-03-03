@@ -237,14 +237,14 @@
           <div class="trending__menu">
             <h2 class="trending__header">Trending now</h2>
             <ul class="trending__nav">
-              <li class="trending__nav-item trending__nav-item--active">Man</li>
-              <li class="trending__nav-item">Women</li>
-              <li class="trending__nav-item">Kids</li>
-              <li class="trending__nav-item">Accessories</li>
+              <li data-filter="man" class="trending__nav-item trending__nav-item--active">Man</li>
+              <li data-filter="women" class="trending__nav-item">Women</li>
+              <li data-filter="kids" class="trending__nav-item">Kids</li>
+              <li data-filter="accessories" class="trending__nav-item">Accessories</li>
             </ul>
           </div>
           <ul class="trending__item-box">
-            <li class="trending__item trending__item--sale">
+            <li data-filter="women" class="trending__item trending__item--sale">
               <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_1.png" class="trending__img"></a></div>
               <div class="trending__info">
                 <h3 class="trending__item-name"> <a href="#" class="trending__link">Shop t-shirt</a></h3>
@@ -255,7 +255,29 @@
                 <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
               </div>
             </li>
-            <li class="trending__item">
+            <li data-filter="women accessories" class="trending__item trending__item--sale">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_1.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Shop t-shirt</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="women" class="trending__item trending__item--sale">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_1.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Shop t-shirt</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="man accessories" class="trending__item">
               <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_2.png" class="trending__img"></a></div>
               <div class="trending__info">
                 <h3 class="trending__item-name"> <a href="#" class="trending__link">Sneaker</a></h3>
@@ -266,7 +288,40 @@
                 <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
               </div>
             </li>
-            <li class="trending__item">
+            <li data-filter="man accessories" class="trending__item">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_2.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Sneaker</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="man" class="trending__item">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_2.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Sneaker</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="man" class="trending__item">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_2.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Sneaker</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="kids accessories" class="trending__item">
               <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_3.png" class="trending__img"></a></div>
               <div class="trending__info">
                 <h3 class="trending__item-name"> <a href="#" class="trending__link">Backpack</a></h3>
@@ -277,7 +332,29 @@
                 <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
               </div>
             </li>
-            <li class="trending__item">
+            <li data-filter="kids accessories" class="trending__item">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_4.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Heritage</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="kids" class="trending__item">
+              <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_3.png" class="trending__img"></a></div>
+              <div class="trending__info">
+                <h3 class="trending__item-name"> <a href="#" class="trending__link">Backpack</a></h3>
+                <p class="trending__item-text">Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="trending__current-price"><span class="trending__current-currency">$</span><span class="trending__current-value">34.99</span></div>
+                <div class="trending__old-price"><span class="trending__old-currency">$</span><span class="trending__old-value">69.99</span></div>
+                <!-- btn-cart -->
+                <button type="button" class="btn-cart btn-cart--trending"><i class="fa fa-shopping-cart btn-cart__icon"></i><span class="btn-cart__text">Add to cart</span></button>
+              </div>
+            </li>
+            <li data-filter="kids accessories" class="trending__item">
               <div class="trending__img-box"><a href="#" class="trending__link"><img src="img/man_4.png" class="trending__img"></a></div>
               <div class="trending__info">
                 <h3 class="trending__item-name"> <a href="#" class="trending__link">Heritage</a></h3>
@@ -299,18 +376,18 @@
           <!-- brand-slider -->
           <button type="button" class="brand-slider__btn-prev"><i class="fa fa-angle-left brand-slider__icon-prev"></i></button>
           <article class="brand-slider owl-carousel">
-            <div class="brand-slider__item"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></div>
-            <div class="brand-slider__item"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
           </article>
           <button type="button" class="brand-slider__btn-next"><i class="fa fa-angle-right brand-slider__icon-next"></i></button>
         </div>
