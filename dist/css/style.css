@@ -802,6 +802,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   width: 300px;
   -webkit-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
+  padding: 18px;
   font-family: "Arial", sans-serif;
   font-size: 12px;
   color: #fff;
