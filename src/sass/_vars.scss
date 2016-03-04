@@ -47,6 +47,7 @@ $fz_shopping-basket__delete: 12px;
 $fz_hv_shopping-basket__delete: 14px;
 // top-slider
 $fz_top-slider__header: 36px;
+	$fz_1_top-slider__header: 30px;
 $fz_top-slider__text: 13px;
 $fz_top-slider__btn: 18px;
 $fz_top-slider__controls: 50px;
@@ -121,11 +122,14 @@ $c_hv_header__mobile-toggle: #fff;
 $bgc_header__mobile-toggle: #363636;
 // social-nav
 $c_social-nav: #fff;
+$bgc_social-nav__item: #363636;
 $bg_social-nav__item: #363636 url('../img/bg_overlay.png');
 $bgc_hv_social-nav__item: darken(#363636, 1%);
 $bsh_social-nav__item: 2px 2px 2px -1px rgba(#111, .26) inset, 1px 1px 2px 0 rgba(#fff, .07);
 // main-nav
 $c_main-nav: #c9c9c9;
+$bgc_main-nav: #363636;
+$bgc_hv_main-nav: darken(#363636, 1%);
 $bg_main-nav: #363636 url('../img/bg_overlay.png');
 $bo_main-nav: 1px solid #252525;
 $bsh_main-nav__item: -1px 1px 0 0 #404040 inset;
@@ -199,6 +203,7 @@ $c_new-products__header: #272727;
 $bob_new-products__header: 1px solid #e5e5e5;
 $bgc_new-products__header: #fafafa;
 $bo_new-products__content: 24px solid #f3f3f3;
+	$bo_1_new-products__content: 17px solid #f3f3f3;
 $bgc_new-products__img-box: #fafafa;
 $bo_new-products__img-box: 1px solid #e5e5e5;
 $c_new-products__item-name: #3e3e3e;
@@ -234,6 +239,7 @@ $c_trending__item-name: #272727;
 $c_trending__item-text: #646464;
 // footer
 $bg_footer: url('../img/bottom_shadow_line.png') 104% 100% no-repeat, url('../img/footer_texture.jpg') repeat;
+$bg_1_footer: url('../img/footer_texture.jpg') repeat;
 $bgc_footer: white;
 $bg_footer__brand-slider-wrap: linear-gradient(to top, #f9f9f9 0%, #f3f2f2 88%, #dcdbdc 100%);
 $bgc_footer__bottom-line: #0d0d0d;

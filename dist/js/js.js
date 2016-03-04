@@ -159,7 +159,7 @@ jQuery( function( $ ) {
 		}
 
 		$shoppingAmount.html( amount );
-		$shoppingPrice.html( price === 0 ? price.toPrecision(3) : price );
+		$shoppingPrice.html( price.toFixed(2) );
 	};
 
 
@@ -222,7 +222,7 @@ jQuery( function( $ ) {
 	$featuredSlider.owlCarousel({
 		singleItem: true,
 		pagination: false,
-		mouseDrag: false,
+		mouseDrag: true,
 		transitionStyle: 'backSlide'
 	});
 
@@ -247,7 +247,7 @@ jQuery( function( $ ) {
 	var $brandSliderWrap = $( document.getElementsByClassName( 'footer__brand-slider-wrap' )[0] );
 
 	$brandSlider.owlCarousel({
-		items: 4,
+		itemsCustom: [ [0, 1], [540, 2], [780, 3], [1150, 4] ],
 		pagination: false,
 	});
 
@@ -358,52 +358,5 @@ jQuery( function( $ ) {
 
 		return ~itemFilter.indexOf( activeFilter ) ? true : false;
 	};
-	
-
-	// function debounce(func, wait, immediate) {
-	// 	var timeout;
-	// 	return function() {
-	// 		var later = function() {
-	// 			timeout = null;
-	// 		};
-	// 		var callNow = !timeout;
-	// 		clearTimeout(timeout);
-	// 		timeout = setTimeout(later, wait);
-	// 		if (callNow) func();
-	// 	};
-	// };
-
-	// function throttle(fn, threshhold) {
-	// 	var last,
-	// 	deferTimer;
-	// 	return function () {
-	// 		var context = this;
-	// 		var now = +new Date;
-	// 		var args = arguments;
-
-	// 		if (last && now < last + threshhold) {
-	// 			clearTimeout(deferTimer);
-	// 			deferTimer = setTimeout(function () {
-	// 				last = now;
-	// 				fn.apply(context, args);
-	// 			}, threshhold);
-	// 		} else {
-	// 			last = now;
-	// 			fn.apply(context, args);
-	// 		}
-	// 	};
-	// }
 
 } );
-
-// function myDebounce( fn, wait ) {
-// 	var timeout;
-// 	return function() {
-// 		var context = this, args = arguments;
-
-// 		clearTimeout( timeout );
-// 		timeout = setTimeout(function() {
-// 			fn.apply( context, arguments );
-// 		}, wait);
-// 	};
-// }
