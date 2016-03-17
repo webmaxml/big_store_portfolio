@@ -1,12 +1,12 @@
 'use strict';
 
-        var gulp = require('gulp'),
-           watch = require('gulp-watch'),
-       webserver = require('gulp-webserver'),
-    autoprefixer = require('gulp-autoprefixer'),
-         compass = require('gulp-compass'),
-            jade = require('gulp-jade'),
-         csscomb = require('gulp-csscomb');
+          var gulp = require('gulp'),
+             watch = require('gulp-watch'),
+         webserver = require('gulp-webserver'),
+      autoprefixer = require('gulp-autoprefixer'),
+           compass = require('gulp-compass'),
+              jade = require('gulp-jade'),
+ requirejsOptimize = require('gulp-requirejs-optimize');
 
 
 gulp.task('watch', function() {
@@ -15,6 +15,9 @@ gulp.task('watch', function() {
     } );
     watch( './src/jade/**/*.jade', function() {
         gulp.start( 'jade' );
+    } );
+    watch( './src/js/**/*.js', function() {
+        gulp.start( 'scripts' );
     } );
 });
 
@@ -35,8 +38,7 @@ gulp.task('sass', function () {
         browsers: ['last 15 versions'],
         cascade: false
     }))
-    // .pipe(csscomb())
-    .pipe(gulp.dest('./dist/css/'));
+    .pipe( gulp.dest('./dist/css/') );
 });
 
 gulp.task( 'jade', function() {
@@ -48,7 +50,20 @@ gulp.task( 'jade', function() {
         console.log(error);
         this.emit('end');
     })
-    .pipe( gulp.dest( './dist/' ) )
+    .pipe( gulp.dest( './dist/' ) );
+} );
+
+gulp.task( 'scripts', function() {
+    gulp.src( './src/js/app.js' )
+    .pipe( requirejsOptimize({
+        include: ['almond', 'app'],
+        mainConfigFile: './src/js/config.js'
+    }) )
+    .on('error', function(error) {
+        console.log(error);
+        this.emit('end');
+    })
+    .pipe( gulp.dest( './dist/js/' ) );
 } );
 
 gulp.task('webserver', function() {
