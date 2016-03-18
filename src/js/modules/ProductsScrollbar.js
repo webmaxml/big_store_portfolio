@@ -1,4 +1,4 @@
-define(['jquery', 'jqueryUI', 'jqueryUITouch'], function( $ ) {
+define(['jquery', 'jqueryUITouch', 'widget/slider'], function( $ ) {
 	$(function() {
 		var $itemViewport = $( document.getElementsByClassName( 'new-products__content' )[0] );
 		var $itemBox = $( document.getElementsByClassName( 'new-products__item-box' )[0] );

@@ -4,9 +4,11 @@
              watch = require('gulp-watch'),
          webserver = require('gulp-webserver'),
       autoprefixer = require('gulp-autoprefixer'),
+          cleanCSS = require('gulp-clean-css'),
            compass = require('gulp-compass'),
               jade = require('gulp-jade'),
- requirejsOptimize = require('gulp-requirejs-optimize');
+ requirejsOptimize = require('gulp-requirejs-optimize'),
+        sourcemaps = require('gulp-sourcemaps');
 
 
 gulp.task('watch', function() {
@@ -38,6 +40,7 @@ gulp.task('sass', function () {
         browsers: ['last 15 versions'],
         cascade: false
     }))
+    .pipe( cleanCSS() )
     .pipe( gulp.dest('./dist/css/') );
 });
 
@@ -55,6 +58,7 @@ gulp.task( 'jade', function() {
 
 gulp.task( 'scripts', function() {
     gulp.src( './src/js/app.js' )
+    .pipe( sourcemaps.init() )
     .pipe( requirejsOptimize({
         include: ['almond', 'app'],
         mainConfigFile: './src/js/config.js'
@@ -63,6 +67,7 @@ gulp.task( 'scripts', function() {
         console.log(error);
         this.emit('end');
     })
+    .pipe( sourcemaps.write() )
     .pipe( gulp.dest( './dist/js/' ) );
 } );
 

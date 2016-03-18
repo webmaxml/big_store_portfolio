@@ -1,4 +1,4 @@
-define(['jquery'], function( $ ) {
+define(['jquery', 'ui/unique-id', 'ui/effect', 'effect/effect-clip'], function( $ ) {
 	$(function() {
 		var $shoppingCart = $( document.getElementsByClassName( 'shopping-cart' )[0] );
 		var $shoppingBasket = $( document.getElementsByClassName( 'shopping-basket' )[0] );
