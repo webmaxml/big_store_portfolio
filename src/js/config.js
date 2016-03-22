@@ -7,14 +7,14 @@ requirejs.config({
 		// libs
 		almond: 'libs/almond',
 		jquery: 'libs/jquery',
+		jqueryUITouch: 'libs/jqueryUITouch',
+		owlCarousel: 'libs/owlCarousel',
+		isotope: 'libs/isotope',
+		modernizr: 'libs/modernizr',
 		// jquery UI paths
 		ui: 'libs/jqueryUI',
 		widget: 'libs/jqueryUI/widgets',
 		effect: 'libs/jqueryUI/effects',
-		
-		jqueryUITouch: 'libs/jqueryUITouch',
-		owlCarousel: 'libs/owlCarousel',
-		isotope: 'libs/isotope',
 		// modules
 		shoppingCart: 'modules/shoppingCart',
 		trending: 'modules/trending',
@@ -26,7 +26,9 @@ requirejs.config({
 		saleBadge: 'modules/saleBadge'
 	},
 	shim: {
-		// jqueryUITouch: ['jquery', 'ui/widget', 'widget/mouse'],
+		modernizr: {
+			exports: 'Modernizr'
+		},
 		owlCarousel: ['jquery'],
 	}
 	// packages: [

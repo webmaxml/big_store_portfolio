@@ -8,9 +8,12 @@
            compass = require('gulp-compass'),
               jade = require('gulp-jade'),
  requirejsOptimize = require('gulp-requirejs-optimize'),
-        sourcemaps = require('gulp-sourcemaps');
+        sourcemaps = require('gulp-sourcemaps'),
+          imagemin = require('gulp-imagemin'),
+            rename = require("gulp-rename");
 
 
+// watch tasks
 gulp.task('watch', function() {
     watch( './src/sass/**/*.scss', function() {
         gulp.start( 'sass' );
@@ -21,8 +24,13 @@ gulp.task('watch', function() {
     watch( './src/js/**/*.js', function() {
         gulp.start( 'scripts' );
     } );
+    watch( './src/img/*', function() {
+        gulp.start( 'img' );
+    } );
 });
 
+
+// sass processing
 gulp.task('sass', function () {
     gulp.src('./src/sass/style.scss')
     .pipe(compass({
@@ -40,10 +48,15 @@ gulp.task('sass', function () {
         browsers: ['last 15 versions'],
         cascade: false
     }))
+    .pipe( rename({
+        suffix: '.min'
+    }) )
     .pipe( cleanCSS() )
     .pipe( gulp.dest('./dist/css/') );
 });
 
+
+// jade processing
 gulp.task( 'jade', function() {
     gulp.src( './src/jade/*.jade' )
     .pipe( jade({
@@ -56,6 +69,8 @@ gulp.task( 'jade', function() {
     .pipe( gulp.dest( './dist/' ) );
 } );
 
+
+// scripts processing
 gulp.task( 'scripts', function() {
     gulp.src( './src/js/app.js' )
     .pipe( sourcemaps.init() )
@@ -67,10 +82,25 @@ gulp.task( 'scripts', function() {
         console.log(error);
         this.emit('end');
     })
+    .pipe( rename({
+        suffix: '.min'
+    }) )
     .pipe( sourcemaps.write() )
     .pipe( gulp.dest( './dist/js/' ) );
 } );
 
+
+// images optimizing
+gulp.task( 'img', function() {
+    gulp.src( './src/img/*' )
+        .pipe( imagemin({
+            progressive: true
+        }) )
+        .pipe( gulp.dest( './dist/img/' ) );
+} );
+
+
+// livereload server
 gulp.task('webserver', function() {
     gulp.src('dist')
         .pipe(webserver({
@@ -78,5 +108,6 @@ gulp.task('webserver', function() {
             open: true
         }));
 });
+
 
 gulp.task('default', ['webserver', 'watch']);

@@ -1,4 +1,5 @@
-define(['shoppingCart', 
+define(['modernizr', 
+		'shoppingCart', 
 		'trending', 
 		'mobileMenu', 
 		'topSlider',
