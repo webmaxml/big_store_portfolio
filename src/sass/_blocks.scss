@@ -591,6 +591,10 @@
 		background-color: $bgc_main;
 	}
 
+	&.main--product {
+		padding-top: $base-lh * 2;
+	}
+
 	&__wrap {
 		@extend %wrapper;
 	}
@@ -1870,6 +1874,141 @@
 
 	&__link {
 		&:hover { text-decoration: underline; }
+	}
+}
+
+/* breadcrumbs */
+.breadcrumbs {
+	@extend %clearfix;
+
+	width: 100%;
+	border-bottom: 1px solid #d8d8d8;
+	border-radius: 6px 6px 0 0;
+	padding: 0 20px;
+
+	font-family: $ff_caption_1;
+	font-size: 16px;
+
+	background: linear-gradient(to top, #e2e2e2 0%, #fbfbfb 15%, #fbfbfb 100%);
+
+	&__item {
+		float: left;
+	}
+
+	&__link {
+		padding: 0 15px;
+
+		line-height: $base-lh * 3 - 1px;
+		color: #464545;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&.breadcrumbs__link--active {
+			color: #f71818;
+		}
+	}
+
+	&__icon {
+		float: left;
+
+		line-height: $base-lh * 3 - 1px;
+		color: #f71818;
+	}
+
+	&__icon-home {
+		float: left;
+
+		font-size: 28px;
+		line-height: $base-lh * 3 - 1px;
+		color: rgba(137, 138, 140, 0.35);
+	}
+}
+
+/* product */
+.product {
+	background-color: #f8f8f8;
+
+	&__item {
+		@extend %clearfix;
+	}
+
+	&__view {
+		float: left;
+
+		width: 50%;
+		padding: $base-lh 24px 0 24px;
+	}
+
+	&__price-label {
+		position: absolute;
+	}
+
+	&__imgbox {
+		position: relative;
+
+		width: 100%;
+		height: $base-lh * 20;
+		border: 1px solid #e5e5e5;
+
+		font-size: 0;
+		line-height: $base-lh * 20 - 2px;
+		text-align: center;
+	}
+
+	&__img {
+		vertical-align: middle;
+
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&__thumbbox {
+		@extend %justify-helper;
+
+		font-size: 1px;
+		text-align: justify;
+	}
+
+	&__thumbwrap {
+		display: inline-block;
+
+		width: 120px;
+		height: $base-lh * 5;
+		border: 1px solid #e5e5e5;
+		margin-top: $base-lh;
+
+		font-size: 0;
+		line-height: $base-lh * 5 - 2px;
+		text-align: 0;
+
+		cursor: pointer;
+
+		&:hover {
+			border: 5px solid #f71818;
+
+			line-height: $base-lh * 5 - 10px;
+		}
+
+		&.product__thumbwrap--active {
+			border: 5px solid #f71818;
+
+			line-height: $base-lh * 5 - 10px;
+		}
+	}
+
+	&__thumb {
+		vertical-align: middle;
+
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&__info {
+		float: right;
+
+		width: 50%;
 	}
 }
 

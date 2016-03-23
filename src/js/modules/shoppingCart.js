@@ -26,8 +26,8 @@ define(['jquery', 'ui/unique-id', 'ui/effect', 'effect/effect-clip'], function( 
 
 		function productAdd( event ) {
 			var $target = $( event.target ).hasClass( 'btn-cart' ) ? 
-			$( event.target ) : 
-			$( event.target ).closest( '.btn-cart' );
+						  $( event.target ) : 
+						  $( event.target ).closest( '.btn-cart' );
 
 			if ( $target.hasClass( 'btn-cart--added' ) ) { return; }
 
@@ -67,8 +67,8 @@ define(['jquery', 'ui/unique-id', 'ui/effect', 'effect/effect-clip'], function( 
 
 			// all items first class pattern - " 'class_name'__item "
 			var itemClass = $item.get(0)
-			.classList[0]
-			.split('__')[0];  
+							 	 .classList[0]
+								 .split('__')[0];  
 
 			var itemImgClass = '.'.concat( itemClass, '__img' );
 			var itemNameClass = '.'.concat( itemClass, '__item-name' );

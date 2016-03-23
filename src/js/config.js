@@ -23,7 +23,8 @@ requirejs.config({
 		featuredSlider: 'modules/featuredSlider',
 		brandSlider: 'modules/brandSlider',
 		productsScrollbar: 'modules/productsScrollbar',
-		saleBadge: 'modules/saleBadge'
+		saleBadge: 'modules/saleBadge',
+		productView: 'modules/productView'
 	},
 	shim: {
 		modernizr: {

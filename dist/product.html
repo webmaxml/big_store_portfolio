@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Big Store</title>
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <article class="header__nav">
+        <div class="header__wrap">
+          <div class="header__mobile-menu">
+            <!-- social-nav -->
+            <ul class="social-nav">
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-twitter"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-facebook"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-dribbble"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-lastfm"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-linkedin"></i></a></li>
+              <li class="social-nav__item"><a href="#" class="social-nav__link"><i class="fa fa-tumblr"></i></a></li>
+              <li class="social-nav__item social-nav__item--form">
+                <form class="search-form">
+                  <input type="text" placeholder="Search" class="search-form__input">
+                  <button class="search-form__submit"><i class="fa fa-search"></i></button>
+                </form>
+              </li>
+            </ul>
+            <!-- main-nav -->
+            <ul class="main-nav">
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Technology</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Entertainment</a></li>
+              <li class="main-nav__item"><a href="#" class="main-nav__link">Lifestyle</a></li>
+              <li class="main-nav__item main-nav__item--last"><a href="#" class="main-nav__link">Sports</a></li>
+            </ul>
+          </div>
+          <button type="button" class="header__mobile-toggle"><i class="fa fa-bars header__mobile-open"></i><i class="fa fa-times header__mobile-close"></i></button>
+          <!-- logo --><a href="index.html" class="logo"><strong class="logo__strong">Big</strong><small class="logo__small">Store</small></a>
+        </div>
+      </article>
+      <article class="header__news">
+        <div class="header__wrap">
+          <!-- news-feed -->
+          <div class="news-feed"><span class="news-feed__date">August .12 .2012 - </span><span class="news-feed__content">Syrian prime minister defects, fighting goes on</span></div>
+          <!-- shopping-cart -->
+          <div class="shopping-cart">
+            <div class="shopping-cart__label">Shopping Cart:</div>
+            <div class="shopping-cart__amount">0</div>
+            <div class="shopping-cart__label">item(s) - </div>
+            <div class="shopping-cart__currency">$</div>
+            <div class="shopping-cart__price">0.00</div>
+            <button type="button" class="shopping-cart__toggle"><i class="fa fa-caret-down shopping-cart__icon-closed"></i><i class="fa fa-caret-up shopping-cart__icon-opened"></i></button>
+            <ul class="shopping-basket"></ul>
+          </div>
+        </div>
+      </article>
+    </header>
+    <!-- main -->
+    <section class="main main--product">
+      <div class="main__wrap">
+        <!-- breadcrumbs -->
+        <ul class="breadcrumbs">
+          <li class="breadcrumbs__item"><i class="fa fa-home breadcrumbs__icon-home"></i><a href="index.html" class="breadcrumbs__link">Products</a></li>
+          <li class="breadcrumbs__item"><i class="fa fa-angle-double-right breadcrumbs__icon"></i><a href="#" class="breadcrumbs__link breadcrumbs__link--active">Lorem Ipsum</a></li>
+        </ul>
+        <!-- product-->
+        <ul class="product">
+          <!-- list-item stands for supporting shopping cart system, which looking for 'LI'-->
+          <li class="product__item">
+            <div class="product__view">
+              <div class="product__imgbox"></div>
+              <div class="product__price-label"><span class="product__current-currency">$</span><span class="product__current-value">19.99</span></div>
+              <ul class="product__thumbbox">
+                <li class="product__thumbwrap"><img src="img/product_item.jpg" class="product__thumb"></li>
+                <li class="product__thumbwrap"><img src="img/new_item_1.png" class="product__thumb"></li>
+                <li class="product__thumbwrap"><img src="img/new_item_2.png" class="product__thumb"></li>
+                <li class="product__thumbwrap"><img src="img/new_item_3.png" class="product__thumb"></li>
+              </ul>
+            </div>
+            <div class="product__info"></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- footer -->
+    <section class="footer">
+      <div class="footer__wrap">
+        <div class="footer__brand-slider-wrap">
+          <!-- brand-slider -->
+          <button type="button" class="brand-slider__btn-prev"><i class="fa fa-angle-left brand-slider__icon-prev"></i></button>
+          <article class="brand-slider owl-carousel">
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
+            <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
+          </article>
+          <button type="button" class="brand-slider__btn-next"><i class="fa fa-angle-right brand-slider__icon-next"></i></button>
+        </div>
+        <!-- about -->
+        <article class="about">
+          <h2 class="about__header">Who we are</h2>
+          <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error laudantium commodi assumenda quae, expedita optio aliquam, eveniet dolores fugit iusto, quidem voluptatum delectus quis explicabo aliquid quasi ea eum placeat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius architecto odit aliquam est</p>
+          <ul class="about__info">
+            <li class="about__item"><i class="fa fa-flag about__address-icon"></i><a href="#" class="about__address">Address 123, Country</a></li>
+            <li class="about__item"><i class="fa fa-mobile about__phone-icon"></i><a href="#" class="about__phone">(043) 875-9211</a></li>
+            <li class="about__item"><i class="fa fa-envelope about__mail-icon"></i><a href="#" class="about__mail">info@kopasoft.com</a></li>
+          </ul>
+        </article>
+        <!-- categories -->
+        <article class="categories">
+          <h2 class="categories__header">Categories</h2>
+          <ul class="categories__item-box">
+            <li class="categories__item"><a href="#" class="categories__item-link">New collection</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">New collection </a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">New collection</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Bestsellers</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Bestsellers</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Bestsellers</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Manufactures</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Manufactures</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Manufactures </a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Supliers</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Supliers</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">Supliers</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">New products</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">New products</a></li>
+            <li class="categories__item"><a href="#" class="categories__item-link">New products</a></li>
+          </ul>
+        </article>
+        <!-- tweets -->
+        <article class="tweets">
+          <h2 class="tweets__header">Latest tweets</h2>
+          <ul class="tweets__item-box">
+            <li class="tweets__item"><a href="http://twitter.com/" class="tweets__twitter-link"><i class="fa fa-twitter tweets__twitter-icon"></i></a>
+              <div class="tweets__info"> 
+                <p class="tweets__text">Check out this great #themeforest item for you  </p>
+                <p class="tweets__author">'Simpler Landing' <a href="http://twitter.com/" class="tweets__link">http://t.co/LbLwldb6</a></p>
+                <p class="tweets__date">2 hours ago</p>
+              </div>
+            </li>
+            <li class="tweets__item"><a href="#" class="tweets__twitter-link"><i class="fa fa-twitter tweets__twitter-icon"></i></a>
+              <div class="tweets__info"> 
+                <p class="tweets__text">Check out this great #themeforest item for you  </p>
+                <p class="tweets__author">'Simpler Landing' <a href="http://twitter.com/" class="tweets__link">http://t.co/LbLwldb6</a></p>
+                <p class="tweets__date">2 hours ago</p>
+              </div>
+            </li>
+            <li class="tweets__item"><a href="http://twitter.com/" class="tweets__twitter-link"><i class="fa fa-twitter tweets__twitter-icon"></i></a>
+              <div class="tweets__info"> 
+                <p class="tweets__text">Check out this great #themeforest item for you  </p>
+                <p class="tweets__author">'Simpler Landing' <a href="#" class="tweets__link">http://t.co/LbLwldb6</a></p>
+                <p class="tweets__date">2 hours ago</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </div>
+      <div class="footer__bottom-line">
+        <div class="footer__wrap">
+          <div class="footer__copy">Copyrights. &commat; 2012 by KOPASOFT</div>
+          <ul class="footer__nav">
+            <li class="footer__nav-item"><a href="#" class="footer__nav-link">Home</a></li>
+            <li class="footer__nav-item"><a href="#" class="footer__nav-link">My Cart</a></li>
+            <li class="footer__nav-item"><a href="#" class="footer__nav-link">Checkout</a></li>
+            <li class="footer__nav-item"><a href="#" class="footer__nav-link">Completed Orders</a></li>
+            <li class="footer__nav-item"><a href="#" class="footer__nav-link">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <script src="js/app.min.js" async></script>
+  </body>
+</html>

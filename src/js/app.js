@@ -6,7 +6,8 @@ define(['modernizr',
 		'featuredSlider',
 		'brandSlider',
 		'productsScrollbar',
-		'saleBadge' ], 
+		'saleBadge', 
+		'productView' ], 
 function() {});
 
 

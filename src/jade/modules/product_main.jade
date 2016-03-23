@@ -1,0 +1,30 @@
+// main 
+section.main.main--product
+	.main__wrap
+		// breadcrumbs 
+		ul.breadcrumbs
+			li.breadcrumbs__item
+				i.fa.fa-home.breadcrumbs__icon-home
+				a.breadcrumbs__link( href="index.html" ) Products
+			li.breadcrumbs__item
+				i.fa.fa-angle-double-right.breadcrumbs__icon
+				a.breadcrumbs__link.breadcrumbs__link--active( href="#" ) Lorem Ipsum
+		// product
+		ul.product
+			// list-item stands for supporting shopping cart system, which looking for 'LI'
+			li.product__item
+				.product__view
+					.product__imgbox
+					.product__price-label
+						span.product__current-currency $
+						span.product__current-value 19.99
+					ul.product__thumbbox
+						li.product__thumbwrap
+							img.product__thumb( src="img/product_item.jpg" )
+						li.product__thumbwrap
+							img.product__thumb( src="img/new_item_1.png" )
+						li.product__thumbwrap
+							img.product__thumb( src="img/new_item_2.png" )
+						li.product__thumbwrap
+							img.product__thumb( src="img/new_item_3.png" )
+				.product__info

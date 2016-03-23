@@ -2,7 +2,11 @@ define(['jquery', 'isotope', 'jquery-bridget/jquery.bridget'], function( $, Isot
 	$.bridget( 'isotope', Isotope );
 
 	$(function() {
-		var $trendingNav = $( document.getElementsByClassName( 'trending__nav' ) );
+		// if exists
+		var trendingNav = document.getElementsByClassName( 'trending__nav' )[0];
+		if ( !trendingNav ) { return; }
+		
+		var $trendingNav = $( trendingNav );
 		var $trendingGrid = $( document.getElementsByClassName( 'trending__item-box' ) );
 		var $trendingNavActive = $trendingNav
 											.children()

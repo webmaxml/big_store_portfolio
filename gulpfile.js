@@ -24,9 +24,6 @@ gulp.task('watch', function() {
     watch( './src/js/**/*.js', function() {
         gulp.start( 'scripts' );
     } );
-    watch( './src/img/*', function() {
-        gulp.start( 'img' );
-    } );
 });
 
 
@@ -73,7 +70,7 @@ gulp.task( 'jade', function() {
 // scripts processing
 gulp.task( 'scripts', function() {
     gulp.src( './src/js/app.js' )
-    .pipe( sourcemaps.init() )
+    // .pipe( sourcemaps.init() )
     .pipe( requirejsOptimize({
         include: ['almond', 'app'],
         mainConfigFile: './src/js/config.js'
@@ -85,7 +82,7 @@ gulp.task( 'scripts', function() {
     .pipe( rename({
         suffix: '.min'
     }) )
-    .pipe( sourcemaps.write() )
+    // .pipe( sourcemaps.write() )
     .pipe( gulp.dest( './dist/js/' ) );
 } );
 

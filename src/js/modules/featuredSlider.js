@@ -1,6 +1,10 @@
 define(['jquery', 'owlCarousel'], function( $ ) {
 	$(function() {
-		var $featuredSlider = $( document.getElementsByClassName( 'featured__content' )[0] );
+		// if exists
+		var featuredSlider = document.getElementsByClassName( 'featured__content' )[0];
+		if ( !featuredSlider ) { return; }
+		
+		var $featuredSlider = $( featuredSlider );
 		var $featured = $( document.getElementsByClassName( 'featured' )[0] );
 
 		$featuredSlider.owlCarousel({

@@ -1,6 +1,10 @@
 define(['jquery', 'jqueryUITouch', 'widget/slider'], function( $ ) {
 	$(function() {
-		var $itemViewport = $( document.getElementsByClassName( 'new-products__content' )[0] );
+		// if exists
+		var itemViewport = document.getElementsByClassName( 'new-products__content' )[0];
+		if ( !itemViewport ) { return; }
+		
+		var $itemViewport = $( itemViewport );
 		var $itemBox = $( document.getElementsByClassName( 'new-products__item-box' )[0] );
 		var $scrollbar = $( document.getElementsByClassName( 'new-products__scrollbar' )[0] );
 
