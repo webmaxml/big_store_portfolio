@@ -1,6 +1,7 @@
 requirejs.config({
 	baseUrl: 'js',
-	optimize: 'uglify2',
+	// optimize: 'uglify2',
+	optimize: 'none',
 	preserveLicenseComments: false,
 	insertRequire: ['app'],
 	paths: {

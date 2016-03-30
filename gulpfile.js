@@ -10,7 +10,8 @@
  requirejsOptimize = require('gulp-requirejs-optimize'),
         sourcemaps = require('gulp-sourcemaps'),
           imagemin = require('gulp-imagemin'),
-            rename = require("gulp-rename");
+            rename = require("gulp-rename"),
+             jsdoc = require('gulp-jsdoc3');
 
 
 // watch tasks
@@ -40,15 +41,15 @@ gulp.task('sass', function () {
     .on('error', function(error) {
         console.log(error);
         this.emit('end');
-    })
+    })  
     .pipe(autoprefixer({
         browsers: ['last 15 versions'],
         cascade: false
     }))
+    .pipe( cleanCSS() )
     .pipe( rename({
         suffix: '.min'
     }) )
-    .pipe( cleanCSS() )
     .pipe( gulp.dest('./dist/css/') );
 });
 
@@ -104,6 +105,13 @@ gulp.task('webserver', function() {
             livereload: true,
             open: true
         }));
+});
+
+// jsdocs
+gulp.task('doc', function (cb) {
+    var config = require('./jsdoc.json');
+    gulp.src(['README.md', 'package.json', './src/js/**/*.js'], {read: false})
+        .pipe(jsdoc(config, cb));
 });
 
 
