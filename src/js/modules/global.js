@@ -1,4 +1,5 @@
-// Custom types
+/* ------------------------- Custom types ---------------------------*/
+
 
 /**
  * DOM Element
@@ -19,10 +20,12 @@
  * Jquery object
  *
  * @typedef jquery
- * @see {@link https://api.jquery.com/Types/#jQuery}
+ * @see {@link module:libs/jquery|libs/jquery}
  */
 
-// External modules
+
+/* ------------------------- External libraries ---------------------------*/
+
 
 /**
  * jQuery
@@ -38,6 +41,14 @@
  * @module libs/jqueryUI
  * @see {@link http://jqueryui.com/}
  * @version 1.11.4
+ */
+
+ /**
+ * Owl-carousel
+ *
+ * @module libs/owlCarousel
+ * @see {@link http://www.owlgraphic.com/owlcarousel/}
+ * @version 1.3.3
  */
 
 

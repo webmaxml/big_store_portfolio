@@ -7,8 +7,8 @@
  * Product view on the product page
  *
  * @module productView
- * @require libs/jquery
- * @require libs/jqueryUI
+ * @requires libs/jquery
+ * @requires libs/jqueryUI
  */
 
 define(['jquery', 'ui/effect', 'effect/effect-fade'], function( $ ) {

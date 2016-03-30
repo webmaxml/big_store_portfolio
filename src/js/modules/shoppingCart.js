@@ -33,33 +33,33 @@ define(['jquery', 'ui/unique-id', 'ui/effect', 'effect/effect-clip'], function( 
 
 			var info = getItemInfo( $target );
 
-		// saving button ID to revoke changes after basket item deletion
-		var btnID = btnCartChecked( $target );
+			// saving button ID to revoke changes after basket item deletion
+			var btnID = btnCartChecked( $target );
+			
+			var item = '<li class="shopping-basket__item" data-id="' + btnID + '">' + 
+							'<div class="shopping-basket__img-box">' +
+								'<a class="shopping-basket__link" href="' + info.itemSrc + '">' + 
+									'<img class="shopping-basket__img" src="' + info.imgSrc + '" alt="' + info.imgAlt + '">' +
+								'</a>' +
+							'</div>' +
+							'<div class="shopping-basket__item-name">' +
+								'<a class="shopping-basket__link" href="' + info.itemSrc + '">' +
+									info.name +
+								'</a>' +
+							'</div>' +
+							'<div class="shopping-basket__price">' +
+								'<span class="shopping-basket__current-currency">' + info.currency + '</span>' +
+								'<span class="shopping-basket__current-value">' + info.price + '</span>' +
+							'</div>' +
+							'<div class="shopping-basket__delete">' +
+								'<button class="shopping-basket__delete-btn" type="button">' +
+									'<i class="fa fa-close shopping-basket__delete-icon"></i>' +
+								'</button>' +
+							'</div>' +
+						'</li>';
 
-		var item = '<li class="shopping-basket__item" data-id="' + btnID + '">' + 
-						'<div class="shopping-basket__img-box">' +
-							'<a class="shopping-basket__link" href="' + info.itemSrc + '">' + 
-								'<img class="shopping-basket__img" src="' + info.imgSrc + '" alt="' + info.imgAlt + '">' +
-							'</a>' +
-						'</div>' +
-						'<div class="shopping-basket__item-name">' +
-							'<a class="shopping-basket__link" href="' + info.itemSrc + '">' +
-								info.name +
-							'</a>' +
-						'</div>' +
-						'<div class="shopping-basket__price">' +
-							'<span class="shopping-basket__current-currency">' + info.currency + '</span>' +
-							'<span class="shopping-basket__current-value">' + info.price + '</span>' +
-						'</div>' +
-						'<div class="shopping-basket__delete">' +
-							'<button class="shopping-basket__delete-btn" type="button">' +
-								'<i class="fa fa-close shopping-basket__delete-icon"></i>' +
-							'</button>' +
-						'</div>' +
-					'</li>';
-
-		$shoppingBasket.append( item );
-		refreshCartInfo();
+			$shoppingBasket.append( item );
+			refreshCartInfo();
 		};
 
 		function getItemInfo( $button ) {
