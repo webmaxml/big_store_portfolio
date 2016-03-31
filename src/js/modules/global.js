@@ -16,6 +16,13 @@
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/Events/click}
  */ 
 
+ /**
+ * jquery UI slide event object
+ *
+ * @typedef slideEvent
+ * @see {@link http://api.jqueryui.com/slider/#event-slide}
+ */ 
+
 /**
  * Jquery object
  *
@@ -51,4 +58,11 @@
  * @version 1.3.3
  */
 
+/**
+ * Isotope
+ *
+ * @module libs/isotope
+ * @see {@link http://isotope.metafizzy.co/}
+ * @version 2.2.2
+ */
 

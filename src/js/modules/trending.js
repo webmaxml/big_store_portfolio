@@ -1,17 +1,60 @@
+/**
+ * Fires when clicking on the trending nav items
+ *
+ * @event module:trending#click
+ */
+
+/**
+ * Trending section item grid positioning and toggling
+ *
+ * @module trending
+ * @requires libs/jquery
+ * @requires libs/isotope
+ */
+
 define(['jquery', 'isotope', 'jquery-bridget/jquery.bridget'], function( $, Isotope ) {
 	$.bridget( 'isotope', Isotope );
 
 	$(function() {
-		// if exists
+		
+		/**
+		 * Check if element exists, return if not
+		 *
+		 * @type {(element|undefined)}
+		 * @memberof module:trending~
+		 */
+
 		var trendingNav = document.getElementsByClassName( 'trending__nav' )[0];
 		if ( !trendingNav ) { return; }
+
+		/**
+		 * Trending navigation container
+		 *
+		 * @type {jquery}
+		 * @memberof module:trending~
+		 */
 		
 		var $trendingNav = $( trendingNav );
+
+		/**
+		 * Trending product item box
+		 *
+		 * @type {jquery}
+		 * @memberof module:trending~
+		 */
+
 		var $trendingGrid = $( document.getElementsByClassName( 'trending__item-box' ) );
-		var $trendingNavActive = $trendingNav
-											.children()
-											.first()
-											.addClass( 'trending__nav-item--active' );
+
+		/**
+		 * Active nav item
+		 *
+		 * @type {jquery}
+		 * @memberof module:trending~
+		 */
+
+		var $trendingNavActive = $trendingNav.children()
+											 .first()
+											 .addClass( 'trending__nav-item--active' );
 
 		$trendingNav.on( 'click', '.trending__nav-item', trendingNavSelect );
 
@@ -24,6 +67,14 @@ define(['jquery', 'isotope', 'jquery-bridget/jquery.bridget'], function( $, Isot
 			filter: trendingItemArrange
 		});
 
+		/**
+		 * Toggling active nav item and arranging items with {@link module:libs/isotope|isotope}
+		 *
+		 * @param {clickEvent} event Click event object
+		 * @listens module:trending#click
+		 * @memberof module:trending~
+		 */
+
 		function trendingNavSelect( event ) {
 			var $target = $( event.target );
 
@@ -32,6 +83,13 @@ define(['jquery', 'isotope', 'jquery-bridget/jquery.bridget'], function( $, Isot
 
 			$trendingGrid.isotope( { filter: trendingItemArrange } );
 		};
+
+		/**
+		 * Custom arranging function used by {@link module:libs/isotope|isotope}
+		 *
+		 * @returns {bool} whether the current item filter match the required filter
+		 * @memberof module:trending~
+		 */
 
 		function trendingItemArrange() {
 			var activeFilter = $trendingNavActive.data( 'filter' );

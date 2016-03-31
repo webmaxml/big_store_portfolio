@@ -1,10 +1,46 @@
+/**
+ * Fires when clicking on the top slider navigation
+ *
+ * @event module:topSlider#click
+ */
+
+/**
+ * Top slider on the front page
+ *
+ * @module topSlider
+ * @requires libs/jquery
+ * @requires libs/owlCarousel
+ */
+
 define(['jquery', 'owlCarousel'], function( $ ) {
 	$(function() {
-		// if exists
+		
+		/**
+		 * Check if element exists, return if not
+		 *
+		 * @type {(element|undefined)}
+		 * @memberof module:topSlider~
+		 */
+
 		var topSlider = document.getElementsByClassName( 'top-slider' )[0];
 		if ( !topSlider ) { return; }
+
+		/**
+		 * Top slider container
+		 *
+		 * @type {jquery}
+		 * @memberof module:topSlider~
+		 */
 		
 		var $topSlider = $( topSlider );
+
+		/**
+		 * Top slider wrap
+		 *
+		 * @type {jquery}
+		 * @memberof module:topSlider~
+		 */
+
 		var $topSliderWrap = $( document.getElementsByClassName( 'main__top-slider-wrap' )[0] );
 
 		$topSlider.owlCarousel({
@@ -15,6 +51,14 @@ define(['jquery', 'owlCarousel'], function( $ ) {
 		});
 
 		$topSliderWrap.on( 'click', '.top-slider__btn-prev, .top-slider__btn-next', topSliderMove );
+
+		/**
+		 * Triggers owl-carousel moving events and moves slider
+		 *
+		 * @param {clickEvent} event Click event object
+		 * @listens module:topSlider#click
+		 * @memberof module:topSlider~
+		 */
 
 		function topSliderMove( event ) {
 			var target = event.target;

@@ -1,5 +1,6 @@
 /**
  * Fires when clicking on image thumb
+ *
  * @event module:productView#click
  */
 

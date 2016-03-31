@@ -110,7 +110,7 @@ gulp.task('webserver', function() {
 // jsdocs
 gulp.task('doc', function (cb) {
     var config = require('./jsdoc.json');
-    gulp.src(['README.md', 'package.json', './src/js/**/*.js'], {read: false})
+    gulp.src(['README.md', './src/js/**/*.js'], {read: false})
         .pipe(jsdoc(config, cb));
 });
 
