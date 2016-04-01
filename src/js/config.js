@@ -12,6 +12,7 @@ requirejs.config({
 		owlCarousel: 'libs/owlCarousel',
 		isotope: 'libs/isotope',
 		modernizr: 'libs/modernizr',
+		formStyler: 'libs/formstyler',
 		// jquery UI paths
 		ui: 'libs/jqueryUI',
 		widget: 'libs/jqueryUI/widgets',
@@ -25,7 +26,9 @@ requirejs.config({
 		brandSlider: 'modules/brandSlider',
 		productsScrollbar: 'modules/productsScrollbar',
 		saleBadge: 'modules/saleBadge',
-		productView: 'modules/productView'
+		productView: 'modules/productView',
+		rating: 'modules/rating',
+		techForm: 'modules/techForm'
 	},
 	shim: {
 		modernizr: {

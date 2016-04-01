@@ -7,7 +7,9 @@ define(['modernizr',
 		'brandSlider',
 		'productsScrollbar',
 		'saleBadge', 
-		'productView' ], 
+		'productView',
+		'rating',
+		'techForm' ], 
 function() {});
 
 
