@@ -5,6 +5,10 @@ requirejs.config({
 	preserveLicenseComments: false,
 	insertRequire: ['app'],
 	paths: {
+		// jquery UI paths
+		ui: 'libs/jqueryUI',
+		widget: 'libs/jqueryUI/widgets',
+		effect: 'libs/jqueryUI/effects',
 		// libs
 		almond: 'libs/almond',
 		jquery: 'libs/jquery',
@@ -13,22 +17,18 @@ requirejs.config({
 		isotope: 'libs/isotope',
 		modernizr: 'libs/modernizr',
 		formStyler: 'libs/formstyler',
-		// jquery UI paths
-		ui: 'libs/jqueryUI',
-		widget: 'libs/jqueryUI/widgets',
-		effect: 'libs/jqueryUI/effects',
 		// modules
-		shoppingCart: 'modules/shoppingCart',
-		trending: 'modules/trending',
-		mobileMenu: 'modules/mobileMenu',
-		topSlider: 'modules/topSlider',
-		featuredSlider: 'modules/featuredSlider',
-		brandSlider: 'modules/brandSlider',
-		productsScrollbar: 'modules/productsScrollbar',
-		saleBadge: 'modules/saleBadge',
-		productView: 'modules/productView',
-		rating: 'modules/rating',
-		techForm: 'modules/techForm'
+		shoppingCart: '../blocks/shopping-cart/shopping-cart',
+		trending: '../blocks/trending/trending',
+		mobileMenu: '../blocks/header/header',
+		topSlider: '../blocks/top-slider/top-slider',
+		featuredSlider: '../blocks/featured/featured',
+		brandSlider: '../blocks/brand-slider/brand-slider',
+		productsScrollbar: '../blocks/new-products/new-products',
+		saleBadge: '../blocks/sale-badge/sale-badge',
+		productView: '../blocks/product/product',
+		rating: '../blocks/rating/rating',
+		techForm: '../blocks/tech-form/tech-form'
 	},
 	shim: {
 		modernizr: {
@@ -36,10 +36,4 @@ requirejs.config({
 		},
 		owlCarousel: ['jquery'],
 	}
-	// packages: [
-	// 	{
-	// 		name: 'header',
-	// 		location: 'modules/header'
-	// 	}
-	// ]
 });

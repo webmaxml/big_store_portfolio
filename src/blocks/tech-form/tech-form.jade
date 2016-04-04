@@ -1,0 +1,13 @@
+// tech-form
+form.tech-form
+	.tech-form__group
+		label.tech-form__label Size:
+		select.tech-form__select( name="size" )
+			option.tech-form__select( value="1" ) Small
+			option.tech-form__select( value="2" ) Medium
+			option.tech-form__select( value="3" ) Large
+	.tech-form__group
+		label.tech-form__label Posted in 
+			a.tech-form__label-link( href="#" ) Tee Shirts
+		input.tech-form__amount( name="amount" value="1" )
+		include ../btn-cart/--tech-form/btn-cart--tech-form.jade

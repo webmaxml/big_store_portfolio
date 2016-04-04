@@ -1,0 +1,75 @@
+/* about */
+.about {
+	width: 100%;
+	padding: $base-lh 0 $base-lh 0;
+	margin: 0 auto;
+
+	text-align: center;
+
+	@media ( min-width: 500px ) {
+		width: 70%;
+	}
+
+	@media ( min-width: 860px ) {
+		width: 50%;
+	}
+
+	@media ( min-width: 1080px ) {
+		float: left;
+
+		@include width-span(4);
+		padding: $base-lh 30px $base-lh 0;
+
+		text-align: left;
+	}
+
+	&__header {
+		font-family: $ff_caption_1;
+		font-size: $fz_about__header;
+		line-height: $base-lh * 2;
+		color: $c_about__header;
+		text-transform: capitalize;
+	}
+
+	&__text {
+		padding: $base-lh 0;
+
+		font-family: $ff_text;
+		font-size: $fz_about__text;
+		line-height: $base-lh;
+		color: $c_about__text;
+	}
+
+	&__item {
+		@extend %clearfix;
+
+		padding-top: $base-lh;
+
+		font-size: 0;
+	}
+
+	&__address, &__phone, &__mail {
+		display: inline-block;
+		vertical-align: top;
+
+		font-family: $ff_text;
+		font-size: $fz_about__text;
+		line-height: $base-lh;
+		color: $c_about__text;
+
+		&:hover { text-decoration: underline; }
+	}
+
+	&__address-icon, &__phone-icon, &__mail-icon {
+		display: inline-block;
+		vertical-align: top;
+
+		width: 16px;
+		margin-right: 15px;
+
+		font-size: $fz_about__icons;
+		color: $c_about__icons;
+		line-height: $base-lh;
+		text-align: center;
+	}
+}

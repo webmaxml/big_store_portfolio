@@ -1,0 +1,53 @@
+/* brand-slider */
+.brand-slider {
+	float: left;
+
+	width: 76%;
+
+	@media ( min-width: 360px ) {
+		width: 86%;
+	}
+
+	&__item {
+		height: $base-lh * 5;
+		
+		font-size: 0;
+		line-height: $base-lh * 5;
+		text-align: center;
+	}
+
+	&__link {
+		display: block;
+	}
+
+	&__img {
+		vertical-align: middle;
+
+		max-width: 100%;
+		max-height: 80px; 
+	}
+
+	&__btn-prev, &__btn-next {
+		width: 12%;
+
+		font-size: $fz_brand-slider__controls;
+		line-height: $base-lh * 5;
+		color: $c_brand-slider__controls;
+		text-shadow: $tsh_brand-slider__controls;
+
+		&:hover  { font-size: $fz_hover_brand-slider__controls; }
+		&:active { font-size: $fz_brand-slider__controls; }
+
+		@media ( min-width: 360px ) {
+			width: 7%;
+		}
+	}
+
+	&__btn-prev {
+		float: left;
+	}
+
+	&__btn-next {
+		float: right;
+	}
+}

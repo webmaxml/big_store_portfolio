@@ -1,0 +1,20 @@
+/* news-feed */
+.news-feed {
+	float: left;
+
+	display: none;
+	padding-left: 150px;
+
+	font-family: $ff_text;
+	font-size: $fz_news-feed;
+	line-height: $base-lh * 2 - 2px;
+	color: $c_news-feed;
+
+	@media ( min-width: 780px ) {
+		display: block;
+	}	
+
+	@media ( min-width: 990px ) {
+		padding-left: 235px;
+	}
+}

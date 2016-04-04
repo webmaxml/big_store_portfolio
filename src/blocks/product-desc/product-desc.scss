@@ -1,0 +1,35 @@
+/* product-desc */
+.product-desc {
+	position: relative;
+	z-index: 1;
+
+	padding-top: $base-lh * 3;
+
+	background: linear-gradient(to top, #f8f8f8 0%, #e9e9e9 100%);
+
+	&__pane {
+		display: none;
+
+		padding: $base-lh;
+
+		text-align: left;
+
+		&.product-desc__pane--active {
+			display: block;
+		}
+	}
+
+	&__header {
+		font-family: $ff_caption_1;
+		font-size: 25px;
+		line-height: $base-lh * 2;
+		color: #272727;
+	}
+
+	&__text {
+		font-family: $ff_text;
+		font-size: 12px;
+		line-height: $base-lh;
+		color: #272727;
+	}
+}

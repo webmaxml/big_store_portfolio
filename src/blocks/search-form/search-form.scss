@@ -1,0 +1,30 @@
+/* search-form */
+.search-form {
+	@extend %clearfix;
+
+	&__input {
+		float: left;
+
+		width: 165px;
+		height: $base-lh * 2 - 6px;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		font-family: $ff_text;
+		font-size: $fz_search-form__input;
+		line-height: $base-lh * 2 - 6px;
+		
+		&:focus::placeholder {
+			opacity: 0;
+		}
+	}
+
+	&__submit {
+		float: left;
+
+		width: 35px;
+
+		font-size: $fz_search-form__submit;
+		line-height: $base-lh * 2 - 6px;
+	}
+}

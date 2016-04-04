@@ -1,0 +1,82 @@
+/* product-panel */
+.product-panel {
+	@extend %clearfix;
+
+	&__item {
+		float: left;
+
+		width: 256px;
+	}
+
+	&__item:not(:last-child) {
+		margin-right: 24px;
+	}
+
+	&__img-box {
+		position: relative;
+		z-index: $z_new-products__img-box;
+
+		width: 256px;
+		height: 157px;
+		border: $bo_new-products__img-box;
+
+		background-color: $bgc_new-products__img-box;
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: $z_new-products__img;
+
+		display: block;
+
+		width: 180px;
+		height: 120px;
+		margin: auto;
+	}
+
+	&__info {
+		font-size: 1px;
+		text-align: justify;
+
+		@extend %justify-helper;
+	}
+
+	&__about {
+		display: inline-block;
+		vertical-align: top;
+
+		font-family: $ff_text;
+		line-height: $base-lh;
+		text-align: left;
+	}
+
+	&__item-name {
+		margin-top: $base-lh;
+		margin-bottom: $base-lh;
+
+		font-weight: bold;
+		font-size: $fz_new-products__item-name;	
+		color: $c_new-products__item-name;
+	}
+
+	&__current-price {
+		float: left;
+
+		margin-right: 16px;
+
+		font-size: $fz_new-products__current-price;
+		color: $c_new-products__current-price;
+	}
+
+	&__old-price {
+		float: left;
+
+		font-size: $fz_new-products__old-price;
+		color: $c_new-products__old-price;
+		text-decoration: line-through;
+	}
+}

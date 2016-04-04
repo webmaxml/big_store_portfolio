@@ -1,0 +1,25 @@
+/* rating */
+.rating {
+	float: right;
+
+	font-size: 0;
+
+	&__item {
+		float: left;
+	}
+
+	&__star {
+		display: inline-block;
+		vertical-align: middle;
+
+		width: 19px;
+		height: 18px;
+
+		background: url('../img/rating.png') no-repeat;
+		background-position: -2px -1px;
+
+		&.rating__star--active {
+			background-position: -23px -1px;
+		}
+	}
+}

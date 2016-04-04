@@ -1,0 +1,74 @@
+/* categories */
+.categories {
+	width: 100%;
+	padding: $base-lh 0 0 0;
+	margin: 0 auto;
+
+	@media ( min-width: 500px ) {
+		width: 70%;
+	}
+
+	@media ( min-width: 860px ) {
+		width: 50%;
+	}
+
+	@media ( min-width: 1080px ) {
+		float: left;
+
+		@include width-span(4);
+		padding: $base-lh 30px $base-lh 0;
+	}
+
+	&__header {
+		font-family: $ff_caption_1;
+		font-size: $fz_categories__header;
+		line-height: $base-lh * 2;
+		color: $c_categories__header;
+		text-align: center;
+		text-transform: capitalize;
+
+		@media ( min-width: 1080px ) {
+			text-align: left;
+		}
+	}
+
+	&__item-box {
+		padding-top: $base-lh;
+
+		font-size: 1px;
+		text-align: justify;
+
+		@extend %justify-helper;				
+	}
+
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+
+		width: 95px;
+		border-bottom: $bob_categories__item;
+		padding-bottom: $base-lh;
+		margin-bottom: $base-lh - 1;
+
+		font-family: $ff_text;
+		font-size: $fz_categories__item;
+		line-height: $base-lh;
+		color: $c_categories__item;
+
+		@media ( min-width: 1080px ) {
+			border-bottom: none;
+			padding-bottom: 0;
+			margin-bottom: 0;
+
+			&:not(:nth-last-child(-n+3)) {
+				border-bottom: $bob_categories__item;
+				padding-bottom: $base-lh;
+				margin-bottom: $base-lh - 1;
+			}
+		}
+	}
+
+	&__item-link {
+		&:hover { text-decoration: underline; }
+	}
+}

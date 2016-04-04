@@ -1,0 +1,90 @@
+/* btn-cart */
+.btn-cart {
+	display: inline-block;
+	vertical-align: bottom;
+	
+	&:hover .btn-cart__icon { 
+		background: $bg_hv_btn-cart__icon;
+		box-shadow: none;
+	}
+
+	&:hover .btn-cart__text { 
+		background: $bg_hv_btn-cart__text;
+	}
+
+	&--trending, &--tech-form {
+		float: left;
+		clear: both;
+
+		margin-top: $base-lh;
+
+		& .btn-cart__icon {
+			float: left;
+
+			border-radius: 6px 0 0 6px;
+		}
+
+		& .btn-cart__text {
+			float: left;
+
+			width: 90px;
+			border: $bo_btn-cart__text;
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+
+			font-family: $ff_text;
+			font-weight: bold;
+			font-size: $fz_btn-cart__text;
+			line-height: $base-lh * 2 + 4; 
+			color: $c_btn-cart__text;
+			text-align: center;
+
+			background: $bg_btn-cart__text;
+		}
+	}
+
+	&--tech-form {
+		clear: none;
+		margin-top: 0;
+
+		& .btn-cart__icon {
+			line-height: $base-lh * 2 - 2;
+		}
+
+		& .btn-cart__text {
+			line-height: $base-lh * 2 - 2;
+		}
+	}
+
+	&--added {
+
+		& .btn-cart__icon {
+			border: $bo_btn-cart--added__icon;
+
+			background: $bg_btn-cart--added__icon;
+		}
+
+		&:hover .btn-cart__icon { 
+			background: $bg_btn-cart--added__icon;
+		}
+
+		&:hover .btn-cart__text { 
+			background: $bg_btn-cart__text;
+		}
+	}
+
+	&__icon {
+		display: block;
+
+		width: 42px;
+		border: $bo_btn-cart__icon;
+		border-radius: 6px;
+
+		font-size: $fz_btn-cart__icon;
+		line-height: $base-lh * 2 + 4;
+		color: $c_btn-cart__icon;
+
+		background: $bg_btn-cart__icon;
+		box-shadow: $bsh_btn-cart__icon;
+	}
+}

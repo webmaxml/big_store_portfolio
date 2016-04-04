@@ -1,0 +1,74 @@
+/* sale-badge */
+.sale-badge {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: $z_sale-badge;
+
+	width: 110px;
+	height: 0;
+	border-bottom: $bob_sale-badge;
+	border-left: $bol_sale-badge;
+	border-right: $bol_sale-badge;
+
+	font-family: $ff_text;
+	font-style: italic;
+	font-size: $fz_sale-badge;
+	line-height: 30px;
+	color: $c_sale-badge;
+	text-align: center;
+
+	transform: translate(35px, 5px) rotate(45deg);
+
+	&--trending {
+		top: 8px;
+		right: 8px;
+	}
+
+	&::before {
+		position: absolute;
+		top: 2px;
+		left: -2px;
+
+		display: block;
+		content: "";
+
+		width: 55px;
+		height: 1px;
+
+		background-color: $bgc_before_sale-badge;
+	}
+
+	&::after {
+		position: absolute;
+		top: 26px;
+		left: -26px;
+
+		display: block;
+		content: "";
+
+		width: 103px;
+		height: 1px;
+
+		background-color: $bgc_before_sale-badge;
+	}
+
+	&__back-left, &__back-right {
+		position: absolute;
+		top: 30px;
+		
+		width: 0;
+		height: 0;
+		border-top: $bot_sale-badge__back;
+		border-right: $bor_sale-badge__back;
+		border-left: $bor_sale-badge__back;
+	}
+
+	&__back-left {		
+		right: 70px;
+	}
+
+	&__back-right {
+		left: 70px;
+	}
+}

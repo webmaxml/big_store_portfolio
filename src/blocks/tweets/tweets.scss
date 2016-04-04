@@ -1,0 +1,87 @@
+/* tweets */
+.tweets {
+	width: 100%;
+	padding: $base-lh 0 $base-lh 0;
+	margin: 0 auto;
+
+	@media ( min-width: 500px ) {
+		width: 70%;
+	}
+
+	@media ( min-width: 860px ) {
+		width: 50%;
+	}
+
+	@media ( min-width: 1080px ) {
+		float: right;
+
+		@include width-span(4);
+		padding: $base-lh 30px $base-lh 0;
+	}
+
+	&__header {
+		font-family: $ff_caption_1;
+		font-size: $fz_tweets__header;
+		line-height: $base-lh * 2;
+		color: $c_tweets__header;
+		text-align: center;
+		text-transform: capitalize;
+
+		@media ( min-width: 1080px ) {
+			text-align: left;
+		}
+	}
+
+	&__item-box {
+		padding-top: $base-lh;
+	}
+
+	&__item {
+		@extend %clearfix;
+		padding-bottom: $base-lh;
+	}
+
+	&__twitter-link {
+		display: block;
+
+		width: 47px;
+		border-radius: 100%;
+		margin: 0 auto 7px auto;
+
+		font-size: $fz_tweets__twitter-link;
+		line-height: 47px;
+		color: $c_tweets__twitter-link;
+		text-align: center;
+
+		background-color: $bgc_tweets__twitter-link;
+		box-shadow: $bsh_tweets__twitter-link;
+
+		@media ( min-width: 500px ) {
+			float: left;
+			
+			margin: 0 20px 0 0;
+		}
+
+		&:hover {
+			background-color: $bgc_hv_tweets__twitter-link;
+		}
+	}
+
+	&__info {
+		font-family: $ff_text;
+		font-size: $fz_tweets__info;
+		line-height: $base-lh;
+		color: $c_tweets__info;
+		text-align: center;
+
+		@media ( min-width: 500px ) {
+			float: left;
+
+			text-align: left;
+		}
+	}
+
+	&__link {
+		&:hover { text-decoration: underline; }
+	}
+}

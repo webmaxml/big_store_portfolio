@@ -1,0 +1,16 @@
+// header 
+header.header
+	article.header__nav
+		.header__wrap
+			.header__mobile-menu
+				include ../social-nav/social-nav.jade
+				include ../main-nav/main-nav.jade
+			button.header__mobile-toggle( type="button" )
+				i.fa.fa-bars.header__mobile-open
+				i.fa.fa-times.header__mobile-close
+			include ../logo/logo.jade
+	article.header__news
+		.header__wrap
+			include ../news-feed/news-feed.jade
+			include ../shopping-cart/shopping-cart.jade
+			

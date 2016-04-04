@@ -1,0 +1,28 @@
+// product
+ul.product
+	// list-item stands for supporting shopping cart system, which looking for 'LI'
+	li.product__item
+		.product__view
+			.product__imgbox
+			.product__price-label
+				span.product__current-currency $
+				span.product__current-value 19.99
+			ul.product__thumbbox
+				li.product__thumbwrap
+					img.product__thumb( src="img/product_item.jpg" )
+				li.product__thumbwrap
+					img.product__thumb( src="img/product_item.jpg" )
+				li.product__thumbwrap
+					img.product__thumb( src="img/product_item.jpg" )
+				li.product__thumbwrap
+					img.product__thumb( src="img/product_item.jpg" )
+		.product__info
+			h2.product__item-name Lorem Ipsum Text
+			.product__stock-info
+				.product__available
+					span.product__available-text In Stock - 
+					span.product__available-value 53
+					span.product__available-text  available
+				include ../rating/rating.jade
+			p.product__about Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum.
+			include ../tech-form/tech-form.jade

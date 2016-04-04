@@ -19,7 +19,7 @@ gulp.task('watch', function() {
     watch( './src/sass/**/*.scss', function() {
         gulp.start( 'sass' );
     } );
-    watch( './src/jade/**/*.jade', function() {
+    watch( './src/pages/*.jade', function() {
         gulp.start( 'jade' );
     } );
     watch( './src/js/**/*.js', function() {
@@ -56,7 +56,7 @@ gulp.task('sass', function () {
 
 // jade processing
 gulp.task( 'jade', function() {
-    gulp.src( './src/jade/*.jade' )
+    gulp.src( './src/pages/*.jade' )
     .pipe( jade({
         pretty: true
     }) )

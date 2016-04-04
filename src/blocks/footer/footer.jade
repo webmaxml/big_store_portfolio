@@ -1,0 +1,23 @@
+// footer 
+section.footer
+	.footer__wrap
+		.footer__brand-slider-wrap
+			include ../brand-slider/brand-slider.jade
+		include ../about/about.jade
+		include ../categories/categories.jade
+		include ../tweets/tweets.jade
+	.footer__bottom-line
+		.footer__wrap
+			.footer__copy Copyrights. &commat; 2012 by KOPASOFT
+			ul.footer__nav
+				li.footer__nav-item
+					a.footer__nav-link( href="#" ) Home
+				li.footer__nav-item
+					a.footer__nav-link( href="#" ) My Cart
+				li.footer__nav-item
+					a.footer__nav-link( href="#" ) Checkout
+				li.footer__nav-item
+					a.footer__nav-link( href="#" ) Completed Orders
+				li.footer__nav-item
+					a.footer__nav-link( href="#" ) Contact us
+script( src='js/app.min.js' async )

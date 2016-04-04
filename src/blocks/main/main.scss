@@ -1,0 +1,25 @@
+/* main */
+.main {
+	font-size: 0;
+	text-align: center;
+
+	background-color: $bgc_main;
+
+	@media ( min-width: 780px ) {
+		background: $bg_main;
+		background-color: $bgc_main;
+	}
+
+	&.main--product {
+		padding-top: $base-lh * 2;
+	}
+
+	&__wrap {
+		@extend %wrapper;
+	}
+
+	&__top-slider-wrap {
+		position: relative;
+		z-index: $z_main__top-slider-wrap;
+	}
+}

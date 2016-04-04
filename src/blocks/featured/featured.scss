@@ -1,0 +1,126 @@
+/* featured */
+.featured {
+	position: relative;
+
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+
+	width: 250px;
+	border-radius: 6px 6px 0 0;
+
+	text-align: left;
+
+	box-shadow: $bsh_featured;
+
+	&__header {
+		padding: 0 24px;
+
+		font-family: $ff_caption_2;
+		font-size: $fz_featured__header;
+		line-height: $base-lh * 3;
+		color: $c_featured__header;
+		text-transform: uppercase;
+		text-shadow: $tsh_featured__header;
+
+		background: $bg_featured__header;
+	}
+
+	&__btn-prev, &__btn-next {
+		float: right;
+
+		text-shadow: $tsh_featured__header;
+
+		&:active {
+			transform: translate(1px, 1px);
+			text-shadow: none;
+		}
+	}
+
+	&__btn-prev {
+		margin-right: 10px;
+	}
+
+	&__item {
+		padding: 24px 24px 18px 24px;
+
+		background-color: $bgc_featured__content;
+	}
+
+	&__img {
+		display: block;
+
+		width: 202px;
+		height: 194px;
+		margin-bottom: 16px;
+	}
+
+	&__info {
+		@extend %clearfix;
+
+		font-size: 1px;
+		text-align: justify;
+
+		@extend %justify-helper;
+	}
+
+	&__about {
+		display: inline-block;
+		vertical-align: top;
+
+		font-family: $ff_text;
+		line-height: $base-lh;
+		text-align: left;
+	}
+
+	&__item-name {
+		margin-bottom: $base-lh;
+
+		font-weight: bold;
+		font-size: $fz_featured__item-name;	
+		color: $c_featured__item-name;
+	}
+
+	&__current-price {
+		float: left;
+
+		margin-right: 16px;
+
+		font-size: $fz_featured__current-price;
+		color: $c_featured__current-price;
+	}
+
+	&__old-price {
+		float: left;
+
+		font-size: $fz_featured__old-price;
+		color: $c_featured__old-price;
+		text-decoration: line-through;
+	}
+}
+
+/* featured slider animation */
+@keyframes backSlideOut {
+  25% { opacity: .5; transform: translateZ(-500px); }
+  75% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+  100% { opacity: .5; transform: translateZ(-500px) translateX(-200%); }
+}
+
+@keyframes backSlideIn {
+  0% { opacity: .5; transform: translateZ(-500px) translateX(200%); }
+  25% { opacity: .5; transform: translateZ(-500px) translateX(200%); }
+  75% { opacity: .5; transform: translateZ(-500px); }
+  100% { opacity: 1; transform: translateZ(0) translateX(0); }
+}
+
+.owl-origin {
+	perspective : 1200px;
+}
+
+.owl-backSlide-out {
+  animation: backSlideOut 1s both ease;
+}
+
+.owl-backSlide-in {
+  animation: backSlideIn 1s both ease;
+}
