@@ -5292,7 +5292,6 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 }
 .tabs__item {
   float: left;
-  padding: 0 30px;
   font-family: "CodaRegular", "Arial", sans-serif;
   font-weight: bold;
   font-size: 16px;
@@ -5331,6 +5330,10 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   border-radius: 100%;
   background-color: #4d0000;
   box-shadow: 3px 2px 0 3px #bc2424 inset;
+}
+.tabs__item-btn {
+  display: block;
+  padding: 0 30px;
 }
 
 /* product-desc */

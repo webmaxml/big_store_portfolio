@@ -39,8 +39,6 @@
 
 	&__item {
 		float: left;
-
-		padding: 0 30px;
 		
 		font-family: $ff_caption_1;
 		font-weight: bold;
@@ -92,5 +90,11 @@
 				box-shadow: 3px 2px 0 3px #bc2424 inset;
 			}
 		}
+	}
+
+	&__item-btn {
+		display: block;
+
+		padding: 0 30px;
 	}
 }

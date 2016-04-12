@@ -1,9 +1,12 @@
 // main 
-section.main
+block mainClasses
+	- var mainClasses = ['main'];
+section( class=mainClasses )
 	.main__wrap
-		.main__top-slider-wrap
-			include ../top-slider/top-slider.jade
-		include ../featured/featured.jade
-		include ../new-products/new-products.jade
-		include ../trending/trending.jade
+		block elements
+			.main__top-slider-wrap
+				include ../top-slider/top-slider.jade
+			include ../featured/featured.jade
+			include ../new-products/new-products.jade
+			include ../trending/trending.jade
 		

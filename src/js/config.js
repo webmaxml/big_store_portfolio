@@ -1,9 +1,11 @@
 requirejs.config({
+
 	baseUrl: 'js',
 	// optimize: 'uglify2',
 	optimize: 'none',
 	preserveLicenseComments: false,
 	insertRequire: ['app'],
+
 	paths: {
 		// jquery UI paths
 		ui: 'libs/jqueryUI',
@@ -13,11 +15,14 @@ requirejs.config({
 		almond: 'libs/almond',
 		jquery: 'libs/jquery',
 		jqueryUITouch: 'libs/jqueryUITouch',
+		backbone: 'libs/backbone',
+		underscore: 'libs/underscore',
 		owlCarousel: 'libs/owlCarousel',
 		isotope: 'libs/isotope',
 		modernizr: 'libs/modernizr',
 		formStyler: 'libs/formstyler',
 		// modules
+		global: 'global',
 		shoppingCart: '../blocks/shopping-cart/shopping-cart',
 		trending: '../blocks/trending/trending',
 		mobileMenu: '../blocks/header/header',
@@ -28,12 +33,15 @@ requirejs.config({
 		saleBadge: '../blocks/sale-badge/sale-badge',
 		productView: '../blocks/product/product',
 		rating: '../blocks/rating/rating',
-		techForm: '../blocks/tech-form/tech-form'
+		techForm: '../blocks/tech-form/tech-form',
+		tabs: '../blocks/tabs/tabs'
 	},
+
 	shim: {
 		modernizr: {
 			exports: 'Modernizr'
 		},
 		owlCarousel: ['jquery'],
 	}
+	
 });

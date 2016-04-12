@@ -1,3 +1,6 @@
 // btn-cart
-button.btn-cart( type="button" )
-	i.fa.fa-shopping-cart.btn-cart__icon
+block cartClasses
+	- var cartClasses = ['btn-cart'];
+button( class=cartClasses type="button" )
+	block elements
+		i.fa.fa-shopping-cart.btn-cart__icon

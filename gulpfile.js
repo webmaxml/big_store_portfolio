@@ -16,13 +16,13 @@
 
 // watch tasks
 gulp.task('watch', function() {
-    watch( './src/sass/**/*.scss', function() {
+    watch( './src/**/*.scss', function() {
         gulp.start( 'sass' );
     } );
-    watch( './src/pages/*.jade', function() {
+    watch( './src/**/*.jade', function() {
         gulp.start( 'jade' );
     } );
-    watch( './src/js/**/*.js', function() {
+    watch( './src/**/*.js', function() {
         gulp.start( 'scripts' );
     } );
 });

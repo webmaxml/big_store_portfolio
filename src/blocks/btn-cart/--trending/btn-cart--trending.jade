@@ -1,4 +1,8 @@
 // btn-cart--trending 
-button.btn-cart.btn-cart--trending( type="button" )
-	i.fa.fa-shopping-cart.btn-cart__icon
+extends ../btn-cart.jade
+
+block cartClasses
+	- var cartClasses = ['btn-cart', 'btn-cart--trending'];
+
+append elements
 	span.btn-cart__text Add to cart
