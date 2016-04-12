@@ -1,6 +1,7 @@
 define([ 'jquery',
 		'tabs',
 		'rating',
+		'productView',
 		'modernizr', 
 		'shoppingCart', 
 		'trending', 
@@ -12,7 +13,7 @@ define([ 'jquery',
 		'saleBadge', 
 		'productView',
 		'techForm' ], 
-function( $, Tabs, Rating ) {
+function( $, Tabs, Rating, ProductView ) {
 	
 	var App = function() {
 
@@ -28,6 +29,11 @@ function( $, Tabs, Rating ) {
 			this.rating = new Rating();
 		};
 
+		// Product Module
+		var productView = document.getElementsByClassName( 'product__thumbbox' )[0];
+		if ( productView ) {
+			this.productView = new ProductView();
+		};
 	};
 
 	return App;

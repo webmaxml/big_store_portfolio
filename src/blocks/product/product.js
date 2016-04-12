@@ -1,160 +1,181 @@
-/**
- * Fires when clicking on image thumb
- *
- * @event module:productView#click
- */
+define(['jquery', 'underscore' , 'backbone', 'ui/effect', 'effect/effect-fade'], function( $, _, Backbone ) {
 
-/**
- * Product view on the product page
- *
- * @module productView
- * @requires libs/jquery
- * @requires libs/jqueryUI
- */
+	/******************** Templates ********************/
 
-define(['jquery', 'ui/effect', 'effect/effect-fade'], function( $ ) {
-	$(function() {
+	var imgTemplate = '<a class="product__img-link" href="<%= src %>">' + 
+					  	'<img class="product__img" src="<%= src %>">' +
+					  '</a>';
 
-		/**
-		 * Check if element exists, return if not
-		 *
-		 * @type {(element|undefined)}
-		 * @memberof module:productView~
-		 */
+	/******************** Mediator ********************/
 
-		var thumbBox = document.getElementsByClassName( 'product__thumbbox' )[0];
-		if ( !thumbBox ) { return; }
+	var mediator = {};
+	_.extend( mediator, Backbone.Events );
 
-		/**
-		 * Container of thumbs
-		 *
-		 * @type {jquery}
-		 * @memberof module:productView~
-		 */
+	/******************** Models ********************/
 
-		var $thumbBox = $( thumbBox );
-
-		/**
-		 * Active thumb wrap that highlights
-		 *
-		 * @type {jquery}
-		 * @memberof module:productView~
-		 */
-
-		var $activeThumbWrap = $thumbBox.children().first();
-
-		/**
-		 * Active image container
-		 *
-		 * @type {jquery}
-		 * @memberof module:productView~
-		 */
-
-		var $imgBox = $( document.getElementsByClassName( 'product__imgbox' )[0] );
-
-		/**
-		 * Active image
-		 *
-		 * @type {jquery}
-		 * @memberof module:productView~
-		 */
-
-		var $activeImg;
-
-
-		
-		thumbExpose( $activeThumbWrap.children().first() );
-		setActiveWrap( $activeThumbWrap );
-
-		
-		$thumbBox.on( 'click', '.product__thumbwrap', thumbToggle );
-
-		/**
-		 * Toggles thumb to active image by invoking {@link module:productView~thumbExpose|thumbExpose}
-		 * and {@link module:productView~setActiveWrap|setActiveWrap}
-		 *
-		 * @param {clickEvent} event Click event object
-		 * @listens module:productView#click
-		 * @memberof module:productView~
-		 */
-
-		function thumbToggle( event ) {
-			var $thumb = event.target.nodeName === 'IMG' ? $( event.target ) :
-														   $( event.target.firstChild );
-			var $thumbWrap = $thumb.parent();
-
-			thumbExpose( $thumb );
-			setActiveWrap( $thumbWrap );
-		};
-
-		/**
-		 * Takes thumb object, cloning it with {@link module:productView~createImgClone|createImgClone}
-		 * and appending to the document by {@link module:productView~appendImage|appendImage}
-		 * 
-		 * @param {jquery} $thumb image thumb
-		 * @memberof module:productView~
-		 */
-
-		function thumbExpose( $thumb ) {
-			
-			var $clone = createImgClone( $thumb );
-
-			if ( $activeImg ) {
-				$activeImg.hide({
-					effect: 'fade',
-					duration: 100,
-					complete: function() {
-						$( this ).remove();
-						appendImage( $clone );
-					}
-				});
-			} else {
-				appendImage( $clone );
-			}	
-		};
-
-		/**
-		 * Takes img object, creating by {@link module:productView~createImgClone|createImgClone}
-		 * and appends it to the document with animation
-		 * 
-		 * @param {jquery} $img image
-		 * @memberof module:productView~
-		 */
-
-		function appendImage( $img ) {
-			$imgBox.append( $img );
-			$img.show('fade', 100);
-			$activeImg = $img;
-		};
-
-		/**
-		 * Toggles selection around {@link module:productView~$activeThumbWrap|$activeThumbWrap}, 
-		 * takes an $elem that becomes {@link module:productView~$activeThumbWrap|$activeThumbWrap}
-		 *
-		 * @param {jquery} $elem image thumb wrap
-		 * @memberof module:productView~
-		 */
-
-		function setActiveWrap( $elem ) {
-			$activeThumbWrap.removeClass( 'product__thumbwrap--active' );
-			$activeThumbWrap = $elem.addClass( 'product__thumbwrap--active' );
-		};
-
-		/**
-		 * Clones image
-		 *
-		 * @param {jquery} $img image
-		 * @returns {jquery} Cloned image 
-		 * @memberof module:productView~
-		 */
-
-		function createImgClone( $img ) {
-			var $clone = $( document.createElement( 'img' ) );
-			$clone.attr( 'src', $img.attr( 'src' ) );
-			$clone.attr( 'alt', $img.attr( 'alt' ) );
-			$clone.addClass( 'product__img' ).css({ 'display': 'none' });
-
-			return $clone;
-		};
+	var Image = Backbone.Model.extend({
+		defaults: {
+			imgSrc: null
+		}
 	});
+
+	var Thumb = Backbone.Model.extend({
+		defaults: {
+			state: null,
+			imgSrc: null
+		},
+
+		initialize: function() {
+			this.on( 'change:state', this.stateNotification );
+		},
+
+		stateNotification: function( model, state, options ) {
+			this.trigger( 'stateChange', model, state );
+		},
+	});
+
+	/******************** Collections ********************/
+
+	var ThumbCollection = Backbone.Collection.extend({
+		model: Thumb,
+
+		initialize: function() {
+			this.setEventListeners();
+		},
+
+		setEventListeners: function() {
+			this.on( 'stateChange', this.manageState );
+		},
+
+		/***************************
+		 *     STATE MANAGING      *
+		 ***************************/
+
+		manageState: function( model, state ) {
+			if ( state === 'active' ) {
+				this.setOnlyState( model );
+			}
+		},
+
+		/***************************
+		 *		   HELPERS         *
+		 ***************************/
+
+		// make sure there is only one model with this state
+		setOnlyState: function( model, state ) {
+			if ( state ) {
+				model.set( 'state', state );
+			};
+
+			var restModels = this.without( model );
+
+			_.each( restModels, function( model ) {
+				model.set( 'state', null );
+			} );
+		},
+	});
+
+	/******************** Views ********************/
+
+	var ThumbBox = Backbone.View.extend({
+		el: document.getElementsByClassName( 'product__thumbbox' )[0],
+
+		initialize: function() {
+			var collection = this.collection;
+			this.$el.children().each( function() {
+				var src = $( this ).find( 'img' ).attr( 'src' );
+
+				// create a model and a view for every thumb 
+				var model = collection.add({ imgSrc: src });
+				var thumb = new ThumbView({ el: this, model: model });
+
+			} );
+		}
+	});
+
+	var ThumbView = Backbone.View.extend({
+
+		initialize: function() {
+			this.setEventListeners();
+		},
+
+		setEventListeners: function() {
+			this.listenTo( this.model, 'change:state', this.manageView );
+		},
+
+		manageView: function( model, state ) {
+			if ( state === 'active' ) {
+				mediator.trigger( 'activeChange', this.model.get( 'imgSrc' ) );
+			}
+			this.render( state );
+		},
+
+		render: function( state ) {
+			if ( state === 'active' ) {
+				this.$el.addClass( 'product__thumbwrap--active' );
+			} else {
+				this.$el.removeClass( 'product__thumbwrap--active' );
+			};
+
+			return this;
+		},
+
+		/***************************
+		 *		 CONTROLLER        *
+		 ***************************/
+
+		 events: {
+		 	'click' : 'updateModel'
+		 },
+
+		 updateModel: function() {
+		 	this.model.set( 'state', 'active' );
+		 },
+	});
+
+	var ImageView = Backbone.View.extend({
+		el: document.getElementsByClassName( 'product__imgbox' )[0],
+
+		initialize: function() {
+			this.setEventListeners();
+		},
+
+		setEventListeners: function() {
+			this.listenTo( this.model, 'change:imgSrc', this.render );
+
+			// thumb view will trigger the 'activeChange' event in mediator
+			this.listenTo( mediator, 'activeChange', this.updateModel );
+		},
+
+		template: _.template( imgTemplate ),
+
+		render: function( model, value ) {
+			this.$el.html( this.template({ src: value }) );
+			return this;
+		},
+
+		/***************************
+		 *		 CONTROLLER        *
+		 ***************************/
+
+		updateModel: function( src ) {
+			this.model.set( 'imgSrc', src );
+		}
+
+	});
+
+	/******************** Constructor ********************/
+
+	var ProductConstructor = function() {
+		this.thumbCollection = new ThumbCollection();
+		this.thumbBox = new ThumbBox({ collection: this.thumbCollection });
+
+		this.imageModel = new Image();
+		this.imageView = new ImageView({ model: this.imageModel });
+
+		// make 1 thumb active
+		this.thumbCollection.at(0).set( 'state', 'active' );
+	};
+
+	return ProductConstructor;
 });
