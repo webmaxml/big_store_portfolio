@@ -3526,6 +3526,17 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   }
 }
 
+/* currency */
+.currency {
+  margin-right: 2px;
+  font-size: 14px;
+}
+.currency.currency--cart {
+  float: left;
+  margin-left: 4px;
+  color: #fff;
+}
+
 /* shopping-cart */
 .shopping-cart {
   position: relative;
@@ -3545,13 +3556,6 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 .shopping-cart__amount {
   float: left;
   margin: 0 4px;
-  font-size: 14px;
-  color: #fff;
-}
-.shopping-cart__currency {
-  float: left;
-  margin-left: 4px;
-  margin-right: 2px;
   font-size: 14px;
   color: #fff;
 }
@@ -4924,6 +4928,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   line-height: 358px;
   text-align: center;
   background-color: #fff;
+  opacity: 1;
 }
 .product__img {
   vertical-align: middle;

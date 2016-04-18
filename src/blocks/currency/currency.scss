@@ -1,0 +1,14 @@
+/* currency */
+.currency {
+	margin-right: 2px;
+
+	font-size: 14px;
+
+	&.currency--cart {
+		float: left;
+
+		margin-left: 4px;
+		
+		color: #fff;
+	}
+}

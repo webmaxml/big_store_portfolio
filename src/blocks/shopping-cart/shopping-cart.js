@@ -1,289 +1,269 @@
-/**
- * Fires when clicking on product cart button to add the item
- *
- * @event module:shoppingCart#addClick
- */
+define(['jquery', 
+	'underscore' , 
+	'backbone', 
+	'ui/unique-id', 
+	'ui/effect', 
+	'effect/effect-clip'], 
+	function( $, _, Backbone ) {
+	// $(function() {
 
-/**
- * Fires when clicking on shopping cart button to open/close the basket
- *
- * @event module:shoppingCart#toggleClick
- */
+	// 	/**
+	// 	 * Shopping cart container
+	// 	 *
+	// 	 * @type {jquery}
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-/**
- * Fires when clicking on delete button to remove item form the basket
- *
- * @event module:shoppingCart#removeClick
- */
+	// 	var $shoppingCart = $( document.getElementsByClassName( 'shopping-cart' )[0] );
 
-/**
- * Adding products to shopping cart
- *
- * @module shoppingCart
- * @requires libs/jquery
- * @requires libs/jqueryUI
- */
+	// 	/**
+	// 	 * Shopping basket
+	// 	 *
+	// 	 * @type {jquery}
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-define(['jquery', 'ui/unique-id', 'ui/effect', 'effect/effect-clip'], function( $ ) {
-	$(function() {
+	// 	var $shoppingBasket = $( document.getElementsByClassName( 'shopping-basket' )[0] );
 
-		/**
-		 * Shopping cart container
-		 *
-		 * @type {jquery}
-		 * @memberof module:shoppingCart~
-		 */
+	// 	/**
+	// 	 * Shopping cart toggle button
+	// 	 *
+	// 	 * @type {jquery}
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-		var $shoppingCart = $( document.getElementsByClassName( 'shopping-cart' )[0] );
+	// 	var $shoppingToggle = $( document.getElementsByClassName( 'shopping-cart__toggle' )[0] );
 
-		/**
-		 * Shopping basket
-		 *
-		 * @type {jquery}
-		 * @memberof module:shoppingCart~
-		 */
+	// 	/**
+	// 	 * Shopping cart amount display
+	// 	 *
+	// 	 * @type {jquery}
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-		var $shoppingBasket = $( document.getElementsByClassName( 'shopping-basket' )[0] );
+	// 	var $shoppingAmount = $( document.getElementsByClassName( 'shopping-cart__amount' )[0] );
 
-		/**
-		 * Shopping cart toggle button
-		 *
-		 * @type {jquery}
-		 * @memberof module:shoppingCart~
-		 */
+	// 	/**
+	// 	 * Shopping cart total price display
+	// 	 *
+	// 	 * @type {jquery}
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-		var $shoppingToggle = $( document.getElementsByClassName( 'shopping-cart__toggle' )[0] );
+	// 	var $shoppingPrice = $( document.getElementsByClassName( 'shopping-cart__price' )[0] );
 
-		/**
-		 * Shopping cart amount display
-		 *
-		 * @type {jquery}
-		 * @memberof module:shoppingCart~
-		 */
+	// 	$( document ).on( 'click', '.btn-cart', productAdd );
+	// 	$shoppingCart.on( 'click', '.shopping-cart__toggle', shoppingCartToggle );
+	// 	$shoppingCart.on( 'click', '.shopping-basket__delete-btn', itemCartDelete );
 
-		var $shoppingAmount = $( document.getElementsByClassName( 'shopping-cart__amount' )[0] );
+	// 	/**
+	// 	 * Toggles shopping cart basket by invoking {@link module:shoppingCart~basketToggle|basketToggle}
+	// 	 *
+	// 	 * @listens module:shoppingCart#toggleClick
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-		/**
-		 * Shopping cart total price display
-		 *
-		 * @type {jquery}
-		 * @memberof module:shoppingCart~
-		 */
+	// 	function shoppingCartToggle() {
+	// 		if ( $shoppingBasket.children().length == 0 ) { return; }
+	// 		basketToggle();
+	// 	}
 
-		var $shoppingPrice = $( document.getElementsByClassName( 'shopping-cart__price' )[0] );
+	// 	/**
+	// 	 * Toggles shopping cart basket with animation
+	// 	 *
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-		$( document ).on( 'click', '.btn-cart', productAdd );
-		$shoppingCart.on( 'click', '.shopping-cart__toggle', shoppingCartToggle );
-		$shoppingCart.on( 'click', '.shopping-basket__delete-btn', itemCartDelete );
+	// 	function basketToggle() {
+	// 		$shoppingBasket.slideToggle({
+	// 			duration: 150,
+	// 			complete: function() {
+	// 				$shoppingToggle.toggleClass( 'shopping-cart__toggle--open' );
+	// 			}
+	// 		});
+	// 	};
 
-		/**
-		 * Toggles shopping cart basket by invoking {@link module:shoppingCart~basketToggle|basketToggle}
-		 *
-		 * @listens module:shoppingCart#toggleClick
-		 * @memberof module:shoppingCart~
-		 */
+	// 	/**
+	// 	 * Adding item to the basket, invoking {@link module:shoppingCart~getItemInfo|getItemInfo},
+	// 	 * {@link module:shoppingCart~btnCartChecked|btnCartChecked},
+	// 	 * {@link module:shoppingCart~refreshCartInfo|refreshCartInfo}.
+	// 	 *
+	// 	 * @param {clickEvent} event Click event object
+	// 	 * @listens module:shoppingCart#addClick
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-		function shoppingCartToggle() {
-			if ( $shoppingBasket.children().length == 0 ) { return; }
-			basketToggle();
-		}
+	// 	function productAdd( event ) {
+	// 		var $target = $( event.target ).hasClass( 'btn-cart' ) ? 
+	// 					  $( event.target ) : 
+	// 					  $( event.target ).closest( '.btn-cart' );
 
-		/**
-		 * Toggles shopping cart basket with animation
-		 *
-		 * @memberof module:shoppingCart~
-		 */
+	// 		if ( $target.hasClass( 'btn-cart--added' ) ) { return; }
 
-		function basketToggle() {
-			$shoppingBasket.slideToggle({
-				duration: 150,
-				complete: function() {
-					$shoppingToggle.toggleClass( 'shopping-cart__toggle--open' );
-				}
-			});
-		};
+	// 		var info = getItemInfo( $target );
 
-		/**
-		 * Adding item to the basket, invoking {@link module:shoppingCart~getItemInfo|getItemInfo},
-		 * {@link module:shoppingCart~btnCartChecked|btnCartChecked},
-		 * {@link module:shoppingCart~refreshCartInfo|refreshCartInfo}.
-		 *
-		 * @param {clickEvent} event Click event object
-		 * @listens module:shoppingCart#addClick
-		 * @memberof module:shoppingCart~
-		 */
+	// 		// saving button ID to revoke changes after basket item deletion
+	// 		var btnID = btnCartChecked( $target );
 
-		function productAdd( event ) {
-			var $target = $( event.target ).hasClass( 'btn-cart' ) ? 
-						  $( event.target ) : 
-						  $( event.target ).closest( '.btn-cart' );
+	// 		var item = '<li class="shopping-basket__item" data-id="' + btnID + '">' + 
+	// 						'<div class="shopping-basket__img-box">' +
+	// 							'<a class="shopping-basket__link" href="' + info.itemSrc + '">' + 
+	// 								'<img class="shopping-basket__img" src="' + info.imgSrc + '" alt="' + info.imgAlt + '">' +
+	// 							'</a>' +
+	// 						'</div>' +
+	// 						'<div class="shopping-basket__item-name">' +
+	// 							'<a class="shopping-basket__link" href="' + info.itemSrc + '">' +
+	// 								info.name +
+	// 							'</a>' +
+	// 						'</div>' +
+	// 						'<div class="shopping-basket__price">' +
+	// 							'<span class="shopping-basket__current-currency">' + info.currency + '</span>' +
+	// 							'<span class="shopping-basket__current-value">' + info.price + '</span>' +
+	// 						'</div>' +
+	// 						'<div class="shopping-basket__delete">' +
+	// 							'<button class="shopping-basket__delete-btn" type="button">' +
+	// 								'<i class="fa fa-close shopping-basket__delete-icon"></i>' +
+	// 							'</button>' +
+	// 						'</div>' +
+	// 					'</li>';
 
-			if ( $target.hasClass( 'btn-cart--added' ) ) { return; }
+	// 		$shoppingBasket.append( item );
+	// 		refreshCartInfo();
+	// 	};
 
-			var info = getItemInfo( $target );
+	// 	/**
+	// 	 * Forms item info, returns an object containing it
+	// 	 *
+	// 	 * @param {jquery} $button The item cart button
+	// 	 * @returns {object} An object containing item info
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-			// saving button ID to revoke changes after basket item deletion
-			var btnID = btnCartChecked( $target );
-			
-			var item = '<li class="shopping-basket__item" data-id="' + btnID + '">' + 
-							'<div class="shopping-basket__img-box">' +
-								'<a class="shopping-basket__link" href="' + info.itemSrc + '">' + 
-									'<img class="shopping-basket__img" src="' + info.imgSrc + '" alt="' + info.imgAlt + '">' +
-								'</a>' +
-							'</div>' +
-							'<div class="shopping-basket__item-name">' +
-								'<a class="shopping-basket__link" href="' + info.itemSrc + '">' +
-									info.name +
-								'</a>' +
-							'</div>' +
-							'<div class="shopping-basket__price">' +
-								'<span class="shopping-basket__current-currency">' + info.currency + '</span>' +
-								'<span class="shopping-basket__current-value">' + info.price + '</span>' +
-							'</div>' +
-							'<div class="shopping-basket__delete">' +
-								'<button class="shopping-basket__delete-btn" type="button">' +
-									'<i class="fa fa-close shopping-basket__delete-icon"></i>' +
-								'</button>' +
-							'</div>' +
-						'</li>';
+	// 	function getItemInfo( $button ) {
+	// 		var $item = $button.closest( 'li' );
 
-			$shoppingBasket.append( item );
-			refreshCartInfo();
-		};
+	// 		// all items first class pattern - " 'class_name'__item "
+	// 		var itemClass = $item.get(0)
+	// 						 	 .classList[0]
+	// 							 .split('__')[0];  
 
-		/**
-		 * Forms item info, returns an object containing it
-		 *
-		 * @param {jquery} $button The item cart button
-		 * @returns {object} An object containing item info
-		 * @memberof module:shoppingCart~
-		 */
+	// 		var itemImgClass = '.'.concat( itemClass, '__img' );
+	// 		var itemNameClass = '.'.concat( itemClass, '__item-name' );
+	// 		var itemCurrencyClass = '.'.concat( itemClass, '__current-currency' );
+	// 		var itemPriceClass = '.'.concat( itemClass, '__current-value' );
 
-		function getItemInfo( $button ) {
-			var $item = $button.closest( 'li' );
+	// 		return {
+	// 			itemSrc: $item.find( itemNameClass ).children( 'a' ).attr( 'href' ),
+	// 			imgSrc: $item.find( itemImgClass ).attr( 'src' ),
+	// 			imgAlt: $item.find( itemImgClass ).attr( 'alt' ),
+	// 			name: $item.find( itemNameClass ).children( 'a' ).html(),
+	// 			currency: $item.find( itemCurrencyClass ).html(),
+	// 			price: $item.find( itemPriceClass ).html()
+	// 		};
+	// 	};
 
-			// all items first class pattern - " 'class_name'__item "
-			var itemClass = $item.get(0)
-							 	 .classList[0]
-								 .split('__')[0];  
+	// 	/**
+	// 	 * Changing the cart button after adding an item
+	// 	 *
+	// 	 * @param {jquery} $button The item cart button
+	// 	 * @returns {string} Unique id for cart button to know that this item is added
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-			var itemImgClass = '.'.concat( itemClass, '__img' );
-			var itemNameClass = '.'.concat( itemClass, '__item-name' );
-			var itemCurrencyClass = '.'.concat( itemClass, '__current-currency' );
-			var itemPriceClass = '.'.concat( itemClass, '__current-value' );
+	// 	function btnCartChecked( $button ) {
 
-			return {
-				itemSrc: $item.find( itemNameClass ).children( 'a' ).attr( 'href' ),
-				imgSrc: $item.find( itemImgClass ).attr( 'src' ),
-				imgAlt: $item.find( itemImgClass ).attr( 'alt' ),
-				name: $item.find( itemNameClass ).children( 'a' ).html(),
-				currency: $item.find( itemCurrencyClass ).html(),
-				price: $item.find( itemPriceClass ).html()
-			};
-		};
+	// 		var btnID = $button.uniqueId().attr( 'id' );
 
-		/**
-		 * Changing the cart button after adding an item
-		 *
-		 * @param {jquery} $button The item cart button
-		 * @returns {string} Unique id for cart button to know that this item is added
-		 * @memberof module:shoppingCart~
-		 */
+	// 		$button.addClass( 'btn-cart--added' );
 
-		function btnCartChecked( $button ) {
+	// 		$button.find( '.btn-cart__icon' )
+	// 		.removeClass()
+	// 		.addClass('fa fa-check btn-cart__icon');
 
-			var btnID = $button.uniqueId().attr( 'id' );
+	// 		if ( $button.hasClass( 'btn-cart--trending' ) ) {
+	// 			$button.find( '.btn-cart__text' )
+	// 			.html( 'Added!' );
+	// 		}
 
-			$button.addClass( 'btn-cart--added' );
+	// 		return btnID;
+	// 	};
 
-			$button.find( '.btn-cart__icon' )
-			.removeClass()
-			.addClass('fa fa-check btn-cart__icon');
+	// 	/**
+	// 	 * Changing the cart button to default state after removing item from the basket
+	// 	 *
+	// 	 * @param {string} btnID Unique id for cart button
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-			if ( $button.hasClass( 'btn-cart--trending' ) ) {
-				$button.find( '.btn-cart__text' )
-				.html( 'Added!' );
-			}
+	// 	function btnCartRevoke( btnID ) {
+	// 		var $button = $( document.getElementById( btnID ) );
 
-			return btnID;
-		};
+	// 		$button.removeUniqueId();
 
-		/**
-		 * Changing the cart button to default state after removing item from the basket
-		 *
-		 * @param {string} btnID Unique id for cart button
-		 * @memberof module:shoppingCart~
-		 */
+	// 		$button.removeClass( 'btn-cart--added' );
 
-		function btnCartRevoke( btnID ) {
-			var $button = $( document.getElementById( btnID ) );
+	// 		$button.find( '.btn-cart__icon' )
+	// 		.removeClass()
+	// 		.addClass('fa fa-shopping-cart btn-cart__icon');
 
-			$button.removeUniqueId();
+	// 		if ( $button.hasClass( 'btn-cart--trending' ) ) {
+	// 			$button.find( '.btn-cart__text' )
+	// 			.html( 'Add to cart' );
+	// 		};
+	// 	};
 
-			$button.removeClass( 'btn-cart--added' );
+	// 	/**
+	// 	 * Removing item from the basket, invoking {@link module:shoppingCart~refreshCartInfo|refreshCartInfo},
+	// 	 * {@link module:shoppingCart~btnCartRevoke|btnCartRevoke},
+	// 	 * and if the basket becomes empty - {@link module:shoppingCart~basketToggle|basketToggle}.
+	// 	 *
+	// 	 * @param {clickEvent} event Click event object
+	// 	 * @listens module:shoppingCart#removeClick
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-			$button.find( '.btn-cart__icon' )
-			.removeClass()
-			.addClass('fa fa-shopping-cart btn-cart__icon');
+	// 	function itemCartDelete( event ) {
+	// 		var $target = $( event.target );
 
-			if ( $button.hasClass( 'btn-cart--trending' ) ) {
-				$button.find( '.btn-cart__text' )
-				.html( 'Add to cart' );
-			};
-		};
+	// 		var $item = $target.closest( 'li' );
+	// 		var btnID = $item.data( 'id' );
 
-		/**
-		 * Removing item from the basket, invoking {@link module:shoppingCart~refreshCartInfo|refreshCartInfo},
-		 * {@link module:shoppingCart~btnCartRevoke|btnCartRevoke},
-		 * and if the basket becomes empty - {@link module:shoppingCart~basketToggle|basketToggle}.
-		 *
-		 * @param {clickEvent} event Click event object
-		 * @listens module:shoppingCart#removeClick
-		 * @memberof module:shoppingCart~
-		 */
+	// 		$item.effect({
+	// 			effect: 'clip',
+	// 			duration: 300,
+	// 			complete: function() {
+	// 				$( this ).remove();
 
-		function itemCartDelete( event ) {
-			var $target = $( event.target );
+	// 				refreshCartInfo();
+	// 				btnCartRevoke( btnID );
 
-			var $item = $target.closest( 'li' );
-			var btnID = $item.data( 'id' );
+	// 				if ( $shoppingBasket.children().length == 0 ) {
+	// 					basketToggle();
+	// 				};
+	// 			}
+	// 		});
+	// 	};
 
-			$item.effect({
-				effect: 'clip',
-				duration: 300,
-				complete: function() {
-					$( this ).remove();
+	// 	/**
+	// 	 * Refreshing total price and item amount in the cart
+	// 	 *
+	// 	 * @memberof module:shoppingCart~
+	// 	 */
 
-					refreshCartInfo();
-					btnCartRevoke( btnID );
+	// 	function refreshCartInfo() {
+	// 		var amount = $shoppingBasket.children().length;
+	// 		var price = 0;
 
-					if ( $shoppingBasket.children().length == 0 ) {
-						basketToggle();
-					};
-				}
-			});
-		};
+	// 		if ( amount > 0 ) {
+	// 			$shoppingBasket.find( '.shopping-basket__current-value' )
+	// 			.each( function() {
+	// 				price += parseFloat( $( this ).html() );
+	// 			} );
+	// 		}
 
-		/**
-		 * Refreshing total price and item amount in the cart
-		 *
-		 * @memberof module:shoppingCart~
-		 */
+	// 		$shoppingAmount.html( amount );
+	// 		$shoppingPrice.html( price.toFixed(2) );
+	// 	};
 
-		function refreshCartInfo() {
-			var amount = $shoppingBasket.children().length;
-			var price = 0;
-
-			if ( amount > 0 ) {
-				$shoppingBasket.find( '.shopping-basket__current-value' )
-				.each( function() {
-					price += parseFloat( $( this ).html() );
-				} );
-			}
-
-			$shoppingAmount.html( amount );
-			$shoppingPrice.html( price.toFixed(2) );
-		};
-
-	});
+	// });
 });

@@ -52,7 +52,7 @@
             <div class="shopping-cart__label">Shopping Cart:</div>
             <div class="shopping-cart__amount">0</div>
             <div class="shopping-cart__label">item(s) - </div>
-            <div class="shopping-cart__currency">$</div>
+            <!-- currency --><span class="currency currency--cart"></span>
             <div class="shopping-cart__price">0.00</div>
             <button type="button" class="shopping-cart__toggle"><i class="fa fa-caret-down shopping-cart__icon-closed"></i><i class="fa fa-caret-up shopping-cart__icon-opened"></i></button>
             <!-- shopping-basket -->
@@ -74,7 +74,9 @@
           <!-- list-item stands for supporting shopping cart system, which looking for 'LI'-->
           <li class="product__item">
             <div class="product__view">
-              <div class="product__imgbox"></div>
+              <div class="product__imgbox">
+                <div class="product__imgwrap"></div>
+              </div>
               <div class="product__price-label"><span class="product__current-currency">$</span><span class="product__current-value">19.99</span></div>
               <ul class="product__thumbbox">
                 <li class="product__thumbwrap"><img src="img/product_item.jpg" class="product__thumb"></li>

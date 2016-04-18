@@ -13,6 +13,7 @@ requirejs.config({
 		effect: 'libs/jqueryUI/effects',
 		// libs
 		almond: 'libs/almond',
+		text: 'libs/text',
 		jquery: 'libs/jquery',
 		jqueryUITouch: 'libs/jqueryUITouch',
 		backbone: 'libs/backbone',
@@ -23,15 +24,16 @@ requirejs.config({
 		formStyler: 'libs/formstyler',
 		// modules
 		global: 'global',
+		mediator: 'mediator',
+		btnCart: '../blocks/btn-cart/btn-cart',
 		shoppingCart: '../blocks/shopping-cart/shopping-cart',
+		shoppingAmount: '../blocks/shopping-cart/shopping-cart__amount',
 		trending: '../blocks/trending/trending',
 		mobileMenu: '../blocks/header/header',
-		topSlider: '../blocks/top-slider/top-slider',
 		featuredSlider: '../blocks/featured/featured',
 		brandSlider: '../blocks/brand-slider/brand-slider',
 		productsScrollbar: '../blocks/new-products/new-products',
 		saleBadge: '../blocks/sale-badge/sale-badge',
-		productView: '../blocks/product/product',
 		rating: '../blocks/rating/rating',
 		techForm: '../blocks/tech-form/tech-form',
 		tabs: '../blocks/tabs/tabs'
@@ -42,6 +44,25 @@ requirejs.config({
 			exports: 'Modernizr'
 		},
 		owlCarousel: ['jquery'],
-	}
+	},
+
+	packages: [
+
+		{
+			name: 'productView',
+			location: 'modules/productView'
+		},
+
+		{
+			name: 'currency',
+			location: 'modules/currency'
+		},
+
+		{
+			name: 'topSlider',
+			location: 'modules/topSlider'
+		},
+
+	]
 	
 });
