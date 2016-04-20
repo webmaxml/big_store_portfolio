@@ -7,11 +7,12 @@
           cleanCSS = require('gulp-clean-css'),
            compass = require('gulp-compass'),
               jade = require('gulp-jade'),
- requirejsOptimize = require('gulp-requirejs-optimize'),
         sourcemaps = require('gulp-sourcemaps'),
           imagemin = require('gulp-imagemin'),
             rename = require("gulp-rename"),
-             jsdoc = require('gulp-jsdoc3');
+             jsdoc = require('gulp-jsdoc3'),
+        browserify = require('browserify'),
+            source = require('vinyl-source-stream');
 
 
 // watch tasks
@@ -22,7 +23,7 @@ gulp.task('watch', function() {
     watch( './src/**/*.jade', function() {
         gulp.start( 'jade' );
     } );
-    watch( './src/**/*.js', function() {
+    watch( './src/js/**/*.js', function() {
         gulp.start( 'scripts' );
     } );
 });
@@ -70,21 +71,14 @@ gulp.task( 'jade', function() {
 
 // scripts processing
 gulp.task( 'scripts', function() {
-    gulp.src( './src/js/app.js' )
-    // .pipe( sourcemaps.init() )
-    .pipe( requirejsOptimize({
-        include: ['almond', 'app'],
-        mainConfigFile: './src/js/config.js'
-    }) )
-    .on('error', function(error) {
-        console.log(error);
-        this.emit('end');
-    })
-    .pipe( rename({
-        suffix: '.min'
-    }) )
-    // .pipe( sourcemaps.write() )
-    .pipe( gulp.dest( './dist/js/' ) );
+    browserify('./src/js/app.js')
+        .bundle()
+        .on('error', function(error) {
+            console.log(error);
+            this.emit('end');
+        })
+        .pipe( source('app.min.js') )
+        .pipe( gulp.dest( './dist/js/' ) );
 } );
 
 

@@ -63,6 +63,11 @@ requirejs.config({
 			location: 'modules/topSlider'
 		},
 
+		{
+			name: 'featuredSlider',
+			location: 'modules/featuredSlider'
+		},
+
 	]
 	
 });

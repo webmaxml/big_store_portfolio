@@ -1,4 +1,4 @@
-define(['jquery', './item'], function( $, Item) {
+define(['jquery', './entities/item'], function( $, Item) {
 
 	function init( elements ) {
 

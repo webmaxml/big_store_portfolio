@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'text!./templates/item.html', './mediator'], 
-function( $, _, Backbone, itemTemplate, mediator ) {
+define(['jquery', 'underscore', 'backbone', './../mediator'], 
+function( $, _, Backbone, mediator ) {
 
 	/******************** Model ********************/
 
@@ -19,8 +19,6 @@ function( $, _, Backbone, itemTemplate, mediator ) {
 	/******************** View ********************/
 
 	var View = Backbone.View.extend({
-
-		template: _.template( itemTemplate ),
 
 		events: {
 		 	'click' : 'delegateController'

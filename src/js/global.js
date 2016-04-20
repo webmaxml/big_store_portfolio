@@ -65,35 +65,35 @@
 
 // });
 
-define( function( require ) {
 
-	// import modules
-	var productView = require( 'productView' );
-	   var currency = require( 'currency' );
-	  var topSlider = require( 'topSlider' );
+// import modules
+// var productView = require( 'productView' );
+// var currency = require( 'currency' );
+var topSlider = require( './modules/topSlider' );
+// var featuredSlider = require( 'featuredSlider' );
 
-	function init() {
+function init() {
 
-		var elements;
+	var elements;
 
-		var views = {
-			'product__thumbwrap': productView,
-			'currency': currency,
-			'top-slider': topSlider
-		};
+	var views = {
+		// 'product__thumbwrap': productView,
+		// 'currency': currency,
+		'top-slider': topSlider,
+		// 'featured__content': featuredSlider,
+	};
 
-		for ( var className in views ) {
-			elements = document.getElementsByClassName( className );
+	for ( var className in views ) {
+		elements = document.getElementsByClassName( className );
 
-			if ( elements.length > 0 ) {
-				views[ className ].init( elements );
-			}
-		};
+		if ( elements.length > 0 ) {
+			views[ className ].init( elements );
+		}
+	};
 
-	}
+}
 
-	return { init: init };
+module.exports = { init: init };
 
-} );
 
 

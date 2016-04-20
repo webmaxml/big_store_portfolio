@@ -1,45 +1,46 @@
-define(['jquery', 'underscore', 'backbone', 'text!./../templates/sliderItem.html', './../mediator', 'owlCarousel'], 
-function( $, _, Backbone, sliderTemplate, mediator ) {
+/******************** Import ********************/
 
-	/******************** Model ********************/
+var $ = require( 'jquery' );
+var _ = require( 'underscore' );
+var Backbone = require( 'backbone' );
+var mediator = require( '../mediator.js' );
+var sliderTemplate = require( '../templates/sliderItem.jade' );
 
-	var Model = Backbone.Model.extend({
-		defaults: {
-			imgSrc: '',
-			imgAlt: '',
-			header: '',
-			text: ''
-		}
-	});
+/******************** Model ********************/
 
-	/******************** Collection ********************/
+var Model = Backbone.Model.extend({
+	defaults: {
+		imgSrc: '',
+		imgAlt: '',
+		header: '',
+		text: ''
+	}
+});
 
-	var Collection = Backbone.Collection.extend({
-		model: Model,
-	});
+/******************** Collection ********************/
 
-	/******************** View ********************/
+var Collection = Backbone.Collection.extend({
+	model: Model,
+});
 
-	var View = Backbone.View.extend({
+/******************** View ********************/
 
-		className: 'top-slider__item',
+var View = Backbone.View.extend({
 
-		template: _.template( sliderTemplate ),
+	className: 'top-slider__item',
 
-		render: function() {
+	render: function() {
 
-			this.$el.html( this.template( this.model.attributes ) );
+		this.$el.html( sliderTemplate( this.model.attributes ) );
 
-			return this;
-		},
-
-	});
-
-
-	return { 
-		Model: Model,
-		Collection: Collection,
-		View: View
-	};
+		return this;
+	},
 
 });
+
+
+module.exports = { 
+	Model: Model,
+	Collection: Collection,
+	View: View
+};

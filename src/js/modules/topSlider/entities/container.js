@@ -1,35 +1,40 @@
-define(['jquery', 'underscore', 'backbone', './../mediator', 'owlCarousel'], 
-function( $, _, Backbone, mediator ) {
+/******************** Import ********************/
 
-	/******************** View ********************/
+var $ = require( 'jquery' );
+var _ = require( 'underscore' );
+var Backbone = require( 'backbone' );
+var mediator = require( '../mediator.js' );
+var owlCarousel = require( 'owlCarousel' );
 
-	var View = Backbone.View.extend({
+/******************** View ********************/
 
-		render: function() {
-			this.$el.owlCarousel({
-				singleItem: true,
-				pagination: false,
-				mouseDrag: false,
-				transitionStyle: 'fadeUp'
-			});
+var View = Backbone.View.extend({
 
-			return this;
-		},
+	render: function() {
+		this.$el.owlCarousel({
+			singleItem: true,
+			pagination: false,
+			mouseDrag: false,
+			transitionStyle: 'fadeUp'
+		});
 
-		prev: function() {
-			this.$el.trigger( 'owl.prev' );
-		},
+		return this;
+	},
 
-		next: function() {
-			this.$el.trigger( 'owl.next' );
-		},
+	prev: function() {
+		this.$el.trigger( 'owl.prev' );
+	},
 
-	});
+	next: function() {
+		this.$el.trigger( 'owl.next' );
+	},
 
-	/******************** Controller ********************/
+});
 
-	var Controller = function( model, view ) {
-		_.extend( this, Backbone.Events );
+/******************** Controller ********************/
+
+var Controller = function( model, view ) {
+	_.extend( this, Backbone.Events );
 
 		// set the mutual links
 		this.model = model;
@@ -40,22 +45,20 @@ function( $, _, Backbone, mediator ) {
 		this.listenTo( mediator, 'slideChange', this.manageSlideChange );
 	};
 
-	// manage model change
-	Controller.prototype.manageSlideChange = function( type ) {
-		switch ( type ) {
-			case 'prev':
-				this.view.prev();
-				break;
-			case 'next':
-				this.view.next();
-				break;
+// manage model change
+Controller.prototype.manageSlideChange = function( type ) {
+	switch ( type ) {
+		case 'prev':
+			this.view.prev();
+			break;
+		case 'next':
+			this.view.next();
+			break;
 		};
 	};
 
 
-	return { 
-		View: View,
-		Controller: Controller
-	};
-
-});
+module.exports = { 
+	View: View,
+	Controller: Controller
+};
