@@ -1,23 +1,22 @@
-/******************** Import ********************/
-
+// import modules
 var $ = require( 'jquery' );
+var _ = require( 'underscore' );
 var Container = require( './entities/container' );
 var Slides = require( './entities/slides' );
 var Buttons = require( './entities/buttons' );
 
-
+// gets cached container element from the global initializer
 function init( sliderContainer ) {
 
-	console.log( 'init' );
-
+	// caching button elements
 	var prevButton = document.getElementsByClassName( 'top-slider__btn-prev' );
 	var nextButton = document.getElementsByClassName( 'top-slider__btn-next' );
 
-		// there should be only 1 top slider but who knows...
-		$( sliderContainer ).each(function() {
+	// there should be only 1 top slider but who knows...
+	$( sliderContainer ).each(function() {
 
-		// slides
-		var slidesCollection = new Slides.Collection([
+		// creating slides
+		var slidesInfo = [
 			{
 				imgSrc: 'img/slider_item.png',
 				imgAlt: 'slider_item',
@@ -42,25 +41,27 @@ function init( sliderContainer ) {
 				header: 'Where can I get some',
 				text: 'Fusce ultrices ornare velit, consectetur tempus eros dapibus et. Integer lobortis, dui in iaculis sollicitudin, felis nunc aliquam nibh, eu porta nisi urna nec odio. Duis suscipit viverra magna id sagittis. Quisque odio neque, condimentum cursus volutpat vel, pharetra ac nibh. Cras cursus libero id nunc facilisis luctus. Aenean ultricies, risus cursus sollicitudin congue, diam diam congue velit, ut sodales sem enim a nisl. Aenean elit diam, mollis fermentum'
 			}
-		]);
+		];
 
 		var slidesWrap = document.createDocumentFragment();
 
-		slidesCollection.each( function( model ) {
-			var slideView = new Slides.View({ model: model });
+
+		_.each( slidesInfo, function( item ) {
+			var slideModel = new Slides.Model( item );
+			var slideView = new Slides.View({ model: slideModel });
 
 			slideView.render();
 			slidesWrap.appendChild( slideView.el );
-		});
+		} )
 
-		// container
+		// creating container
 		var ContainerView = new Container.View({ el: this });
 		var ContainerController = new Container.Controller( null, ContainerView );
 
 		ContainerView.el.appendChild( slidesWrap );
 		ContainerView.render();
 
-		// buttons
+		// creating buttons
 		var prevModel = new Buttons.Model({ type: 'prev' });
 		var prevView = new Buttons.View({ el: prevButton, model: prevModel });
 		var prevController = new Buttons.Controller( prevModel, prevView );

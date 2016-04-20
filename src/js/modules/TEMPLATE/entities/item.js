@@ -1,47 +1,44 @@
-define(['jquery', 'underscore', 'backbone', 'text!./../templates/item.html', './../mediator'], 
-function( $, _, Backbone, itemTemplate, mediator ) {
+// import modules
+var $ = require( 'jquery' );
+var _ = require( 'underscore' );
+var Backbone = require( 'backbone' );
 
-	/******************** Model ********************/
+var mediator = require( '../mediator.js' );
+var itemTemplate = require( '../templates/item.jade' );
 
-	var Model = Backbone.Model.extend({
-		defaults: {
-			state: null
-		}
-	});
+/******************** Model ********************/
 
-	/******************** Collection ********************/
+var Model = Backbone.Model.extend({
+	defaults: {
+		state: null
+	}
+});
 
-	var Collection = Backbone.Collection.extend({
-		model: Model,
-	});
+/******************** View ********************/
 
+var View = Backbone.View.extend({
 
-	/******************** View ********************/
+	events: {
+		'click' : 'delegateController'
+	},
 
-	var View = Backbone.View.extend({
+	// delegate managing user actions to controller
+	delegateController: function( event ) {
+		this.controller.manageAction( event );
+	},
 
-		template: _.template( itemTemplate ),
+	render: function() {
 
-		events: {
-		 	'click' : 'delegateController'
-		},
+		this.$el.html( itemTemplate({}) );
+		return this;
+	},
 
-		// delegate managing user actions to controller
-		delegateController: function( event ) {
-		 	this.controller.manageAction( event );
-		},
+});
 
-		render: function() {
+/******************** Controller ********************/
 
-			return this;
-		},
-
-	});
-
-	/******************** Controller ********************/
-
-	var Controller = function( model, view ) {
-		_.extend( this, Backbone.Events );
+var Controller = function( model, view ) {
+	_.extend( this, Backbone.Events );
 
 		// set the mutual links
 		this.model = model;
@@ -51,30 +48,27 @@ function( $, _, Backbone, itemTemplate, mediator ) {
 		// set event listeners
 		this.listenTo( this.model, 'change', this.manageModelChange );
 
-	};
+};
 
-	// manage model change
-	Controller.prototype.manageModelChange = function() {
-		this.view.render();
-	};
+// manage model change
+Controller.prototype.manageModelChange = function() {
+	this.view.render();
+};
 
-	// manage user actions
-	Controller.prototype.manageAction = function( event ) {
-		if ( event.type === 'click' ) {
-			this.updateModel();
-		}
-	};
+// manage user actions
+Controller.prototype.manageAction = function( event ) {
+	if ( event.type === 'click' ) {
+		this.updateModel();
+	}
+};
 
-	Controller.prototype.updateModel = function() {
-		this.model.set( 'state', 'active' );
-	};
+Controller.prototype.updateModel = function() {
+	this.model.set( 'state', 'active' );
+};
 
 
-	return { 
-		Model: Model,
-		Collection: Collection,
-		View: View,
-		Controller: Controller
-	};
-
-});
+module.exports = { 
+	Model: Model,
+	View: View,
+	Controller: Controller
+};

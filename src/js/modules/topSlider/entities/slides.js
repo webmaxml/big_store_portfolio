@@ -1,5 +1,4 @@
-/******************** Import ********************/
-
+// import modules
 var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
@@ -15,12 +14,6 @@ var Model = Backbone.Model.extend({
 		header: '',
 		text: ''
 	}
-});
-
-/******************** Collection ********************/
-
-var Collection = Backbone.Collection.extend({
-	model: Model,
 });
 
 /******************** View ********************/
@@ -41,6 +34,5 @@ var View = Backbone.View.extend({
 
 module.exports = { 
 	Model: Model,
-	Collection: Collection,
 	View: View
 };

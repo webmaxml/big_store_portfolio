@@ -1,6 +1,9 @@
-define(['jquery', 'underscore' , 'backbone'], function( $, _, Backbone ) {
-	var mediator = {};
-	_.extend( mediator, Backbone.Events );
+// import modules
+var $ = require( 'jquery' );
+var _ = require( 'underscore' );
+var Backbone = require( 'backbone' );
 
-	return mediator;
-});
+var mediator = {};
+_.extend( mediator, Backbone.Events );
+
+module.exports = mediator;

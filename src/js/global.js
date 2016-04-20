@@ -70,7 +70,7 @@
 // var productView = require( 'productView' );
 // var currency = require( 'currency' );
 var topSlider = require( './modules/topSlider' );
-// var featuredSlider = require( 'featuredSlider' );
+var featuredSlider = require( './modules/featuredSlider' );
 
 function init() {
 
@@ -80,7 +80,7 @@ function init() {
 		// 'product__thumbwrap': productView,
 		// 'currency': currency,
 		'top-slider': topSlider,
-		// 'featured__content': featuredSlider,
+		'featured__content': featuredSlider,
 	};
 
 	for ( var className in views ) {

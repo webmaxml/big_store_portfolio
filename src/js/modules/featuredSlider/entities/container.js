@@ -1,49 +1,65 @@
-define(['jquery', 'underscore', 'backbone', './../mediator'], 
-function( $, _, Backbone, mediator ) {
+// import modules
+var $ = require( 'jquery' );
+var _ = require( 'underscore' );
+var Backbone = require( 'backbone' );
+var owlCarousel = require( 'owlCarousel' );
 
-	/******************** Model ********************/
+var mediator = require( '../mediator.js' );
 
-	var Model = Backbone.Model.extend({
+/******************** View ********************/
 
-	});
+var View = Backbone.View.extend({
 
-	/******************** Collection ********************/
+	render: function() {
 
-	var Collection = Backbone.Collection.extend({
-		model: Model,
-	});
+		this.$el.owlCarousel({
+			singleItem: true,
+			pagination: false,
+			mouseDrag: false,
+			transitionStyle: 'backSlide'
+		});
 
+		return this;
+	},
 
-	/******************** View ********************/
+	prev: function() {
+		this.$el.trigger( 'owl.prev' );
+	},
 
-	var View = Backbone.View.extend({
+	next: function() {
+		this.$el.trigger( 'owl.next' );
+	},
 
-		render: function() {
+});
 
-			return this;
-		},
+/******************** Controller ********************/
 
-	});
-
-	/******************** Controller ********************/
-
-	var Controller = function( model, view ) {
-		_.extend( this, Backbone.Events );
+var Controller = function( model, view ) {
+	_.extend( this, Backbone.Events );
 
 		// set the mutual links
 		this.model = model;
 		this.view = view;
 		this.view.controller = this;
 
+		// set event listeners
+		this.listenTo( mediator, 'slideChange', this.manageSlideChange );
+	};
+
+// manage model change
+Controller.prototype.manageSlideChange = function( type ) {
+	switch ( type ) {
+		case 'prev':
+			this.view.prev();
+			break;
+		case 'next':
+			this.view.next();
+			break;
+		};
 	};
 
 
-
-	return { 
-		Model: Model,
-		Collection: Collection,
-		View: View,
-		Controller: Controller
-	};
-
-});
+module.exports = { 
+	View: View,
+	Controller: Controller
+};
