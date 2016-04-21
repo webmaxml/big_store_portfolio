@@ -10,7 +10,7 @@ var slideTemplate = require( '../templates/item.jade' );
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		imgSrc: '',
+		imgSrcThumb: '',
 		imgAlt: '',
 		header: '',
 		currentPrice: '',

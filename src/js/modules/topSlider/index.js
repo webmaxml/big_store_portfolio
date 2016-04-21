@@ -8,10 +8,6 @@ var Buttons = require( './entities/buttons' );
 // gets cached container element from the global initializer
 function init( sliderContainer ) {
 
-	// caching button elements
-	var prevButton = document.getElementsByClassName( 'top-slider__btn-prev' );
-	var nextButton = document.getElementsByClassName( 'top-slider__btn-next' );
-
 	// there should be only 1 top slider but who knows...
 	$( sliderContainer ).each(function() {
 
@@ -62,6 +58,9 @@ function init( sliderContainer ) {
 		ContainerView.render();
 
 		// creating buttons
+		var prevButton = document.getElementsByClassName( 'top-slider__btn-prev' );
+		var nextButton = document.getElementsByClassName( 'top-slider__btn-next' );
+
 		var prevModel = new Buttons.Model({ type: 'prev' });
 		var prevView = new Buttons.View({ el: prevButton, model: prevModel });
 		var prevController = new Buttons.Controller( prevModel, prevView );

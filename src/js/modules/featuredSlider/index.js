@@ -5,51 +5,28 @@ var Container = require( './entities/container' );
 var Slides = require( './entities/slides' );
 var Buttons = require( './entities/buttons' );
 
+// the virtual data for the app
+var data = require( '../../data' );
+
 function init( elements ) {
 
 	// create set for every element
 	$( elements ).each( function() {
 		
 		// create slides
-		var slidesInfo = [
-			{
-				imgSrc: 'img/featured_item.jpg',
-				imgAlt: 'featured_item',
-				header: 'Herbal Sport',
-				currentPrice: '101.88',
-				oldPrice: '69.99'
-			},
-			{
-				imgSrc: 'img/featured_item.jpg',
-				imgAlt: 'featured_item',
-				header: 'Herbal Sport',
-				currentPrice: '101.88',
-				oldPrice: '69.99'
-			},
-			{
-				imgSrc: 'img/featured_item.jpg',
-				imgAlt: 'featured_item',
-				header: 'Herbal Sport',
-				currentPrice: '101.88',
-				oldPrice: '69.99'
-			},
-			{
-				imgSrc: 'img/featured_item.jpg',
-				imgAlt: 'featured_item',
-				header: 'Herbal Sport',
-				currentPrice: '101.88',
-				oldPrice: '69.99'
-			}
-		];
-
 		var slidesWrap = document.createDocumentFragment();
 
-		_.each( slidesInfo, function( item ) {
-			var slideModel = new Slides.Model( item );
-			var slideView = new Slides.View({ model: slideModel });
+		_.each( data.products, function( item ) {
 
-			slideView.render();
-			slidesWrap.appendChild( slideView.el );
+			// only for products with featured flag
+			if ( item.featured ) {
+				var slideModel = new Slides.Model( item );
+				var slideView = new Slides.View({ model: slideModel });
+
+				slideView.render();
+				slidesWrap.appendChild( slideView.el );
+			}
+			
 		} );
 
 		// create container
