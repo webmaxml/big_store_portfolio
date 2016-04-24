@@ -4,7 +4,8 @@ var thumbGallery = require( './modules/thumbGallery' ),
  	featuredSlider = require( './modules/featuredSlider' ),
  	currency = require( './modules/currency' ),
  	tabs = require( './modules/tabs' ),
- 	brandSlider = require( './modules/brandSlider' );
+ 	brandSlider = require( './modules/brandSlider' ),
+ 	rating = require( './modules/rating' );
 
 function init() {
 
@@ -16,7 +17,8 @@ function init() {
 		'featured__content': featuredSlider,
 		'currency': currency,
 		'tabs__item': tabs,
-		'brand-slider': brandSlider
+		'brand-slider': brandSlider,
+		'rating': rating
 	};
 
 	for ( var className in views ) {
