@@ -1,39 +1,17 @@
-// import modules
-var $ = require( 'jquery' );
-var _ = require( 'underscore' );
-var Container = require( './entities/container' );
-var Slides = require( './entities/slides' );
-var Buttons = require( './entities/buttons' );
+function init( featuredContainers ) {
 
-// the virtual data for the app
-var data = require( '../../data' );
+	// import modules
+	var $ = require( 'jquery' );
+	var _ = require( 'underscore' );
+	var Slider = require( './entities/slider' );
+	var Buttons = require( './entities/buttons' );
 
-function init( elements ) {
+	$( featuredContainers ).each( function() {
 
-	// create set for every element
-	$( elements ).each( function() {
-		
-		// create slides
-		var slidesWrap = document.createDocumentFragment();
-
-		_.each( data.products, function( item ) {
-
-			// only for products with featured flag
-			if ( item.featured ) {
-				var slideModel = new Slides.Model( item );
-				var slideView = new Slides.View({ model: slideModel });
-
-				slideView.render();
-				slidesWrap.appendChild( slideView.el );
-			}
-			
-		} );
-
-		// create container
-		var containerView = new Container.View({ el: this });
-		var containerController = new Container.Controller( null, containerView );
-		containerView.el.appendChild( slidesWrap );
-		containerView.render();
+		// create slider
+		var sliderView = new Slider.View({ el: this });
+		var sliderController = new Slider.Controller( null, sliderView );
+		sliderView.render();
 
 		// create buttons
 		var prevButton = document.getElementsByClassName( 'featured__btn-prev' );
@@ -47,8 +25,7 @@ function init( elements ) {
 		var nextView = new Buttons.View({ el: nextButton, model: nextModel });
 		var nextController = new Buttons.Controller( nextModel, nextView );
 
-	} );
-
+	});
 };
 
 module.exports = { init: init };

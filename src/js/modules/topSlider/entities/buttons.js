@@ -42,13 +42,8 @@ var Controller = function( model, view ) {
 // manage user actions
 Controller.prototype.manageAction = function( event ) {
 	if ( event.type === 'click' ) {
-		this.notify();
+		mediator.trigger( 'slideChange', this.model.get( 'type' ) );
 	}
-};
-
-// Notify the module mediator
-Controller.prototype.notify = function() {
-	mediator.trigger( 'slideChange', this.model.get( 'type' ) );
 };
 
 

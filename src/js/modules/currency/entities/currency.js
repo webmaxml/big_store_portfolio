@@ -4,13 +4,13 @@ var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
 var mediator = require( '../mediator.js' );
-var itemTemplate = require( '../templates/item.jade' );
+var currTemplate = require( '../templates/item.jade' );
 
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		state: null
+		currency: ''
 	}
 });
 
@@ -18,18 +18,21 @@ var Model = Backbone.Model.extend({
 
 var View = Backbone.View.extend({
 
-	events: {
-		'click' : 'delegateController'
-	},
+	render: function( value ) {
 
-	// delegate managing user actions to controller
-	delegateController: function( event ) {
-		this.controller.manageAction( event );
-	},
+		var iconClass;
 
-	render: function() {
+		switch ( value ) {
+			case 'dollar':
+				iconClass = 'fa-dollar';
+				break;
+			case 'euro':
+				iconClass = 'fa-eur';
+				break;
+		};
 
-		this.$el.html( itemTemplate({}) );
+		this.$el.html( currTemplate({ icon: iconClass }) );
+
 		return this;
 	},
 
@@ -46,20 +49,18 @@ var Controller = function( model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change', this.manageModelChange );
-
+	this.listenTo( this.model, 'change:currency', this.manageModelChange );
+	this.listenTo( mediator, 'setCurrency', this.setCurrency );
 };
 
 // manage model change
-Controller.prototype.manageModelChange = function() {
-	this.view.render();
+Controller.prototype.manageModelChange = function( model, value ) {
+	this.view.render( value );
 };
 
-// manage user actions
-Controller.prototype.manageAction = function( event ) {
-	if ( event.type === 'click' ) {
-		this.model.set( 'state', 'active' );
-	}
+
+Controller.prototype.setCurrency = function( curr ) {
+	this.model.set( 'currency', curr );
 };
 
 

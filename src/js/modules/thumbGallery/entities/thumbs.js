@@ -10,48 +10,10 @@ var mediator = require( '../mediator' );
 var Model = Backbone.Model.extend({
 	defaults: {
 		state: null,
-		imgSrc: null
-	},
-
-	initialize: function() {
-		this.on( 'change:state', this.stateNotification );
-	},
-
-	// notify collection
-	stateNotification: function( model, state, options ) {
-		this.trigger( 'stateChange', model, state );
-	},
-});
-
-/******************** Collection ********************/
-
-var ThumbCollection = Backbone.Collection.extend({
-	model: Thumb,
-
-	initialize: function() {
-		this.on( 'stateChange', this.manageState );
-	},
-
-	// manage models state
-	manageState: function( model, state ) {
-		if ( state === 'active' ) {
-			this.setOnlyState( model );
-		}
-	},
-
-	// make sure there is only one model with this state
-	setOnlyState: function( model, state ) {
-
-		// if pointed, set this state, if not - it will be set to null
-		if ( state ) {
-			model.set( 'state', state );
-		};
-
-		var restModels = this.without( model );
-
-		_.each( restModels, function( model ) {
-			model.set( 'state', null );
-		} );
+		index: 0,
+		imgSrc: '',
+		imgSrcFull: '',
+		imgAlt: ''
 	},
 });
 
@@ -92,12 +54,14 @@ var Controller = function( model, view ) {
 
 	// set event listeners
 	this.listenTo( this.model, 'change:state', this.manageModelChange );
+	this.listenTo( mediator, 'discardState', this.manageMediator );
 };
 
 // manage model change
 Controller.prototype.manageModelChange = function( model, state ) {
 	if ( state === 'active' ) {
-		this.notify();
+		// Notify mediator of changing state
+		mediator.trigger( 'activeChange', this.model.attributes );
 	};
 
 	this.view.render( state );
@@ -106,20 +70,18 @@ Controller.prototype.manageModelChange = function( model, state ) {
 // manage user actions
 Controller.prototype.manageAction = function( event ) {
 	if ( event.type === 'click' ) {
-		this.updateModel();
+		this.model.set( 'state', 'active' );
 	}
 };
 
-Controller.prototype.updateModel = function() {
-	this.model.set( 'state', 'active' );
-};
+// manage mediator events
+Controller.prototype.manageMediator = function( index ) {
 
-// Notify the global mediator of changing state to perform 
-// interaction with other entities
-Controller.prototype.notify = function() {
-	mediator.trigger( 'activeChange', this.model.get( 'imgSrc' ) );
+	// discard state of every thumb except active
+	if ( this.model.get( 'index' ) !== index ) {
+		this.model.set( 'state', null );
+	}
 };
-
 
 module.exports = { 
 	Model: Model,

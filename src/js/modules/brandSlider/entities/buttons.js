@@ -4,17 +4,12 @@ var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
 var mediator = require( '../mediator.js' );
-var slideTemplate = require( '../templates/item.jade' );
 
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		imgSrcThumb: '',
-		imgAlt: '',
-		header: '',
-		currentPrice: '',
-		oldPrice: ''
+		type: ''
 	}
 });
 
@@ -22,14 +17,14 @@ var Model = Backbone.Model.extend({
 
 var View = Backbone.View.extend({
 
-	tagName: 'li',
-
-	className: 'featured__item',
-
-	render: function() {
-		this.$el.html( slideTemplate( this.model.attributes ) );
-		return this;
+	events: {
+		'click' : 'delegateController'
 	},
+
+	// delegate managing user actions to controller
+	delegateController: function( event ) {
+		this.controller.manageAction( event );
+	}
 
 });
 
@@ -38,11 +33,17 @@ var View = Backbone.View.extend({
 var Controller = function( model, view ) {
 	_.extend( this, Backbone.Events );
 
-		// set the mutual links
-		this.model = model;
-		this.view = view;
-		this.view.controller = this;
+	// set the mutual links
+	this.model = model;
+	this.view = view;
+	this.view.controller = this;
+};
 
+// manage user actions
+Controller.prototype.manageAction = function( event ) {
+	if ( event.type === 'click' ) {
+		mediator.trigger( 'slideChange', this.model.get( 'type' ) );
+	}
 };
 
 

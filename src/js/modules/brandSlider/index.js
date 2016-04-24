@@ -1,31 +1,29 @@
-function init( sliderContainers ) {
-
+function init( brandСontainers ) {
 	// import modules
 	var $ = require( 'jquery' );
 	var _ = require( 'underscore' );
 	var Slider = require( './entities/slider' );
 	var Buttons = require( './entities/buttons' );
 
-	$( sliderContainers ).each( function() {
+	$( brandСontainers ).each( function() {
 
-		// creating slider
+		// create slider
 		var sliderView = new Slider.View({ el: this });
 		var sliderController = new Slider.Controller( null, sliderView );
-
 		sliderView.render();
 
-		// creating buttons
-		var prevButton = document.getElementsByClassName( 'top-slider__btn-prev' );
-		var nextButton = document.getElementsByClassName( 'top-slider__btn-next' );
+		// create buttons
+		var prevButton = document.getElementsByClassName( 'brand-slider__btn-prev' )[0];
+		var nextButton = document.getElementsByClassName( 'brand-slider__btn-next' )[0];
 
 		var prevModel = new Buttons.Model({ type: 'prev' });
-		var prevView = new Buttons.View({ el: prevButton, model: prevModel });
+		var prevView = new Buttons.View({ el: prevButton });
 		var prevController = new Buttons.Controller( prevModel, prevView );
 
 		var nextModel = new Buttons.Model({ type: 'next' });
-		var nextView = new Buttons.View({ el: nextButton, model: nextModel });
+		var nextView = new Buttons.View({ el: nextButton });
 		var nextController = new Buttons.Controller( nextModel, nextView );
-		
+
 	} );
 };
 

@@ -3,7 +3,8 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var mediator = {};
-_.extend( mediator, Backbone.Events );
+function Mediator() {
+	_.extend( this, Backbone.Events );
+};
 
-module.exports = mediator;
+module.exports = new Mediator;

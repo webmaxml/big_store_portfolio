@@ -48,8 +48,8 @@ Controller.prototype.manageModelChange = function( model, value ) {
 	this.view.render( value );
 };
 
-Controller.prototype.updateModel = function( src ) {
-	this.model.set( 'imgSrc', src );
+Controller.prototype.updateModel = function( attrs ) {
+	this.model.set( attrs );
 };
 
 
