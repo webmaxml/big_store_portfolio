@@ -7,13 +7,6 @@ var mediator = require( './mediator' );
 
 function AjaxManager() {
 	_.extend( this, Backbone.Events );
-
-	this.listenTo( mediator, 'setRating', this.manageSetRating )
-};
-
-AjaxManager.prototype.manageSetRating = function( index ) {
-	// var data = { activeIndex: index };
-	// this.send( data );
 };
 
 AjaxManager.prototype.send = function( data ) {

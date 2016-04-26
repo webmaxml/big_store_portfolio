@@ -25,6 +25,14 @@
 		color: $c_shopping-cart__amount;
 	}
 
+	&__currency {
+		float: left;
+
+		font-size: $fz_shopping-cart__price;
+		line-height: $base-lh * 2 - 2px;
+		color: $c_shopping-cart__price;
+	}
+
 	&__price {
 		float: left;
 

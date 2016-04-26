@@ -1,0 +1,35 @@
+// add-comment 
+article.add-comment
+	h3.add-comment__header Add comment
+	form.add-comment__form( method="post" action="" )
+		.add-comment__group
+			label.add-comment__label( for="comment-name" ) Name (
+				b.add-comment__required Required
+				| )
+			input#comment-name.add-comment__input( type="text" name="name" )
+		.add-comment__group
+			label.add-comment__label( for="comment-email" ) Email (
+				b.add-comment__required Required
+				| )
+			input#comment-email.add-comment__input( type="text" name="email" )
+		.add-comment__group
+			fieldset.add-comment__rating-box
+				legend.add-comment__label( for="comment-email" ) Rating (
+				b.add-comment__required Required
+				| )
+				input( type="radio" id="r1" name="rating" value="1" )
+				input( type="radio" id="r2" name="rating" value="2" )
+				input( type="radio" id="r3" name="rating" value="3" )
+				input( type="radio" id="r4" name="rating" value="4" )
+				input( type="radio" id="r5" name="rating" value="5" )
+				label.add-comment__rating-label( for="r1" )
+				label.add-comment__rating-label( for="r2" )
+				label.add-comment__rating-label( for="r3" )
+				label.add-comment__rating-label( for="r4" )
+				label.add-comment__rating-label( for="r5" )
+		.add-comment__group
+			label.add-comment__label( for="comment-text" ) Your comment (
+				b.add-comment__required Required
+				| )
+			textarea#comment-text.add-comment__input( name="comment" )
+		button.add-comment__submit Submit

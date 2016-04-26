@@ -4,7 +4,6 @@ var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
 var mediator = require( '../mediator.js' );
-var currTemplate = require( '../templates/item.jade' );
 
 /******************** Model ********************/
 
@@ -31,7 +30,7 @@ var View = Backbone.View.extend({
 				break;
 		};
 
-		this.$el.html( currTemplate({ icon: iconClass }) );
+		this.$el.addClass( 'fa ' + iconClass );
 
 		return this;
 	},
