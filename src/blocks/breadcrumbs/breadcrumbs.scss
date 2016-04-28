@@ -7,19 +7,30 @@
 	border-radius: 6px 6px 0 0;
 	padding: 0 20px;
 
-	font-family: $ff_caption_1;
-	font-size: 16px;
+	font-size: 0;
+	text-align: center;
 
 	background: linear-gradient(to top, #e2e2e2 0%, #fbfbfb 15%, #fbfbfb 100%);
 
+	@media ( min-width: 480px ) {
+		text-align: left;
+	}
+
+	&__item:last-child {
+		line-height: $base-lh * 3 - 1px;
+	}
+
 	&__item {
-		float: left;
+		display: inline-block;
+
+		font-family: $ff_caption_1;
+		font-size: 16px;
+		line-height: $base-lh * 3;
 	}
 
 	&__link {
 		padding: 0 15px;
 
-		line-height: $base-lh * 3 - 1px;
 		color: #464545;
 
 		&:hover {

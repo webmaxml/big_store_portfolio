@@ -3,18 +3,20 @@ article.comments
 	h2.comments__header Reviews
 	ul.comments__box
 		li.comments__item
-			a.comments__avatar-link( href="#" )
-				img.comments__avatar( src="img/user.jpg" )
+			.comments__avatar
+				a.comments__avatar-link( href="#" )
+					img.comments__img( src="img/user.jpg" )
 			.comments__body
 				.comments__top-line
 					a.comments__name( href="#" ) Angelina Jolie
-					include ../rating/rating.jade
+					include ../rating/rating--showonly.jade
 				p.comments__text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.
 		li.comments__item
-			a.comments__avatar-link( href="#" )
-				img.comments__avatar( src="img/user.jpg" )
+			.comments__avatar
+				a.comments__avatar-link( href="#" )
+					img.comments__img( src="img/user.jpg" )
 			.comments__body
 				.comments__top-line
 					a.comments__name( href="#" ) Angelina Jolie
-					include ../rating/rating.jade
+					include ../rating/rating--showonly.jade
 				p.comments__text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.

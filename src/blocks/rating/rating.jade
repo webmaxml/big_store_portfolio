@@ -1,12 +1,17 @@
 // rating 
-ul.rating
+ul.rating( data-module="setrating" data-value="1" )
 	li.rating__item
-		button.rating__star( type="button" )
+		input.rating__input( type="radio" id="r1" name="rating" value="1" data-entity="radio" )
+		label.rating__star( for="r1" data-entity="star" )
 	li.rating__item
-		button.rating__star( type="button" )
+		input.rating__input( type="radio" id="r2" name="rating" value="2" data-entity="radio" )
+		label.rating__star( for="r2" data-entity="star" )
 	li.rating__item
-		button.rating__star( type="button" )
-	li.rating__item( data-active="true" )
-		button.rating__star( type="button" )
+		input.rating__input( type="radio" id="r3" name="rating" value="3" data-entity="radio" )
+		label.rating__star( for="r3" data-entity="star" )
 	li.rating__item
-		button.rating__star( type="button" )
+		input.rating__input( type="radio" id="r4" name="rating" value="4" data-entity="radio" )
+		label.rating__star( for="r4" data-entity="star" )
+	li.rating__item
+		input.rating__input( type="radio" id="r5" name="rating" value="5" data-entity="radio" )
+		label.rating__star( for="r5" data-entity="star" )

@@ -3,10 +3,10 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var mediator = require( './mediator' );
-
-function AjaxManager() {
+function AjaxManager( mediator ) {
 	_.extend( this, Backbone.Events );
+
+	this.mediator = mediator;
 };
 
 AjaxManager.prototype.send = function( data ) {
@@ -20,5 +20,5 @@ AjaxManager.prototype.send = function( data ) {
 	});
 };
 
-module.exports = new AjaxManager;
+module.exports = AjaxManager;
 	 

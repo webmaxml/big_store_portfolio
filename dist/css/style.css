@@ -4835,16 +4835,26 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   border-bottom: 1px solid #d8d8d8;
   border-radius: 6px 6px 0 0;
   padding: 0 20px;
-  font-family: "CodaRegular", "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 0;
+  text-align: center;
   background: linear-gradient(to top, #e2e2e2 0%, #fbfbfb 15%, #fbfbfb 100%);
 }
+@media (min-width: 480px) {
+  .breadcrumbs {
+    text-align: left;
+  }
+}
+.breadcrumbs__item:last-child {
+  line-height: 53px;
+}
 .breadcrumbs__item {
-  float: left;
+  display: inline-block;
+  font-family: "CodaRegular", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 54px;
 }
 .breadcrumbs__link {
   padding: 0 15px;
-  line-height: 53px;
   color: #464545;
 }
 .breadcrumbs__link:hover {
@@ -5003,6 +5013,9 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 .rating__item {
   float: left;
 }
+.rating__input {
+  display: none;
+}
 .rating__star {
   display: inline-block;
   vertical-align: middle;
@@ -5010,6 +5023,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   height: 18px;
   background: url("../img/rating.png") no-repeat;
   background-position: -2px -1px;
+  cursor: pointer;
 }
 .rating__star.rating__star--active {
   background-position: -23px -1px;
@@ -5348,6 +5362,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   display: none;
   padding: 18px;
   text-align: left;
+  background: #fff;
 }
 .product-desc__pane.product-desc__pane--active {
   display: block;
@@ -5376,16 +5391,25 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 .comments__item {
   margin-bottom: 36px;
 }
-.comments__avatar-link {
-  float: left;
+.comments__avatar {
+  display: block;
   overflow: hidden;
+  padding-bottom: 18px;
+}
+@media (min-width: 560px) {
+  .comments__avatar {
+    float: left;
+  }
+}
+.comments__avatar-link {
+  display: block;
   width: 72px;
   height: 72px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
-  cursor: pointer;
+  margin: auto;
 }
-.comments__avatar {
+.comments__img {
   display: block;
   width: 70px;
   height: 70px;
@@ -5394,50 +5418,63 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   position: relative;
   border: 1px solid #e7e7e7;
   border-radius: 6px;
-  padding: 18px;
-  margin-left: 96px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 18px;
+  padding-right: 18px;
   background-color: #fafafa;
   box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.06);
 }
-.comments__body::before, .comments__body::after {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 0;
-  height: 0;
-}
-.comments__body::before {
-  top: 20px;
-  left: -12px;
-  z-index: 3;
-  border-top: 8px solid #e7e7e7;
-  border-bottom: 8px solid transparent;
-  border-left: 6px solid transparent;
-  border-right: 6px solid #e7e7e7;
-}
-.comments__body::after {
-  top: 21px;
-  left: -10px;
-  z-index: 4;
-  border-top: 7px solid #fafafa;
-  border-bottom: 7px solid transparent;
-  border-left: 5px solid transparent;
-  border-right: 5px solid #fafafa;
+@media (min-width: 560px) {
+  .comments__body {
+    margin-left: 96px;
+  }
+  .comments__body::before, .comments__body::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+  }
+  .comments__body::before {
+    top: 20px;
+    left: -12px;
+    z-index: 3;
+    border-top: 8px solid #e7e7e7;
+    border-bottom: 8px solid transparent;
+    border-left: 6px solid transparent;
+    border-right: 6px solid #e7e7e7;
+  }
+  .comments__body::after {
+    top: 21px;
+    left: -10px;
+    z-index: 4;
+    border-top: 7px solid #fafafa;
+    border-bottom: 7px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid #fafafa;
+  }
 }
 .comments__top-line {
   overflow: hidden;
   margin-bottom: 18px;
 }
 .comments__name {
-  float: left;
+  display: block;
   font-family: "Arial", sans-serif;
   font-weight: bold;
   font-size: 14px;
   line-height: 18px;
   color: #272727;
+  text-align: center;
 }
 .comments__name:hover {
   text-decoration: underline;
+}
+@media (min-width: 480px) {
+  .comments__name {
+    float: left;
+  }
 }
 .comments__text {
   font-family: "Arial", sans-serif;

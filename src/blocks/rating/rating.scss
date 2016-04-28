@@ -8,6 +8,10 @@
 		float: left;
 	}
 
+	&__input {
+		display: none;
+	}
+
 	&__star {
 		display: inline-block;
 		vertical-align: middle;
@@ -17,6 +21,8 @@
 
 		background: url('../img/rating.png') no-repeat;
 		background-position: -2px -1px;
+
+		cursor: pointer;
 
 		&.rating__star--active {
 			background-position: -23px -1px;

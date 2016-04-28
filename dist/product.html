@@ -90,21 +90,26 @@
               <div class="product__stock-info">
                 <div class="product__available"><span class="product__available-text">In Stock - </span><span class="product__available-value">53</span><span class="product__available-text"> available</span></div>
                 <!-- rating -->
-                <ul class="rating">
+                <ul data-module="setrating" data-value="1" class="rating">
                   <li class="rating__item">
-                    <button type="button" class="rating__star"></button>
+                    <input type="radio" id="r1" name="rating" value="1" data-entity="radio" class="rating__input">
+                    <label for="r1" data-entity="star" class="rating__star"></label>
                   </li>
                   <li class="rating__item">
-                    <button type="button" class="rating__star"></button>
+                    <input type="radio" id="r2" name="rating" value="2" data-entity="radio" class="rating__input">
+                    <label for="r2" data-entity="star" class="rating__star"></label>
                   </li>
                   <li class="rating__item">
-                    <button type="button" class="rating__star"></button>
-                  </li>
-                  <li data-active="true" class="rating__item">
-                    <button type="button" class="rating__star"></button>
+                    <input type="radio" id="r3" name="rating" value="3" data-entity="radio" class="rating__input">
+                    <label for="r3" data-entity="star" class="rating__star"></label>
                   </li>
                   <li class="rating__item">
-                    <button type="button" class="rating__star"></button>
+                    <input type="radio" id="r4" name="rating" value="4" data-entity="radio" class="rating__input">
+                    <label for="r4" data-entity="star" class="rating__star"></label>
+                  </li>
+                  <li class="rating__item">
+                    <input type="radio" id="r5" name="rating" value="5" data-entity="radio" class="rating__input">
+                    <label for="r5" data-entity="star" class="rating__star"></label>
                   </li>
                 </ul>
               </div>
@@ -166,51 +171,33 @@
               <article class="comments">
                 <h2 class="comments__header">Reviews</h2>
                 <ul class="comments__box">
-                  <li class="comments__item"><a href="#" class="comments__avatar-link"><img src="img/user.jpg" class="comments__avatar"></a>
+                  <li class="comments__item">
+                    <div class="comments__avatar"><a href="#" class="comments__avatar-link"><img src="img/user.jpg" class="comments__img"></a></div>
                     <div class="comments__body">
                       <div class="comments__top-line"><a href="#" class="comments__name">Angelina Jolie</a>
-                        <!-- rating -->
-                        <ul class="rating">
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li data-active="true" class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
+                        <!-- rating--showonly -->
+                        <ul data-module="showrating" data-value="1" class="rating rating--showonly">
+                          <li class="rating__star rating__star--active"></li>
+                          <li class="rating__star rating__star--active"></li>
+                          <li class="rating__star rating__star--active"></li>
+                          <li class="rating__star"></li>
+                          <li class="rating__star"></li>
                         </ul>
                       </div>
                       <p class="comments__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.</p>
                     </div>
                   </li>
-                  <li class="comments__item"><a href="#" class="comments__avatar-link"><img src="img/user.jpg" class="comments__avatar"></a>
+                  <li class="comments__item">
+                    <div class="comments__avatar"><a href="#" class="comments__avatar-link"><img src="img/user.jpg" class="comments__img"></a></div>
                     <div class="comments__body">
                       <div class="comments__top-line"><a href="#" class="comments__name">Angelina Jolie</a>
-                        <!-- rating -->
-                        <ul class="rating">
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li data-active="true" class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
-                          <li class="rating__item">
-                            <button type="button" class="rating__star"></button>
-                          </li>
+                        <!-- rating--showonly -->
+                        <ul data-module="showrating" data-value="1" class="rating rating--showonly">
+                          <li class="rating__star rating__star--active"></li>
+                          <li class="rating__star rating__star--active"></li>
+                          <li class="rating__star rating__star--active"></li>
+                          <li class="rating__star"></li>
+                          <li class="rating__star"></li>
                         </ul>
                       </div>
                       <p class="comments__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.</p>

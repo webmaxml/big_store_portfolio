@@ -3,8 +3,6 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var itemTemplate = require( '../templates/item.jade' );
-
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
@@ -28,7 +26,7 @@ var View = Backbone.View.extend({
 
 	render: function() {
 
-		this.$el.html( itemTemplate({}) );
+		
 		return this;
 	},
 
