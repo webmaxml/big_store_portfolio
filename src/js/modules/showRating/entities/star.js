@@ -3,13 +3,12 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var itemTemplate = require( '../templates/item.jade' );
-
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		state: null
+		index: 0,
+		state: 'empty'
 	}
 });
 
@@ -17,18 +16,17 @@ var Model = Backbone.Model.extend({
 
 var View = Backbone.View.extend({
 
-	events: {
-		'click' : 'delegateController'
-	},
+	render: function( state ) {
 
-	// delegate managing user actions to controller
-	delegateController: function( event ) {
-		this.controller.manageAction( event );
-	},
+		switch ( state ) {
+			case 'full':
+				this.$el.addClass( 'rating__star--active' );
+				break;
+			case 'empty':
+				this.$el.removeClass( 'rating__star--active' );
+				break;
+		};
 
-	render: function() {
-
-		this.$el.html( itemTemplate({}) );
 		return this;
 	},
 
@@ -46,32 +44,32 @@ var Controller = function( mediator, model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change', this.manageModelChange );
-
+	this.listenTo( this.model, 'change:state', this.manageModelChange );
+	this.listenTo( this.mediator, 'setRating', this.manageState );
 };
 
 			/**************************
 			 *      Model Change      *
 			 **************************/
 
-Controller.prototype.manageModelChange = function() {
-	this.view.render();
-};
-
-			/**************************
-			 *       User input       *
-			 **************************/
-
-// manage user actions
-Controller.prototype.manageAction = function( event ) {
-	if ( event.type === 'click' ) {
-		this.model.set( 'state', 'active' );
-	}
+Controller.prototype.manageModelChange = function( model, state ) {
+	this.view.render( state );
 };
 
 			/**************************
 			 *     Mediator orders    *
 			 **************************/
+
+Controller.prototype.manageState = function( index ) {
+	
+	// setting full and empty stars
+	if ( this.model.get( 'index' ) <= index ) {
+		this.model.set( 'state', 'full' );
+	} else {
+		this.model.set( 'state', 'empty' );
+	}
+
+};
 
 module.exports = { 
 	Model: Model,

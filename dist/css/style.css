@@ -5028,6 +5028,9 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 .rating__star.rating__star--active {
   background-position: -23px -1px;
 }
+.rating.rating--showonly .rating__star {
+  cursor: auto;
+}
 
 /* tech-form */
 .tech-form {
