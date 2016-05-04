@@ -1,12 +1,12 @@
 // featured 
-article.featured
+article.featured( data-module="featuredslider" )
 	h2.featured__header
 		span.featured__header-text Featured
-		button.featured__btn-next( type="button" )
+		button.featured__btn-next( type="button" data-entity="button" data-type="next" )
 			i.fa.fa-chevron-right.featured__header-icon
-		button.featured__btn-prev( type="button" )
+		button.featured__btn-prev( type="button" data-entity="button" data-type="prev" )
 			i.fa.fa-chevron-left.featured__header-icon
-	ul.featured__content.owl-carousel
+	ul.featured__content.owl-carousel( data-entity="slider" )
 		li.featured__item
 			a.featured__link( href="product.html" )
 				img.featured__img( src="img/featured_item.jpg" alt="featured_item" )
@@ -15,11 +15,11 @@ article.featured
 					h3.featured__item-name 
 						a.featured__link( href="product.html" ) Herbal Sport
 					.featured__current-price
-						span.currency.featured__currency
-						span.price.featured__current-value 101.88
+						span.featured__currency( data-module="currency" )
+						span.featured__current-value( data-module="price" ) 101.88
 					.featured__old-price
-						span.currency.featured__currency
-						span.price.featured__old-value 69.99
+						span.featured__currency( data-module="currency" )
+						span.featured__old-value( data-module="price" ) 69.99
 				include ../btn-cart/btn-cart.jade
 		li.featured__item
 			a.featured__link( href="product.html" )
@@ -29,11 +29,11 @@ article.featured
 					h3.featured__item-name 
 						a.featured__link( href="product.html" ) Herbal Sport
 					.featured__current-price
-						span.currency.featured__currency
-						span.price.featured__current-value 101.88
+						span.featured__currency( data-module="currency" )
+						span.featured__current-value( data-module="price" ) 101.88
 					.featured__old-price
-						span.currency.featured__currency
-						span.price.price.featured__old-value 69.99
+						span.featured__currency( data-module="currency" )
+						span.featured__old-value( data-module="price" ) 69.99
 				include ../btn-cart/btn-cart.jade
 		li.featured__item
 			a.featured__link( href="product.html" )
@@ -43,11 +43,11 @@ article.featured
 					h3.featured__item-name 
 						a.featured__link( href="product.html" ) Herbal Sport
 					.featured__current-price
-						span.currency.featured__currency
-						span.price.featured__current-value 101.88
+						span.featured__currency( data-module="currency" )
+						span.featured__current-value( data-module="price" ) 101.88
 					.featured__old-price
-						span.currency.featured__currency
-						span.price.featured__old-value 69.99
+						span.featured__currency( data-module="currency" )
+						span.featured__old-value( data-module="price" ) 69.99
 				include ../btn-cart/btn-cart.jade
 		li.featured__item
 			a.featured__link( href="product.html" )
@@ -57,9 +57,9 @@ article.featured
 					h3.featured__item-name 
 						a.featured__link( href="product.html" ) Herbal Sport
 					.featured__current-price
-						span.currency.featured__currency
-						span.price.featured__current-value 101.88
+						span.featured__currency( data-module="currency" )
+						span.featured__current-value( data-module="price" ) 101.88
 					.featured__old-price
-						span.currency.featured__currency
-						span.price.featured__old-value 69.99
+						span.featured__currency( data-module="currency" )
+						span.featured__old-value( data-module="price" ) 69.99
 				include ../btn-cart/btn-cart.jade

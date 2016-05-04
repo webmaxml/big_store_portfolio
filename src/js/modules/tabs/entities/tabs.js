@@ -3,8 +3,6 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var mediator = require( '../mediator.js' );
-
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
@@ -41,39 +39,37 @@ var View = Backbone.View.extend({
 
 /******************** Controller ********************/
 
-var Controller = function( model, view ) {
+var Controller = function( mediator, model, view ) {
 	_.extend( this, Backbone.Events );
 
 	// set the mutual links
+	this.mediator = mediator;
 	this.model = model;
 	this.view = view;
 	this.view.controller = this;
 
 	// set event listeners
 	this.listenTo( this.model, 'change:state', this.manageModelChange );
-	this.listenTo( mediator, 'discardState', this.manageMediator);
+	this.listenTo( this.mediator, 'activeChange', this.manageMediator);
 };
 
 // manage model change
 Controller.prototype.manageModelChange = function( model, state ) {
-	if ( state === 'active' ) {
-		mediator.trigger( 'activeChange', this.model.get( 'index' ) );
-	};
-
 	this.view.render( state );
 };
 
 // manage user actions
 Controller.prototype.manageAction = function( event ) {
-	if ( event.type === 'click' ) {
-		this.model.set( 'state', 'active' );
-	}
+	this.mediator.trigger( 'activeChange', this.model.get( 'index' ) );
 };
 
 // manage mediator events
 Controller.prototype.manageMediator = function( index ) {
-	// discard state of every thumb except active
-	if ( this.model.get( 'index' ) !== index ) {
+
+	// set active tab with the same index, turn off the rest
+	if ( this.model.get( 'index' ) === index ) {
+		this.model.set( 'state', 'active' );
+	} else {
 		this.model.set( 'state', null );
 	}
 }

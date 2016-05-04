@@ -7,4 +7,4 @@ function Mediator() {
 	_.extend( this, Backbone.Events );
 };
 
-module.exports = new Mediator;
+module.exports = Mediator;

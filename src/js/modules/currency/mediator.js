@@ -11,4 +11,4 @@ Mediator.prototype.setCurrency = function( curr ) {
 	this.trigger( 'setCurrency', curr );
 };
 
-module.exports = new Mediator;
+module.exports = Mediator;

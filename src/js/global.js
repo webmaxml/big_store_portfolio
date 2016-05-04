@@ -14,11 +14,6 @@ function init() {
 
 	var views = {
 		'product__thumbwrap': thumbGallery,
-		'top-slider': topSlider,
-		'featured__content': featuredSlider,
-		'currency': currency,
-		'tabs__item': tabs,
-		'brand-slider': brandSlider,
 	};
 
 	for ( var className in views ) {
@@ -30,12 +25,17 @@ function init() {
 	};
 
 	var dataValues = {
-		'setrating': setRating,
-		'showrating': showRating
+		'setrating'      :     setRating,
+		'showrating'     :     showRating,
+		'tabs'           :     tabs,
+		'brandslider'    :     brandSlider,
+		'topslider'      :     topSlider,
+		'featuredslider' :     featuredSlider,
+		'currency'       :     currency
 	};
 
 	for ( var value in dataValues ) {
-		containers = document.querySelectorAll( '[data-module="' + value + '"]' );
+		var containers = document.querySelectorAll( '[data-module="' + value + '"]' );
 
 		if ( containers.length > 0 ) {
 			dataValues[ value ].init( containers );

@@ -1,0 +1,17 @@
+mixin trending-item( options )
+	// trending-item 
+	li.trending-item.trending__item--sale( data-filter="#{ options.filter }" )
+		.trending-item__img-box
+			a.trending-item__link( href="#{ options.href }" )
+				img.trending-item__img( src="#{ options.img }" )
+		.trending-item__info
+			h3.trending-item__item-name 
+				a.trending-item__link( href="#{ options.href }" ) #{ options.name }
+			p.trending-item__item-text #{ options.text }
+			.trending-item__current-price
+				span.trending-item__currency( data-module="currency" )
+				span.trending-item__current-value( data-module="price" ) #{ options.newPrice }
+			.trending-item__old-price
+				span.trending-item__currency( data-module="currency" )
+				span.trending-item__old-value( data-module="price" ) #{ options.oldPrice }
+			include ../btn-cart/--trending/btn-cart--trending.jade

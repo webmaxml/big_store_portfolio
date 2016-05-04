@@ -3,8 +3,8 @@
 	.shopping-cart__label Shopping Cart:
 	.shopping-cart__amount 0
 	.shopping-cart__label item(s) - 
-	.currency.shopping-cart__currency
-	.price.shopping-cart__price 0.00
+	.shopping-cart__currency( data-module="currency" )
+	.shopping-cart__price( data-module="price" ) 0.00
 	button.shopping-cart__toggle( type="button" )
 		i.fa.fa-caret-down.shopping-cart__icon-closed
 		i.fa.fa-caret-up.shopping-cart__icon-opened

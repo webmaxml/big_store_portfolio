@@ -1,41 +1,37 @@
-function init( tabsItems ) {
+function init( tabContainers ) {
 	// import modules
 	var $ = require( 'jquery' );
 	var _ = require( 'underscore' );
 	var Tabs = require( './entities/tabs' );
 	var Panes = require( './entities/panes' );
-	var mediator = require( './mediator' );
+	var Mediator = require( './mediator' );
 
-	var initial;
-
-	// create set for every tab item
-	$( tabsItems ).each( function( index ) {
+	$( tabContainers ).each( function() {
 		
-		var tabModel = new Tabs.Model({ index: index });
+		var mediator = new Mediator();
 
-		// set initial tab
-		if ( index === 0 ) {
-			initial = tabModel;
-		}
+		var tabs = this.querySelectorAll( '[data-entity="tab"]' );
+		var panes = this.querySelectorAll( '[data-entity="pane"]' );
 
-		var tabView = new Tabs.View({ el: this, model: tabModel });
-		var tabController = new Tabs.Controller( tabModel, tabView );
+		// creating tabs
+		_.each( tabs, function( tab, index ) {
+			var tabModel = new Tabs.Model({ index: index });
+			var tabView = new Tabs.View({ el: tab });
+			var tabController = new Tabs.Controller( mediator, tabModel, tabView );
+		} )
 
-	} );
+		// creating panes
+		_.each( panes, function( pane, index ) {
+			var paneModel = new Panes.Model({ index: index });
+			var paneView = new Panes.View({ el: pane });
+			var paneController = new Panes.Controller( mediator, paneModel, paneView );
+		} )
 
-	var panes = document.getElementsByClassName( 'product-desc__pane' );
+		// set initial active
+		mediator.setActive(1);
 
-	// create set for every pane
-	$( panes ).each( function( index ) {
-		
-		var paneModel = new Panes.Model({ index: index });
-		var paneView = new Panes.View({ el: this, model: paneModel });
-		var paneController = new Panes.Controller( paneModel, paneView );
+	});
 
-	} );
-
-	// make initial tab active
-	initial.set( 'state', 'active' );
 };
 
 module.exports = { init: init };

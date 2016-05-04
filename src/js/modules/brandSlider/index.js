@@ -1,28 +1,32 @@
-function init( brandСontainers ) {
+function init( sliderСontainers ) {
 	// import modules
 	var $ = require( 'jquery' );
 	var _ = require( 'underscore' );
 	var Slider = require( './entities/slider' );
 	var Buttons = require( './entities/buttons' );
+	var Mediator = require( './mediator' );
 
-	$( brandСontainers ).each( function() {
+	$( sliderСontainers ).each( function() {
+
+		var mediator = new Mediator();
+
+		var slider = this.querySelector( '[data-entity="slider"]' );
+		var buttons = this.querySelectorAll( '[data-entity="button"]' );
 
 		// create slider
-		var sliderView = new Slider.View({ el: this });
-		var sliderController = new Slider.Controller( null, sliderView );
+		var sliderView = new Slider.View({ el: slider });
+		var sliderController = new Slider.Controller( mediator, null, sliderView );
 		sliderView.render();
 
-		// create buttons
-		var prevButton = document.getElementsByClassName( 'brand-slider__btn-prev' )[0];
-		var nextButton = document.getElementsByClassName( 'brand-slider__btn-next' )[0];
+		_.each( buttons, function( button ) {
 
-		var prevModel = new Buttons.Model({ type: 'prev' });
-		var prevView = new Buttons.View({ el: prevButton });
-		var prevController = new Buttons.Controller( prevModel, prevView );
+			var type = $( button ).data( 'type' );
 
-		var nextModel = new Buttons.Model({ type: 'next' });
-		var nextView = new Buttons.View({ el: nextButton });
-		var nextController = new Buttons.Controller( nextModel, nextView );
+			var btnModel = new Buttons.Model({ type: type });
+			var btnView = new Buttons.View({ el: button });
+			var btnController = new Buttons.Controller( mediator, btnModel, btnView );
+
+		} )
 
 	} );
 };

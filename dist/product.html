@@ -52,8 +52,8 @@
             <div class="shopping-cart__label">Shopping Cart:</div>
             <div class="shopping-cart__amount">0</div>
             <div class="shopping-cart__label">item(s) - </div>
-            <div class="currency shopping-cart__currency"></div>
-            <div class="price shopping-cart__price">0.00</div>
+            <div data-module="currency" class="shopping-cart__currency"></div>
+            <div data-module="price" class="shopping-cart__price">0.00</div>
             <button type="button" class="shopping-cart__toggle"><i class="fa fa-caret-down shopping-cart__icon-closed"></i><i class="fa fa-caret-up shopping-cart__icon-opened"></i></button>
             <!-- shopping-basket -->
             <ul class="shopping-basket"></ul>
@@ -77,7 +77,7 @@
               <div class="product__imgbox">
                 <div class="product__imgwrap"></div>
               </div>
-              <div class="product__price-label"><span class="currency product__current-currency"></span><span class="price product__current-value">19.99</span></div>
+              <div class="product__price-label"><span data-module="currency" class="product__current-currency"></span><span data-module="price" class="product__current-value">19.99</span></div>
               <ul class="product__thumbbox">
                 <li class="product__thumbwrap"><img src="img/product_item.jpg" data-srcfull="img/product_item.jpg" alt="product_thumb" class="product__thumb"></li>
                 <li class="product__thumbwrap"><img src="img/new_item_1.png" data-srcfull="img/new_item_1.png" alt="product_thumb" class="product__thumb"></li>
@@ -89,14 +89,16 @@
               <h2 class="product__item-name">Lorem Ipsum Text</h2>
               <div class="product__stock-info">
                 <div class="product__available"><span class="product__available-text">In Stock - </span><span class="product__available-value">53</span><span class="product__available-text"> available</span></div>
-                <!-- rating--showonly -->
-                <ul data-module="showrating" data-value="4" class="rating rating--showonly">
-                  <li class="rating__star"></li>
-                  <li class="rating__star"></li>
-                  <li class="rating__star"></li>
-                  <li class="rating__star"></li>
-                  <li class="rating__star"></li>
-                </ul>
+                <div class="product__rating">
+                  <!-- rating--showonly -->
+                  <ul data-module="showrating" data-value="4" class="rating rating--showonly">
+                    <li class="rating__star"></li>
+                    <li class="rating__star"></li>
+                    <li class="rating__star"></li>
+                    <li class="rating__star"></li>
+                    <li class="rating__star"></li>
+                  </ul>
+                </div>
               </div>
               <p class="product__about">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum.</p>
               <!-- tech-form-->
@@ -120,21 +122,21 @@
           </li>
         </ul>
         <!-- product-desc -->
-        <article class="product-desc">
+        <article data-module="tabs" class="product-desc">
           <!-- tabs -->
           <ul class="tabs">
-            <li class="tabs__item">
+            <li data-entity="tab" class="tabs__item">
               <button type="button" class="tabs__item-btn">Description</button>
             </li>
-            <li class="tabs__item">
+            <li data-entity="tab" class="tabs__item">
               <button type="button" class="tabs__item-btn">Additional information</button>
             </li>
-            <li class="tabs__item">
+            <li data-entity="tab" class="tabs__item">
               <button type="button" class="tabs__item-btn">Reviews <span class="tabs__reviews">(0)</span></button>
             </li>
           </ul>
           <ul class="product-desc__pane-box">
-            <li class="product-desc__pane">
+            <li data-entity="pane" class="product-desc__pane">
               <h2 class="product-desc__header">Product Description</h2><br>
               <p class="product-desc__text">We decided to get smart with this fine cotton polo featuring our ‘A’ branding embroidered on to the chest… You can pretty much wear this classic yet smart polo on any occasion. A note to all gentleman customers: you may find your lady ‘borrowing’ this from you… It’s a unisex fit. Don’t say we didn’t warn you!</p><br>
               <p class="product-desc__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam vehicula mi at mauris. Maecenas placerat, nisl at consequat rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet vitae, tellus. Sed odio est, auctor ac, sollicitudin in, consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus eget eros.</p><br>
@@ -144,14 +146,14 @@
               <p class="product-desc__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam vehicula mi at mauris. Maecenas placerat, nisl at consequat rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet vitae, tellus. Sed odio est, auctor ac, sollicitudin in, consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus eget eros.</p><br>
               <p class="product-desc__text">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In posuere felis nec tortor. Pellentesque faucibus. Ut accumsan ultricies elit. Maecenas at justo</p>
             </li>
-            <li class="product-desc__pane">
+            <li data-entity="pane" class="product-desc__pane">
               <h2 class="product-desc__header">Additional information</h2><br>
               <p class="product-desc__text">We decided to get smart with this fine cotton polo featuring our ‘A’ branding embroidered on to the chest… You can pretty much wear this classic yet smart polo on any occasion. A note to all gentleman customers: you may find your lady ‘borrowing’ this from you… It’s a unisex fit. Don’t say we didn’t warn you!</p><br>
               <p class="product-desc__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum. Suspendisse vulputate aliquam dui. Nulla elementum dui ut augue. Aliquam vehicula mi at mauris. Maecenas placerat, nisl at consequat rhoncus, sem nunc gravida justo, quis eleifend arcu velit quis lacus. Morbi magna magna, tincidunt a, mattis non, imperdiet vitae, tellus. Sed odio est, auctor ac, sollicitudin in, consequat vitae, orci. Fusce id felis. Vivamus sollicitudin metus eget eros.</p><br>
               <p class="product-desc__text">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In posuere felis nec tortor. Pellentesque faucibus. Ut accumsan ultricies elit. Maecenas at justo id velit placerat molestie. Donec dictum lectus non odio. Cras a ante vitae enim iaculis aliquam. Mauris nunc quam, venenatis nec, euismod sit amet, egestas placerat, est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras id elit. Integer quis urna. Ut ante enim, dapibus malesuada, fringilla eu, condimentum quis, tellus. Aenean porttitor eros vel dolor. Donec convallis pede venenatis nibh. Duis quam. Nam eget lacus. Aliquam erat volutpat. Quisque dignissim congue leo.</p><br>
               <p class="product-desc__text">Mauris vel lacus vitae felis vestibulum volutpat. Etiam est nunc, venenatis in, tristique eu, imperdiet ac, nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In iaculis facilisis massa. Etiam eu urna. Sed porta. Suspendisse quam leo, molestie sed, luctus quis, feugiat in, pede. Fusce tellus. Sed metus augue, convallis et, vehicula ut, pulvinar eu, ante. Integer orci tellus, tristique vitae, consequat nec, porta vel, lectus. Nulla sit amet diam. Duis non nunc. Nulla rhoncus dictum metus. Curabitur tristique mi condimentum orci. Phasellus pellentesque aliquam enim. Proin dui lectus, cursus eu, mattis laoreet, viverra sit amet, quam. Curabitur vel dolor ultrices ipsum dictum tristique. Praesent vitae lacus. Ut velit enim, vestibulum non, fermentum nec, hendrerit quis, leo. Pellentesque rutrum malesuada neque.</p>
             </li>
-            <li class="product-desc__pane">
+            <li data-entity="pane" class="product-desc__pane">
               <!-- comments -->
               <article class="comments">
                 <h2 class="comments__header">Reviews</h2>
@@ -159,15 +161,17 @@
                   <li class="comments__item">
                     <div class="comments__avatar"><a href="#" class="comments__avatar-link"><img src="img/user.jpg" class="comments__img"></a></div>
                     <div class="comments__body">
-                      <div class="comments__top-line"><a href="#" class="comments__name">Angelina Jolie</a>
-                        <!-- rating--showonly -->
-                        <ul data-module="showrating" data-value="1" class="rating rating--showonly">
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                        </ul>
+                      <div class="comments__top-line"><a href="#" class="comments__name">Angelina Jolie	</a>
+                        <div class="comments__rating">
+                          <!-- rating--showonly -->
+                          <ul data-module="showrating" data-value="1" class="rating rating--showonly">
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                          </ul>
+                        </div>
                       </div>
                       <p class="comments__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.</p>
                     </div>
@@ -176,14 +180,16 @@
                     <div class="comments__avatar"><a href="#" class="comments__avatar-link"><img src="img/user.jpg" class="comments__img"></a></div>
                     <div class="comments__body">
                       <div class="comments__top-line"><a href="#" class="comments__name">Angelina Jolie</a>
-                        <!-- rating--showonly -->
-                        <ul data-module="showrating" data-value="3" class="rating rating--showonly">
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                          <li class="rating__star"></li>
-                        </ul>
+                        <div class="comments__rating">
+                          <!-- rating--showonly -->
+                          <ul data-module="showrating" data-value="3" class="rating rating--showonly">
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                            <li class="rating__star"></li>
+                          </ul>
+                        </div>
                       </div>
                       <p class="comments__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.</p>
                     </div>
@@ -192,36 +198,51 @@
               </article>
               <!-- add-comment -->
               <article class="add-comment">
-                <h3 class="add-comment__header">Add comment</h3>
-                <form method="post" action="" class="add-comment__form">
-                  <div class="add-comment__group">
-                    <label for="comment-name" class="add-comment__label">Name (<b class="add-comment__required">Required</b>)</label>
+                <form method="get" action="" class="add-comment__form">
+                  <h2 class="add-comment__header"><b class="add-comment__header-text">Add comment</b></h2>
+                  <div class="add-comment__form-group">
+                    <label for="#comment-name" class="add-comment__label-text">Name (<b class="add-comment__label-text-strong">Required</b>)</label>
                     <input id="comment-name" type="text" name="name" class="add-comment__input">
                   </div>
-                  <div class="add-comment__group">
-                    <label for="comment-email" class="add-comment__label">Email (<b class="add-comment__required">Required</b>)</label>
+                  <div class="add-comment__form-group">
+                    <label for="#comment-email" class="add-comment__label-text">Email (<b class="add-comment__label-text-strong">Required</b>)</label>
                     <input id="comment-email" type="text" name="email" class="add-comment__input">
                   </div>
-                  <div class="add-comment__group">
-                    <fieldset class="add-comment__rating-box">
-                      <legend for="comment-email" class="add-comment__label">Rating (</legend><b class="add-comment__required">Required</b>)
-                      <input type="radio" id="r1" name="rating" value="1">
-                      <input type="radio" id="r2" name="rating" value="2">
-                      <input type="radio" id="r3" name="rating" value="3">
-                      <input type="radio" id="r4" name="rating" value="4">
-                      <input type="radio" id="r5" name="rating" value="5">
-                      <label for="r1" class="add-comment__rating-label"></label>
-                      <label for="r2" class="add-comment__rating-label"></label>
-                      <label for="r3" class="add-comment__rating-label"></label>
-                      <label for="r4" class="add-comment__rating-label"></label>
-                      <label for="r5" class="add-comment__rating-label"></label>
-                    </fieldset>
+                  <fieldset class="add-comment__form-group">
+                    <legend class="add-comment__label-text">Rating (<b class="add-comment__label-text-strong">Required</b>)</legend>
+                    <div class="add-comment__rating">
+                      <!-- rating -->
+                      <ul data-module="setrating" data-value="1" class="rating">
+                        <li class="rating__item">
+                          <input type="radio" id="r1" name="rating" value="1" data-entity="radio" class="rating__input">
+                          <label for="r1" data-entity="star" class="rating__star"></label>
+                        </li>
+                        <li class="rating__item">
+                          <input type="radio" id="r2" name="rating" value="2" data-entity="radio" class="rating__input">
+                          <label for="r2" data-entity="star" class="rating__star"></label>
+                        </li>
+                        <li class="rating__item">
+                          <input type="radio" id="r3" name="rating" value="3" data-entity="radio" class="rating__input">
+                          <label for="r3" data-entity="star" class="rating__star"></label>
+                        </li>
+                        <li class="rating__item">
+                          <input type="radio" id="r4" name="rating" value="4" data-entity="radio" class="rating__input">
+                          <label for="r4" data-entity="star" class="rating__star"></label>
+                        </li>
+                        <li class="rating__item">
+                          <input type="radio" id="r5" name="rating" value="5" data-entity="radio" class="rating__input">
+                          <label for="r5" data-entity="star" class="rating__star"></label>
+                        </li>
+                      </ul>
+                    </div>
+                  </fieldset>
+                  <div class="add-comment__form-group">
+                    <label id="comment-text" type="text" name="comment" class="add-comment__label-text">Your comment (<b class="add-comment__label-text-strong">Required</b>)</label>
+                    <textarea id="comment-text" type="text" name="comment" class="add-comment__textarea"></textarea>
                   </div>
-                  <div class="add-comment__group">
-                    <label for="comment-text" class="add-comment__label">Your comment (<b class="add-comment__required">Required</b>)</label>
-                    <textarea id="comment-text" name="comment" class="add-comment__input"></textarea>
+                  <div class="add-comment__form-group">
+                    <button class="add-comment__submit">Submit</button>
                   </div>
-                  <button class="add-comment__submit">Submit</button>
                 </form>
               </article>
             </li>
@@ -229,86 +250,89 @@
         </article>
         <!-- related -->
         <article class="related">
-          <!-- tabs -->
+          <!-- tabs--related-->
           <ul class="tabs tabs--related">
-            <li class="tabs__item">
+            <li class="tabs__item tabs__item--active">
               <button type="button" class="tabs__item-btn">Related Products</button>
             </li>
           </ul>
-          <!-- product-panel-->
-          <ul class="product-panel product-panel--related">
-            <li class="product-panel__item product-panel__item--sale">
-              <div class="product-panel__img-box"><a href="product.html" class="product-panel__link"><img src="img/new_item_1.png" alt="new_item_1" class="product-panel__img"></a></div>
-              <div class="product-panel__info">
-                <div class="product-panel__about">
-                  <h3 class="product-panel__item-name"> <a href="product.html" class="product-panel__link">Lorem ipsum dolor sit</a></h3>
-                  <div class="product-panel__current-price"><span class="currency product-panel__currency"></span><span class="price product-panel__current-value">34.99</span></div>
-                  <div class="product-panel__old-price"><span class="currency product-panel__currency"></span><span class="price product-panel__old-value">69.99</span></div>
-                </div>
-                <!-- btn-cart-->
-                <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
-              </div>
-            </li>
-            <li class="product-panel__item">
-              <div class="product-panel__img-box"><a href="product.html" class="product-panel__link"><img src="img/new_item_2.png" alt="new_item_2" class="product-panel__img"></a></div>
-              <div class="product-panel__info">
-                <div class="product-panel__about">
-                  <h3 class="product-panel__item-name"> <a href="product.html" class="product-panel__link">Lorem ipsum dolor sit</a></h3>
-                  <div class="product-panel__current-price"><span class="currency product-panel__currency"></span><span class="price product-panel__current-value">34.99</span></div>
-                  <div class="product-panel__old-price"><span class="currency product-panel__currency"></span><span class="price product-panel__old-value">69.99</span></div>
-                </div>
-                <!-- btn-cart-->
-                <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
-              </div>
-            </li>
-            <li class="product-panel__item">
-              <div class="product-panel__img-box"><a href="product.html" class="product-panel__link"><img src="img/new_item_3.png" alt="new_item_3" class="product-panel__img"></a></div>
-              <div class="product-panel__info">
-                <div class="product-panel__about">
-                  <h3 class="product-panel__item-name"> <a href="product.html" class="product-panel__link">Lorem ipsum dolor sit</a></h3>
-                  <div class="product-panel__current-price"><span class="currency product-panel__currency"></span><span class="price product-panel__current-value">34.99</span></div>
-                  <div class="product-panel__old-price"><span class="currency product-panel__currency"></span><span class="price product-panel__old-value">69.99</span></div>
-                </div>
-                <!-- btn-cart-->
-                <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
-              </div>
-            </li>
-            <li class="product-panel__item">
-              <div class="product-panel__img-box"><a href="product.html" class="product-panel__link"><img src="img/new_item_1.png" alt="new_item_1" class="product-panel__img"></a></div>
-              <div class="product-panel__info">
-                <div class="product-panel__about">
-                  <h3 class="product-panel__item-name"> <a href="product.html" class="product-panel__link">Lorem ipsum dolor sit</a></h3>
-                  <div class="product-panel__current-price"><span class="currency product-panel__currency"></span><span class="price product-panel__current-value">34.99</span></div>
-                  <div class="product-panel__old-price"><span class="currency product-panel__currency"></span><span class="price product-panel__old-value">69.99</span></div>
-                </div>
-                <!-- btn-cart-->
-                <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
-              </div>
-            </li>
-            <li class="product-panel__item">
-              <div class="product-panel__img-box"><a href="product.html" class="product-panel__link"><img src="img/new_item_2.png" alt="new_item_2" class="product-panel__img"></a></div>
-              <div class="product-panel__info">
-                <div class="product-panel__about">
-                  <h3 class="product-panel__item-name"><a href="product.html" class="product-panel__link">Lorem ipsum dolor sit</a></h3>
-                  <div class="product-panel__current-price"><span class="currency product-panel__currency"></span><span class="price product-panel__current-value">34.99</span></div>
-                  <div class="product-panel__old-price"><span class="currency product-panel__currency"></span><span class="price product-panel__old-value">69.99</span></div>
-                </div>
-                <!-- btn-cart-->
-                <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
-              </div>
-            </li>
-            <li class="product-panel__item">
-              <div class="product-panel__img-box"><a href="product.html" class="product-panel__link"><img src="img/new_item_3.png" alt="new_item_3" class="product-panel__img"></a></div>
-              <div class="product-panel__info">
-                <div class="product-panel__about">
-                  <h3 class="product-panel__item-name"> <a href="product.html" class="product-panel__link">Lorem ipsum dolor sit</a></h3>
-                  <div class="product-panel__current-price"><span class="currency product-panel__currency"></span><span class="price product-panel__current-value">34.99</span></div>
-                  <div class="product-panel__old-price"><span class="currency product-panel__currency"></span><span class="price product-panel__old-value">69.99</span></div>
-                </div>
-                <!-- btn-cart-->
-                <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
-              </div>
-            </li>
+          <ul class="related__items">
+                    <!-- product-item -->
+                    <li class="product-item product-item--related product-panel__item--sale">
+                      <div class="product-item__img-line"><a href="product.html" class="product-item__img-link"><img src="img/new_item_2.png" alt="new_item_2" class="product-item__img"></a></div>
+                      <div class="product-item__info-line">
+                        <div class="product-item__about-grouper">
+                          <h3 class="product-item__name-line"><a href="product.html" class="product-item__name">Lorem ipsum dolor sit</a></h3>
+                          <div class="product-item__price-line">
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__new-currency"></span></div><span data-module="price" class="product-item__new-price">69.99</span>
+                            </div>
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__old-currency"></span></div><span data-module="price" class="product-item__old-price">34.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- btn-cart-->
+                        <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
+                      </div>
+                    </li>
+                    <!-- product-item -->
+                    <li class="product-item product-item--related product-panel__item--sale">
+                      <div class="product-item__img-line"><a href="product.html" class="product-item__img-link"><img src="img/new_item_2.png" alt="new_item_2" class="product-item__img"></a></div>
+                      <div class="product-item__info-line">
+                        <div class="product-item__about-grouper">
+                          <h3 class="product-item__name-line"><a href="product.html" class="product-item__name">Lorem ipsum dolor sit</a></h3>
+                          <div class="product-item__price-line">
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__new-currency"></span></div><span data-module="price" class="product-item__new-price">69.99</span>
+                            </div>
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__old-currency"></span></div><span data-module="price" class="product-item__old-price">34.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- btn-cart-->
+                        <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
+                      </div>
+                    </li>
+                    <!-- product-item -->
+                    <li class="product-item product-item--related product-panel__item--sale">
+                      <div class="product-item__img-line"><a href="product.html" class="product-item__img-link"><img src="img/new_item_2.png" alt="new_item_2" class="product-item__img"></a></div>
+                      <div class="product-item__info-line">
+                        <div class="product-item__about-grouper">
+                          <h3 class="product-item__name-line"><a href="product.html" class="product-item__name">Lorem ipsum dolor sit</a></h3>
+                          <div class="product-item__price-line">
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__new-currency"></span></div><span data-module="price" class="product-item__new-price">69.99</span>
+                            </div>
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__old-currency"></span></div><span data-module="price" class="product-item__old-price">34.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- btn-cart-->
+                        <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
+                      </div>
+                    </li>
+                    <!-- product-item -->
+                    <li class="product-item product-item--related product-panel__item--sale">
+                      <div class="product-item__img-line"><a href="product.html" class="product-item__img-link"><img src="img/new_item_2.png" alt="new_item_2" class="product-item__img"></a></div>
+                      <div class="product-item__info-line">
+                        <div class="product-item__about-grouper">
+                          <h3 class="product-item__name-line"><a href="product.html" class="product-item__name">Lorem ipsum dolor sit</a></h3>
+                          <div class="product-item__price-line">
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__new-currency"></span></div><span data-module="price" class="product-item__new-price">69.99</span>
+                            </div>
+                            <div class="product-item__price-grouper">
+                              <div class="product-item__currency-grouper"><span data-module="currency" class="product-item__old-currency"></span></div><span data-module="price" class="product-item__old-price">34.99</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- btn-cart-->
+                        <button type="button" class="btn-cart"><i class="fa fa-shopping-cart btn-cart__icon"></i></button>
+                      </div>
+                    </li>
           </ul>
         </article>
       </div>
@@ -316,10 +340,10 @@
     <!-- footer -->
     <section class="footer">
       <div class="footer__wrap">
-        <div class="footer__brand-slider-wrap">
-          <!-- brand-slider -->
-          <button type="button" class="brand-slider__btn-prev"><i class="fa fa-angle-left brand-slider__icon-prev"></i></button>
-          <article class="brand-slider owl-carousel">
+        <!-- brand-slider -->
+        <div data-module="brandslider" class="brand-slider__wrap">
+          <button type="button" data-entity="button" data-type="prev" class="brand-slider__btn-prev"><i class="fa fa-angle-left brand-slider__icon-prev"></i></button>
+          <article data-entity="slider" class="brand-slider owl-carousel">
             <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_1.png" alt="brand_item" class="brand-slider__img"></a></div>
             <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
             <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
@@ -333,7 +357,7 @@
             <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_2.png" alt="brand_item" class="brand-slider__img"></a></div>
             <div class="brand-slider__item"><a href="#" class="brand-slider__link"><img src="img/brand_3.png" alt="brand_item" class="brand-slider__img"></a></div>
           </article>
-          <button type="button" class="brand-slider__btn-next"><i class="fa fa-angle-right brand-slider__icon-next"></i></button>
+          <button type="button" data-entity="button" data-type="next" class="brand-slider__btn-next"><i class="fa fa-angle-right brand-slider__icon-next"></i></button>
         </div>
         <!-- about -->
         <article class="about">

@@ -1,0 +1,35 @@
+/* tabs--related */
+.tabs.tabs--related {
+	border-bottom: 4px solid #c9c9c9;
+
+	background: linear-gradient(to top, #e2e2e2 0%, white 100%);
+
+	& .tabs__item.tabs__item--active {
+		
+		&::before {
+			background-color: #505050;
+			box-shadow: -3px 2px 0 3px #a7a7a7 inset;
+		}
+
+		&::after {
+			background-color: #505050;
+			box-shadow: 3px 2px 0 3px #a7a7a7 inset;
+		}
+
+	}
+
+	/***** content *****/
+
+	& .tabs__item-btn {
+		line-height: $base-lh * 2 - 4;
+	}
+	
+	& .tabs__item.tabs__item--active .tabs__item-btn {
+		line-height: $base-lh * 2 - 4 + 10;
+		color: #010101;
+		text-shadow: 0 1px 1px white;
+
+		background: linear-gradient(180deg, #a7a7a7 0%, #c9c9c9 32%, #c9c9c9 100%);
+	}
+
+}

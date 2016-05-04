@@ -2,7 +2,6 @@
 var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
-var mediator = require( '../mediator.js' );
 var owlCarousel = require( 'owlCarousel' );
 
 /******************** View ********************/
@@ -32,17 +31,18 @@ var View = Backbone.View.extend({
 
 /******************** Controller ********************/
 
-var Controller = function( model, view ) {
+var Controller = function( mediator, model, view ) {
 	_.extend( this, Backbone.Events );
 
-		// set the mutual links
-		this.model = model;
-		this.view = view;
-		this.view.controller = this;
+	// set the mutual links
+	this.mediator = mediator;
+	this.model = model;
+	this.view = view;
+	this.view.controller = this;
 
-		// set event listeners
-		this.listenTo( mediator, 'slideChange', this.manageSlideChange );
-	};
+	// set event listeners
+	this.listenTo( this.mediator, 'slideChange', this.manageSlideChange );
+};
 
 // manage model change
 Controller.prototype.manageSlideChange = function( type ) {
@@ -53,8 +53,8 @@ Controller.prototype.manageSlideChange = function( type ) {
 		case 'next':
 			this.view.next();
 			break;
-		};
 	};
+};
 
 
 module.exports = { 

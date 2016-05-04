@@ -3,8 +3,6 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var mediator = require( '../mediator.js' );
-
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
@@ -32,17 +30,18 @@ var View = Backbone.View.extend({
 
 /******************** Controller ********************/
 
-var Controller = function( model, view ) {
+var Controller = function( mediator, model, view ) {
 	_.extend( this, Backbone.Events );
 
 	// set the mutual links
+	this.mediator = mediator;
 	this.model = model;
 	this.view = view;
 	this.view.controller = this;
 
 	// set event listeners
 	this.listenTo( this.model, 'change:state', this.manageModelChange );
-	this.listenTo( mediator, 'activeChange', this.manageActiveChange );
+	this.listenTo( this.mediator, 'activeChange', this.manageActiveChange );
 };
 
 // manage model change

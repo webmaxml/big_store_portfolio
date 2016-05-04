@@ -15,7 +15,6 @@
 @import "../blocks/featured/featured";
 @import "../blocks/btn-cart/btn-cart";
 @import "../blocks/new-products/new-products";
-@import "../blocks/product-panel/product-panel";
 @import "../blocks/sale-badge/sale-badge";
 @import "../blocks/trending/trending";
 @import "../blocks/footer/footer";
@@ -27,6 +26,16 @@
 @import "../blocks/product/product";
 @import "../blocks/rating/rating";
 @import "../blocks/tech-form/tech-form";
+
 @import "../blocks/tabs/tabs";
+@import "../blocks/tabs/tabs--related";
+
 @import "../blocks/product-desc/product-desc";
 @import "../blocks/comments/comments";
+@import "../blocks/add-comment/add-comment";
+@import "../blocks/trending-item/trending-item"
+;
+@import "../blocks/product-item/product-item";
+@import "../blocks/product-item/product-item--related";
+
+@import "../blocks/related/related";

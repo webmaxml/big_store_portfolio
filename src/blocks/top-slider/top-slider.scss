@@ -9,6 +9,11 @@
 		margin-bottom: 0;
 	}
 
+	&__wrap {
+		position: relative;
+		z-index: $z_main__top-slider-wrap;
+	}
+
 	&__item {
 		@extend %clearfix;
 

@@ -55,6 +55,14 @@
 		}
 	}
 
+	&__product-box {
+		display: block;
+
+		font-size: 0;
+		line-height: 0;
+		text-align: left;
+	}
+
 	&__scroll-box {
 		padding: 0 17px;
 

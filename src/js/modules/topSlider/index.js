@@ -5,26 +5,29 @@ function init( sliderContainers ) {
 	var _ = require( 'underscore' );
 	var Slider = require( './entities/slider' );
 	var Buttons = require( './entities/buttons' );
+	var Mediator = require( './mediator' );
 
 	$( sliderContainers ).each( function() {
 
-		// creating slider
-		var sliderView = new Slider.View({ el: this });
-		var sliderController = new Slider.Controller( null, sliderView );
+		var mediator = new Mediator();
 
+		var slider = this.querySelector( '[data-entity="slider"]' );
+		var buttons = this.querySelectorAll( '[data-entity="button"]' );
+
+		// create slider
+		var sliderView = new Slider.View({ el: slider });
+		var sliderController = new Slider.Controller( mediator, null, sliderView );
 		sliderView.render();
 
-		// creating buttons
-		var prevButton = document.getElementsByClassName( 'top-slider__btn-prev' );
-		var nextButton = document.getElementsByClassName( 'top-slider__btn-next' );
+		_.each( buttons, function( button ) {
 
-		var prevModel = new Buttons.Model({ type: 'prev' });
-		var prevView = new Buttons.View({ el: prevButton, model: prevModel });
-		var prevController = new Buttons.Controller( prevModel, prevView );
+			var type = $( button ).data( 'type' );
 
-		var nextModel = new Buttons.Model({ type: 'next' });
-		var nextView = new Buttons.View({ el: nextButton, model: nextModel });
-		var nextController = new Buttons.Controller( nextModel, nextView );
+			var btnModel = new Buttons.Model({ type: type });
+			var btnView = new Buttons.View({ el: button });
+			var btnController = new Buttons.Controller( mediator, btnModel, btnView );
+
+		} );
 		
 	} );
 };

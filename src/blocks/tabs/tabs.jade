@@ -1,12 +1,9 @@
 // tabs 
-block tabsClasses
-	- var tabsClasses = ['tabs'];
-ul( class=tabsClasses )
-	block tabsItems
-		li.tabs__item
-			button.tabs__item-btn( type="button" ) Description
-		li.tabs__item
-			button.tabs__item-btn( type="button" ) Additional information
-		li.tabs__item
-			button.tabs__item-btn( type="button" ) Reviews 
-				span.tabs__reviews (0)
+ul.tabs
+	li.tabs__item( data-entity="tab" )
+		button.tabs__item-btn( type="button" ) Description
+	li.tabs__item( data-entity="tab" )
+		button.tabs__item-btn( type="button" ) Additional information
+	li.tabs__item( data-entity="tab" )
+		button.tabs__item-btn( type="button" ) Reviews 
+			span.tabs__reviews (0)

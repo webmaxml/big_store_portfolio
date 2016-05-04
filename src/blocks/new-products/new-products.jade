@@ -1,8 +1,60 @@
+//- mixins
+
+include ../product-item/product-item.jade
+
 // new-products 
 article.new-products
 	h2.new-products__header New products
 	.new-products__content
-		include ../product-panel/product-panel.jade
+		ul.new-products__product-box
+			+product-item({
+				href: 'product.html',
+				imgSrc: 'img/new_item_1.png',
+				imgAlt: 'new_item_1',
+				name: 'Lorem ipsum dolor sit',
+				oldPrice: 69.99,
+				newPrice: 34.99
+			})
+			+product-item({
+				href: 'product.html',
+				imgSrc: 'img/new_item_2.png',
+				imgAlt: 'new_item_2',
+				name: 'Lorem ipsum dolor sit',
+				oldPrice: 69.99,
+				newPrice: 34.99
+			})
+			+product-item({
+				href: 'product.html',
+				imgSrc: 'img/new_item_3.png',
+				imgAlt: 'new_item_3',
+				name: 'Lorem ipsum dolor sit',
+				oldPrice: 69.99,
+				newPrice: 34.99
+			})
+			+product-item({
+				href: 'product.html',
+				imgSrc: 'img/new_item_1.png',
+				imgAlt: 'new_item_1',
+				name: 'Lorem ipsum dolor sit',
+				oldPrice: 69.99,
+				newPrice: 34.99
+			})
+			+product-item({
+				href: 'product.html',
+				imgSrc: 'img/new_item_2.png',
+				imgAlt: 'new_item_2',
+				name: 'Lorem ipsum dolor sit',
+				oldPrice: 69.99,
+				newPrice: 34.99
+			})
+			+product-item({
+				href: 'product.html',
+				imgSrc: 'img/new_item_3.png',
+				imgAlt: 'new_item_3',
+				name: 'Lorem ipsum dolor sit',
+				oldPrice: 69.99,
+				newPrice: 34.99
+			})
 	.new-products__scroll-box
 		.new-products__scrollbar-wrap
 			.new-products__scrollbar

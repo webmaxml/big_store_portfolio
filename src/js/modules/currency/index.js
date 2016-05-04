@@ -3,17 +3,19 @@ function init( currencies ) {
 	var $ = require( 'jquery' );
 	var _ = require( 'underscore' );
 	var Currency = require( './entities/currency' );
-	var mediator = require( './mediator.js' );
+	var Mediator = require( './mediator.js' );
 
-	// create set for every currency element
+	var mediator = new Mediator();
+	var currModel = new Currency.Model();
+
+	// create set for every currency
 	$( currencies ).each( function() {
-		var currModel = new Currency.Model();
-		var currView = new Currency.View({ el: this, model: currModel });
-		var currControler = new Currency.Controller( currModel, currView );
+		var currView = new Currency.View({ el: this });
+		var currControler = new Currency.Controller( mediator, currModel, currView );
 	} );
 
 	// set initial currency
-	mediator.setCurrency( 'dollar' );
+	mediator.setCurrency( 'euro' );
 
 };
 

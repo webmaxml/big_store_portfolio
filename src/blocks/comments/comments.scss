@@ -123,6 +123,10 @@
 		}
 	}
 
+	&__rating {
+		float: right;
+	}
+
 	&__text {
 		font-family: $ff_text;
 		font-size: 14px;

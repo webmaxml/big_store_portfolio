@@ -5,12 +5,10 @@ var Backbone = require( 'backbone' );
 
 function Mediator() {
 	_.extend( this, Backbone.Events );
-
-	this.on( 'activeChange', this.manageStateChange);
 };
 
-Mediator.prototype.manageStateChange = function( index ) {
-	this.trigger( 'discardState', index );
+Mediator.prototype.setActive = function( number ) {
+	this.trigger( 'activeChange', number - 1 );
 };
 
-module.exports = new Mediator;
+module.exports = Mediator;

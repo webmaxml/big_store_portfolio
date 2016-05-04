@@ -17,9 +17,4 @@
 	&__wrap {
 		@extend %wrapper;
 	}
-
-	&__top-slider-wrap {
-		position: relative;
-		z-index: $z_main__top-slider-wrap;
-	}
 }

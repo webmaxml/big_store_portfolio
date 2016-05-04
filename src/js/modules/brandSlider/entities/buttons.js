@@ -3,8 +3,6 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var mediator = require( '../mediator.js' );
-
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
@@ -30,10 +28,11 @@ var View = Backbone.View.extend({
 
 /******************** Controller ********************/
 
-var Controller = function( model, view ) {
+var Controller = function( mediator, model, view ) {
 	_.extend( this, Backbone.Events );
 
 	// set the mutual links
+	this.mediator = mediator;
 	this.model = model;
 	this.view = view;
 	this.view.controller = this;
@@ -42,7 +41,7 @@ var Controller = function( model, view ) {
 // manage user actions
 Controller.prototype.manageAction = function( event ) {
 	if ( event.type === 'click' ) {
-		mediator.trigger( 'slideChange', this.model.get( 'type' ) );
+		this.mediator.trigger( 'slideChange', this.model.get( 'type' ) );
 	}
 };
 

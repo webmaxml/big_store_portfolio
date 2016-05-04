@@ -10,23 +10,6 @@
 		@extend %wrapper;
 	}
 
-	&__brand-slider-wrap {
-		overflow: hidden;
-		@extend %clearfix;
-
-		border-radius: 0 0 6px 6px;
-		margin-bottom: $base-lh;
-		margin-left: -15px;
-		margin-right: -15px;
-
-		background: $bg_footer__brand-slider-wrap;
-
-		@media ( min-width: 740px ) {
-			margin-left: 0;
-			margin-right: 0;
-		}
-	}
-
 	&__bottom-line {
 		@extend %clearfix;
 

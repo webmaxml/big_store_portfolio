@@ -1,4 +1,39 @@
+//- mixins
+include ../product-item/product-item--related.jade
+
 // related 
 article.related
 	include ../tabs/tabs--related.jade
-	include ../product-panel/product-panel--related.jade
+	ul.related__items
+		+product-item({
+			href: 'product.html',
+			imgSrc: 'img/new_item_2.png',
+			imgAlt: 'new_item_2',
+			name: 'Lorem ipsum dolor sit',
+			oldPrice: 69.99,
+			newPrice: 34.99
+		})
+		+product-item({
+			href: 'product.html',
+			imgSrc: 'img/new_item_2.png',
+			imgAlt: 'new_item_2',
+			name: 'Lorem ipsum dolor sit',
+			oldPrice: 69.99,
+			newPrice: 34.99
+		})
+		+product-item({
+			href: 'product.html',
+			imgSrc: 'img/new_item_2.png',
+			imgAlt: 'new_item_2',
+			name: 'Lorem ipsum dolor sit',
+			oldPrice: 69.99,
+			newPrice: 34.99
+		})
+		+product-item({
+			href: 'product.html',
+			imgSrc: 'img/new_item_2.png',
+			imgAlt: 'new_item_2',
+			name: 'Lorem ipsum dolor sit',
+			oldPrice: 69.99,
+			newPrice: 34.99
+		})

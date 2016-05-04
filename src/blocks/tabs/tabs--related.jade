@@ -1,9 +1,4 @@
 // tabs--related
-extends ./tabs.jade
-
-block tabsClasses
-	- var tabsClasses = ['tabs', 'tabs--related'];
-
-block tabsItems
-	li.tabs__item
+ul.tabs.tabs--related
+	li.tabs__item.tabs__item--active
 		button.tabs__item-btn( type="button" ) Related Products

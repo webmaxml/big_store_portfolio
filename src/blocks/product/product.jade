@@ -6,8 +6,8 @@ ul.product
 			.product__imgbox
 				.product__imgwrap
 			.product__price-label
-				span.currency.product__current-currency
-				span.price.product__current-value 19.99
+				span.product__current-currency( data-module="currency" )
+				span.product__current-value( data-module="price" ) 19.99
 			ul.product__thumbbox
 				li.product__thumbwrap
 					img.product__thumb( src="img/product_item.jpg" data-srcfull="img/product_item.jpg" alt="product_thumb" )
@@ -24,6 +24,7 @@ ul.product
 					span.product__available-text In Stock - 
 					span.product__available-value 53
 					span.product__available-text  available
-				include ../rating/rating--showonly.jade
+				.product__rating
+					include ../rating/rating--showonly.jade
 			p.product__about Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam. Praesent mauris ante, elementum et, bibendum at, posuere sit amet, nibh. Duis tincidunt lectus quis dui viverra vestibulum.
 			include ../tech-form/tech-form.jade
