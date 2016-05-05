@@ -2,20 +2,20 @@
 ul.product
 	// list-item stands for supporting shopping cart system, which looking for 'LI'
 	li.product__item
-		.product__view
+		.product__view( data-module="thumbgallery" )
 			.product__imgbox
-				.product__imgwrap
+				.product__imgwrap( data-entity="image" )
 			.product__price-label
 				span.product__current-currency( data-module="currency" )
 				span.product__current-value( data-module="price" ) 19.99
 			ul.product__thumbbox
-				li.product__thumbwrap
+				li.product__thumbwrap( data-entity="thumb" )
 					img.product__thumb( src="img/product_item.jpg" data-srcfull="img/product_item.jpg" alt="product_thumb" )
-				li.product__thumbwrap
+				li.product__thumbwrap( data-entity="thumb" )
 					img.product__thumb( src="img/new_item_1.png" data-srcfull="img/new_item_1.png" alt="product_thumb" )
-				li.product__thumbwrap
+				li.product__thumbwrap( data-entity="thumb" )
 					img.product__thumb( src="img/new_item_2.png" data-srcfull="img/new_item_2.png" alt="product_thumb" )
-				li.product__thumbwrap
+				li.product__thumbwrap( data-entity="thumb" )
 					img.product__thumb( src="img/new_item_3.png" data-srcfull="img/new_item_3.png" alt="product_thumb" )
 		.product__info
 			h2.product__item-name Lorem Ipsum Text

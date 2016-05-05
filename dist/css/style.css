@@ -4086,6 +4086,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   margin-top: 18px;
   text-align: left;
   background: #f3f3f3;
+  /***** content *****/
 }
 @media (min-width: 335px) {
   .new-products {
@@ -4136,64 +4137,40 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   line-height: 0;
   text-align: left;
 }
-.new-products__scroll-box {
-  padding: 0 17px;
-  font-size: 0;
-  line-height: 36px;
-}
-@media (min-width: 335px) {
-  .new-products__scroll-box {
-    padding: 0 24px;
-  }
-}
-.new-products__scrollbar-wrap {
-  display: inline-block;
-  vertical-align: top;
-  width: 100%;
-  border: 1px solid #dadfe6;
-  border-radius: 6px;
-  padding: 0 50px;
-  background-color: #fff;
-}
-
-/* jquery ui-slider */
-.ui-slider {
-  position: relative;
-}
-
-.ui-slider-handle {
+.new-products__handle {
   position: absolute;
-  z-index: 2;
+  left: 0;
+  top: -4px;
+  display: block;
   width: 100px;
-  height: 20px;
-  border-radius: 10px;
-  margin-left: -50px;
-  font-family: "Arial", sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 20px;
-  color: #fff;
+  border-radius: 8px;
+  font-size: 0;
+  line-height: 0;
   text-align: center;
   background-color: #fe1f1f;
   cursor: pointer;
 }
-
-.ui-slider-horizontal {
+.new-products__scrollbar {
+  position: relative;
+  display: block;
   width: 100%;
-  height: 10px;
+  height: 12px;
+  border: 1px solid #dadfe6;
+  border-radius: 6px;
 }
-.ui-slider-horizontal .ui-slider-handle {
-  top: -5px;
+.new-products__scrollbar-wrap {
+  display: block;
+  padding-top: 18px;
+  padding-bottom: 24px;
 }
-
-.ui-slider-vertical {
-  width: 100%;
-  height: 10px;
-}
-.ui-slider-vertical .ui-slider-handle {
-  left: -.3em;
-  margin-left: 0;
-  margin-bottom: -.6em;
+.new-products__handle-content {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "CodaRegular", "Arial", sans-serif;
+  font-size: 10px;
+  line-height: 18px;
+  color: #fff;
+  user-select: none;
 }
 
 /* sale-badge */

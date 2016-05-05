@@ -3,7 +3,6 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-var mediator = require( '../mediator' );
 var imgTemplate = require( '../templates/image.jade' );
 
 /******************** Model ********************/
@@ -29,17 +28,18 @@ var View = Backbone.View.extend({
 
 /******************** Controller ********************/
 
-var Controller = function( model, view ) {
+var Controller = function( mediator, model, view ) {
 	_.extend( this, Backbone.Events );
 
 	// set the mutual links
+	this.mediator = mediator;
 	this.model = model;
 	this.view = view;
 	this.view.controller = this;
 
 	// set event listeners
 	this.listenTo( this.model, 'change:imgSrc', this.manageModelChange );
-	this.listenTo( mediator, 'activeChange', this.updateModel );
+	this.listenTo( this.mediator, 'setImage', this.updateModel );
 
 };
 

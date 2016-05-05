@@ -5,14 +5,10 @@ var Backbone = require( 'backbone' );
 
 function Mediator() {
 	_.extend( this, Backbone.Events );
-	
-	this.on( 'activeChange', this.manageState );
 };
 
-// manage thumbs state
-Mediator.prototype.manageState = function( attrs ) {
-	// tell every thumb to discard active state except the one with this index
-	this.trigger( 'discardState', attrs.index );
+Mediator.prototype.setActive = function( number ) {
+	this.trigger( 'activeChange', number - 1 );
 };
 
-module.exports = new Mediator;
+module.exports = Mediator;

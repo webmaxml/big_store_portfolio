@@ -153,10 +153,10 @@
           </ul>
         </article>
         <!-- new-products -->
-        <article class="new-products">
+        <article data-module="product-scroll" class="new-products">
           <h2 class="new-products__header">New products</h2>
           <div class="new-products__content">
-            <ul class="new-products__product-box">
+            <ul data-entity="product-box" class="new-products__product-box">
                       <!-- product-item -->
                       <li class="product-item product-panel__item--sale">
                         <div class="product-item__img-line"><a href="product.html" class="product-item__img-link"><img src="img/new_item_1.png" alt="new_item_1" class="product-item__img"></a></div>
@@ -272,10 +272,10 @@
                         </div>
                       </li>
             </ul>
-          </div>
-          <div class="new-products__scroll-box">
             <div class="new-products__scrollbar-wrap">
-              <div class="new-products__scrollbar"></div>
+              <div data-entity="scrollbar" class="new-products__scrollbar">
+                <div data-entity="handle" class="new-products__handle"><span class="new-products__handle-content">&#124;&#124;&#124;</span></div>
+              </div>
             </div>
           </div>
         </article>

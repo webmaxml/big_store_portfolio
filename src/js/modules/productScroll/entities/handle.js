@@ -7,27 +7,13 @@ var Backbone = require( 'backbone' );
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		state: null,
-		index: 0,
-		imgSrc: '',
-		imgSrcFull: '',
-		imgAlt: ''
-	},
+		state: null
+	}
 });
 
 /******************** View ********************/
 
 var View = Backbone.View.extend({
-
-	render: function( state ) {
-		if ( state === 'active' ) {
-			this.$el.addClass( 'product__thumbwrap--active' );
-		} else {
-			this.$el.removeClass( 'product__thumbwrap--active' );
-		};
-
-		return this;
-	},
 
 	events: {
 		'click' : 'delegateController'
@@ -36,6 +22,12 @@ var View = Backbone.View.extend({
 	// delegate managing user actions to controller
 	delegateController: function( event ) {
 		this.controller.manageAction( event );
+	},
+
+	render: function() {
+
+		
+		return this;
 	},
 
 });
@@ -52,37 +44,32 @@ var Controller = function( mediator, model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change:state', this.manageModelChange );
-	this.listenTo( this.mediator, 'activeChange', this.manageMediator );
+	this.listenTo( this.model, 'change', this.manageModelChange );
+
 };
 
-// manage model change
-Controller.prototype.manageModelChange = function( model, state ) {
-	if ( state === 'active' ) {
-		this.mediator.trigger( 'setImage', this.model.attributes );
-	}
+			/**************************
+			 *      Model Change      *
+			 **************************/
 
-	this.view.render( state );
+Controller.prototype.manageModelChange = function() {
+	this.view.render();
 };
+
+			/**************************
+			 *       User input       *
+			 **************************/
 
 // manage user actions
 Controller.prototype.manageAction = function( event ) {
 	if ( event.type === 'click' ) {
-		this.mediator.trigger( 'activeChange', this.model.get( 'index' ) );
-	}
-};
-
-// manage mediator events
-Controller.prototype.manageMediator = function( index ) {
-
-	// set only one active
-	if ( this.model.get( 'index' ) === index ) {
 		this.model.set( 'state', 'active' );
-	} else {
-		this.model.set( 'state', null );
 	}
-
 };
+
+			/**************************
+			 *     Mediator orders    *
+			 **************************/
 
 module.exports = { 
 	Model: Model,

@@ -1,28 +1,18 @@
 // import modules
-var thumbGallery = require( './modules/thumbGallery' ),
+var windowModule = require( './modules/window' ),
+	thumbGallery = require( './modules/thumbGallery' ),
 	topSlider = require( './modules/topSlider' ),
  	featuredSlider = require( './modules/featuredSlider' ),
  	currency = require( './modules/currency' ),
  	tabs = require( './modules/tabs' ),
  	brandSlider = require( './modules/brandSlider' ),
  	setRating = require( './modules/setRating' );
- 	showRating = require( './modules/showRating' );
+ 	showRating = require( './modules/showRating' ),
+ 	productScroll = require( './modules/productScroll' );
 
 function init() {
 
-	var elements;
-
-	var views = {
-		'product__thumbwrap': thumbGallery,
-	};
-
-	for ( var className in views ) {
-		elements = document.getElementsByClassName( className );
-
-		if ( elements.length > 0 ) {
-			views[ className ].init( elements );
-		}
-	};
+	
 
 	var dataValues = {
 		'setrating'      :     setRating,
@@ -31,7 +21,9 @@ function init() {
 		'brandslider'    :     brandSlider,
 		'topslider'      :     topSlider,
 		'featuredslider' :     featuredSlider,
-		'currency'       :     currency
+		'currency'       :     currency,
+		'thumbgallery'   :     thumbGallery,
+		'product-scroll' :     productScroll
 	};
 
 	for ( var value in dataValues ) {
@@ -42,7 +34,10 @@ function init() {
 		}
 	};
 
-}
+	// common modules
+	windowModule.init();
+
+};
 
 module.exports = { init: init };
 

@@ -1,4 +1,4 @@
-function init( thumbsContainers ) {
+function init( thumbGalleries ) {
 
 	// import modules
 	var $ = require( 'jquery' );
@@ -7,43 +7,43 @@ function init( thumbsContainers ) {
 
 	var Thumbs = require( './entities/thumbs' );
 	var Image = require( './entities/image' );
+	var Mediator = require( './mediator' );
 
-	var initialActive;
+	$( thumbGalleries ).each( function() {
 
-	// create set for every thumb 
-	$( thumbsContainers ).each( function( index ) {
+		var mediator = new Mediator();
 
-		var $img = $( this ).find( 'img' ),
-			src = $img.attr( 'src' );
-			srcFull = $img.data( 'srcfull' );
-			alt = $img.attr( 'alt' );
+		var image = this.querySelector( '[data-entity="image"]' );
+		var thumbs = this.querySelectorAll( '[data-entity="thumb"]' );
 
-		var model = new Thumbs.Model({ 
-			index: index,
-			imgSrc: src,
-			imgSrcFull: srcFull,
-			imgAlt: alt
-		});
+		$( thumbs ).each( function( index ) {
 
-		// set initial active model
-		if ( model.get( 'index' ) === 0 ) { 
-			initialActive = model; 
-		};
+			var $img = $( this ).find( 'img' ),
+				src = $img.attr( 'src' );
+				srcFull = $img.data( 'srcfull' );
+				alt = $img.attr( 'alt' );
 
-		var thumb = new Thumbs.View({ el: this, model: model });
-		var controller = new Thumbs.Controller( model, thumb );
+			var model = new Thumbs.Model({ 
+				index: index,
+				imgSrc: src,
+				imgSrcFull: srcFull,
+				imgAlt: alt
+			});
+
+			var thumb = new Thumbs.View({ el: this });
+			var controller = new Thumbs.Controller( mediator, model, thumb );
+
+		} );
+
+		var imageModel = new Image.Model();
+		var imageView = new Image.View({ el: image, model: imageModel });
+		var imageController = new Image.Controller( mediator, imageModel, imageView );
+
+		// set initial active
+		mediator.setActive(1);
 
 	} );
 
-	// create set for main image
-	var imageContainer = document.getElementsByClassName( 'product__imgwrap' );
-
-	var imageModel = new Image.Model();
-	var imageView = new Image.View({ el: imageContainer, model: imageModel });
-	var imageController = new Image.Controller( imageModel, imageView );
-
-	// make initial active
-	initialActive.set( 'state', 'active' );
 };
 
 module.exports = { init: init };

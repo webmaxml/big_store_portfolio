@@ -1,12 +1,11 @@
 //- mixins
-
 include ../product-item/product-item.jade
 
 // new-products 
-article.new-products
+article.new-products( data-module="product-scroll" )
 	h2.new-products__header New products
 	.new-products__content
-		ul.new-products__product-box
+		ul.new-products__product-box( data-entity="product-box" )
 			+product-item({
 				href: 'product.html',
 				imgSrc: 'img/new_item_1.png',
@@ -55,6 +54,7 @@ article.new-products
 				oldPrice: 69.99,
 				newPrice: 34.99
 			})
-	.new-products__scroll-box
 		.new-products__scrollbar-wrap
-			.new-products__scrollbar
+			.new-products__scrollbar( data-entity="scrollbar" )
+				.new-products__handle( data-entity="handle" )
+					span.new-products__handle-content &#124;&#124;&#124;
