@@ -9,13 +9,18 @@ var Backbone = require( 'backbone' );
 var View = Backbone.View.extend({
 
 	events: {
-		'mouseup' : 'delegateController'
+		'mouseup' : 'delegateController',
+		'mousemove' : 'delegateController',
 	},
 
 	// delegate managing user actions to controller
 	delegateController: function( event ) {
 		this.controller.manageAction( event );
 	},
+
+	throttled: _.throttle( function( event ) {
+		this.controller.manageAction( event );
+	}, 100 )
 
 });
 
@@ -42,6 +47,9 @@ Controller.prototype.manageAction = function( event ) {
 	switch ( event.type ) {
 		case 'mouseup':
 			this.mediator.trigger( 'document:mouseup', event );
+			break;
+		case 'mousemove':
+			this.mediator.trigger( 'document:mousemove', event );
 			break;
 	};
 };

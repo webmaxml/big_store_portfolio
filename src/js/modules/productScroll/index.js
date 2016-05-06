@@ -4,6 +4,7 @@ function init( productContainers ) {
 	var _ = require( 'underscore' );
 	var ProductBox = require( './entities/productbox' );
 	var Scrollbar = require( './entities/scrollbar' );
+	var Handle = require( './entities/handle' );
 	var Mediator = require( './mediator' );
 
 	$( productContainers ).each( function() {
@@ -28,6 +29,13 @@ function init( productContainers ) {
 		var scrollbarController = new Scrollbar.Controller( mediator, scrollbarModel, scrollbarView );
 
 		scrollbarController.init();
+
+		// handle set
+		var handleModel = new Handle.Model();
+		var handleView = new Handle.View({ el: handle });
+		var handleController = new Handle.Controller( mediator, handleModel, handleView );
+
+		handleController.init();
 
 	} );
 

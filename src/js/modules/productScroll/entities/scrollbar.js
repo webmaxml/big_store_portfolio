@@ -7,19 +7,13 @@ var Backbone = require( 'backbone' );
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		scrollbarWidth: 0,
-		handleWidth: 0,
-		handleState: 'inactive'
+		width: 0
 	}
 });
 
 /******************** View ********************/
 
 var View = Backbone.View.extend({
-
-	initialize: function() {
-		this.$handle = this.$el.children().first();
-	},
 
 	events: {
 		'mousedown' : 'delegateController',
@@ -52,7 +46,8 @@ var Controller = function( mediator, model, view ) {
 
 	// set event listeners
 	// this.listenTo( this.model, 'change:width', this.manageModelChange );
-	this.listenTo( this.mediator, 'document:mouseup', this.manageMouseup );
+	// this.listenTo( this.mediator, 'document:mouseup', this.manageMouseup );
+	this.listenTo( this.mediator, 'getScrollbarWidth', this.postWidth );
 };
 			/**************************
 			 *          Init          *
@@ -67,25 +62,14 @@ Controller.prototype.init = function() {
 			 **************************/
 
 Controller.prototype.setWidth = function() {
-	var scrollbarWidth = this.view.el.clientWidth;
-	var handleWidth = this.view.$el.outerWidth();
-
-	this.model.set( 'scrollbarWidth', scrollbarWidth );
-	this.model.set( 'handleWidth', handleWidth );
-};
-
-Controller.prototype.moveHandle = function( event ) {
-	console.log( event );
+	var width = this.view.el.clientWidth;
+	this.model.set( 'width', width );
 };
 
 
 			/**************************
 			 *      Model Change      *
 			 **************************/
-
-Controller.prototype.manageModelChange = function( model, value ) {
-	this.mediator.trigger( 'scrollbarWidth:change', value );
-};
 
 			/**************************
 			 *       User input       *
@@ -95,12 +79,8 @@ Controller.prototype.manageAction = function( event ) {
 
 	switch ( event.type ) {
 		case 'mousedown':
-			this.model.set( 'handleState', 'active' );
 			break;
 		case 'mousemove':
-			if ( this.model.get( 'handleState' ) === 'active' ) {
-				this.moveHandle( event );
-			};
 			break;
 	};
 
@@ -110,8 +90,8 @@ Controller.prototype.manageAction = function( event ) {
 			 *     Mediator events    *
 			 **************************/
 
-Controller.prototype.manageMouseup = function( event ) {
-	this.model.set( 'handleState', 'inactive' );
+Controller.prototype.postWidth = function() {
+	this.mediator.trigger( 'scrollbarWidth', this.model.get( 'width' ) );
 };
 
 

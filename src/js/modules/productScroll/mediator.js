@@ -10,6 +10,7 @@ function Mediator() {
 
 	this.listenTo( this.global, 'global:resize', this.notifyResize );
 	this.listenTo( this.global, 'global:mouseup', this.notifyMouseup );
+	this.listenTo( this.global, 'global:mousemove', this.notifyMousemove );
 };
 
 			/**************************
@@ -22,6 +23,10 @@ Mediator.prototype.notifyResize = function( event ) {
 
 Mediator.prototype.notifyMouseup = function( event ) {
 	this.trigger( 'document:mouseup', event );
+};
+
+Mediator.prototype.notifyMousemove = function( event ) {
+	this.trigger( 'document:mousemove', event );
 };
 
 module.exports = Mediator;

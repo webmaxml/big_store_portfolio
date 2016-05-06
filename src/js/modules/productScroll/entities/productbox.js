@@ -7,7 +7,9 @@ var Backbone = require( 'backbone' );
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		width: 0
+		width: 0,
+		step: 0,
+		offset: 0
 	}
 });
 
@@ -15,10 +17,13 @@ var Model = Backbone.Model.extend({
 
 var View = Backbone.View.extend({
 
-	render: function( width ) {
-
+	setWidth: function( width ) {
 		this.$el.css( 'width', width );
-	
+		return this;
+	},
+
+	render: function( value ) {
+		this.$el.css( 'marginLeft', -value );
 		return this;
 	},
 
@@ -36,7 +41,10 @@ var Controller = function( mediator, model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change:width', this.manageModelChange );
+	this.listenTo( this.model, 'change:width', this.manageWidthChange );
+	this.listenTo( this.model, 'change:offset', this.manageOffset );
+	this.listenTo( this.mediator, 'scrollbarWidth', this.setStep );
+	this.listenTo( this.mediator, 'handleChange', this.setOffset );
 
 };
 			/**************************
@@ -51,7 +59,6 @@ Controller.prototype.init = function() {
 			 *         Actions        *
 			 **************************/
 
-// calc the width of the container
 Controller.prototype.setWidth = function() {
 
 	var width = 0;
@@ -67,7 +74,11 @@ Controller.prototype.setWidth = function() {
 			 *      Model Change      *
 			 **************************/
 
-Controller.prototype.manageModelChange = function( model, value ) {
+Controller.prototype.manageWidthChange = function( model, value ) {
+	this.view.setWidth( value );
+};
+
+Controller.prototype.manageOffset = function( model, value ) {
 	this.view.render( value );
 };
 
@@ -88,6 +99,19 @@ Controller.prototype.manageAction = function( event ) {
 			/**************************
 			 *     Mediator events    *
 			 **************************/
+
+Controller.prototype.setStep = function( scrollbarWidth ) {
+	var width = this.model.get( 'width' );
+	var value = width / ( scrollbarWidth * 2 );
+
+	// considering the viewport which is exactly as scrollbarWidth
+	this.model.set( 'step', value );
+};
+
+Controller.prototype.setOffset = function( value ) {
+	var step = this.model.get( 'step' );
+	this.model.set( 'offset', step * value );
+};
 
 module.exports = { 
 	Model: Model,

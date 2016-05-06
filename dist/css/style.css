@@ -4139,7 +4139,6 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 }
 .new-products__handle {
   position: absolute;
-  left: 0;
   top: -4px;
   display: block;
   width: 100px;
