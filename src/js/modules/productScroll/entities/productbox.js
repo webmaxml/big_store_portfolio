@@ -7,7 +7,7 @@ var Backbone = require( 'backbone' );
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		state: null
+		width: 0
 	}
 });
 
@@ -36,32 +36,39 @@ var Controller = function( mediator, model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change', this.manageModelChange );
+	this.listenTo( this.model, 'change:width', this.manageModelChange );
 
 };
-
 			/**************************
-			 *     Initialization     *
+			 *          Init          *
 			 **************************/
 
-Controller.prototype.setWidth = function() {
-	// calc the width from its content
+Controller.prototype.init = function() {
+	this.setWidth();
+}
 
-	var itemBoxWidth = 0;
+			/**************************
+			 *         Actions        *
+			 **************************/
+
+// calc the width of the container
+Controller.prototype.setWidth = function() {
+
+	var width = 0;
 
 	this.view.$el.children().each( function() {
-		itemBoxWidth += $( this ).outerWidth( true );
+		width += $( this ).outerWidth( true );
 	} );
 
-	this.view.render( itemBoxWidth );
+	this.model.set( 'width', width );
 };
 
 			/**************************
 			 *      Model Change      *
 			 **************************/
 
-Controller.prototype.manageModelChange = function() {
-	this.view.render();
+Controller.prototype.manageModelChange = function( model, value ) {
+	this.view.render( value );
 };
 
 			/**************************
@@ -79,7 +86,7 @@ Controller.prototype.manageAction = function( event ) {
 };
 
 			/**************************
-			 *     Mediator orders    *
+			 *     Mediator events    *
 			 **************************/
 
 module.exports = { 

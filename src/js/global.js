@@ -1,5 +1,6 @@
 // import modules
 var windowModule = require( './modules/window' ),
+	documentModule = require( './modules/document' ),
 	thumbGallery = require( './modules/thumbGallery' ),
 	topSlider = require( './modules/topSlider' ),
  	featuredSlider = require( './modules/featuredSlider' ),
@@ -12,7 +13,9 @@ var windowModule = require( './modules/window' ),
 
 function init() {
 
-	
+	// common modules
+	windowModule.init();
+	documentModule.init();
 
 	var dataValues = {
 		'setrating'      :     setRating,
@@ -33,9 +36,6 @@ function init() {
 			dataValues[ value ].init( containers );
 		}
 	};
-
-	// common modules
-	windowModule.init();
 
 };
 

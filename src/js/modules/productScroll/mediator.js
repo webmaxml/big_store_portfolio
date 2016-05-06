@@ -8,11 +8,20 @@ function Mediator() {
 	_.extend( this, Backbone.Events );
 	this.global = globalMediator;
 
-	this.listenTo( this.global, 'global:resize', this.manageResize );
+	this.listenTo( this.global, 'global:resize', this.notifyResize );
+	this.listenTo( this.global, 'global:mouseup', this.notifyMouseup );
 };
 
-Mediator.prototype.manageResize = function( event ) {
+			/**************************
+			 *      Global events     *
+			 **************************/
+
+Mediator.prototype.notifyResize = function( event ) {
 	this.trigger( 'window:resize', event );
+};
+
+Mediator.prototype.notifyMouseup = function( event ) {
+	this.trigger( 'document:mouseup', event );
 };
 
 module.exports = Mediator;

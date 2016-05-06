@@ -47,8 +47,12 @@ var Controller = function( mediator, model, view ) {
 
 	// set event listeners
 	this.listenTo( this.model, 'change', this.manageModelChange );
-
+	this.listenTo( this.mediator, 'some', this.manageSome );
 };
+
+			/**************************
+			 *     Public actions     *
+			 **************************/
 
 			/**************************
 			 *      Model Change      *
@@ -62,16 +66,21 @@ Controller.prototype.manageModelChange = function() {
 			 *       User input       *
 			 **************************/
 
-// manage user actions
 Controller.prototype.manageAction = function( event ) {
-	if ( event.type === 'click' ) {
-		this.model.set( 'state', 'active' );
-	}
+	switch ( event.type ) {
+		case 'click':
+			this.model.set( 'state', 'active' );
+			break;
+	};
 };
 
 			/**************************
-			 *     Mediator orders    *
+			 *     Mediator events    *
 			 **************************/
+
+Controller.prototype.manageSome = function() {
+
+};
 
 module.exports = { 
 	Model: Model,

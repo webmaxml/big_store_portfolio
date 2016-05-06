@@ -7,7 +7,9 @@ var Backbone = require( 'backbone' );
 
 var Model = Backbone.Model.extend({
 	defaults: {
-		state: null
+		scrollbarWidth: 0,
+		handleWidth: 0,
+		handleState: 'inactive'
 	}
 });
 
@@ -15,8 +17,13 @@ var Model = Backbone.Model.extend({
 
 var View = Backbone.View.extend({
 
+	initialize: function() {
+		this.$handle = this.$el.children().first();
+	},
+
 	events: {
-		'click' : 'delegateController'
+		'mousedown' : 'delegateController',
+		'mousemove' : 'delegateController'
 	},
 
 	// delegate managing user actions to controller
@@ -44,39 +51,67 @@ var Controller = function( mediator, model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change', this.manageModelChange );
-	this.listenTo( this.mediator, 'window:resize', this.manageResize );
+	// this.listenTo( this.model, 'change:width', this.manageModelChange );
+	this.listenTo( this.mediator, 'document:mouseup', this.manageMouseup );
 };
+			/**************************
+			 *          Init          *
+			 **************************/
+
+Controller.prototype.init = function() {
+	this.setWidth();
+}
+
+			/**************************
+			 *         Actions        *
+			 **************************/
+
+Controller.prototype.setWidth = function() {
+	var scrollbarWidth = this.view.el.clientWidth;
+	var handleWidth = this.view.$el.outerWidth();
+
+	this.model.set( 'scrollbarWidth', scrollbarWidth );
+	this.model.set( 'handleWidth', handleWidth );
+};
+
+Controller.prototype.moveHandle = function( event ) {
+	console.log( event );
+};
+
 
 			/**************************
 			 *      Model Change      *
 			 **************************/
 
-Controller.prototype.manageModelChange = function() {
-	this.view.render();
+Controller.prototype.manageModelChange = function( model, value ) {
+	this.mediator.trigger( 'scrollbarWidth:change', value );
 };
 
 			/**************************
 			 *       User input       *
 			 **************************/
 
-// manage user actions
 Controller.prototype.manageAction = function( event ) {
 
 	switch ( event.type ) {
-		case 'click':
-			console.log( 'resize' );
+		case 'mousedown':
+			this.model.set( 'handleState', 'active' );
+			break;
+		case 'mousemove':
+			if ( this.model.get( 'handleState' ) === 'active' ) {
+				this.moveHandle( event );
+			};
 			break;
 	};
 
 };
 
 			/**************************
-			 *     Mediator orders    *
+			 *     Mediator events    *
 			 **************************/
 
-Controller.prototype.manageResize = function( event ) {
-	console.log( event );
+Controller.prototype.manageMouseup = function( event ) {
+	this.model.set( 'handleState', 'inactive' );
 };
 
 

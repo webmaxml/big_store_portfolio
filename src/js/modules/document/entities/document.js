@@ -3,31 +3,18 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-/******************** Model ********************/
-
-var Model = Backbone.Model.extend({
-	defaults: {
-		state: null
-	}
-});
 
 /******************** View ********************/
 
 var View = Backbone.View.extend({
 
 	events: {
-		'click' : 'delegateController'
+		'mouseup' : 'delegateController'
 	},
 
 	// delegate managing user actions to controller
 	delegateController: function( event ) {
 		this.controller.manageAction( event );
-	},
-
-	render: function() {
-
-		
-		return this;
 	},
 
 });
@@ -44,35 +31,30 @@ var Controller = function( mediator, model, view ) {
 	this.view.controller = this;
 
 	// set event listeners
-	this.listenTo( this.model, 'change', this.manageModelChange );
-
-};
-
-			/**************************
-			 *      Model Change      *
-			 **************************/
-
-Controller.prototype.manageModelChange = function() {
-	this.view.render();
+	// this.listenTo( this.mediator, 'some', this.manageSome );
 };
 
 			/**************************
 			 *       User input       *
 			 **************************/
 
-// manage user actions
 Controller.prototype.manageAction = function( event ) {
-	if ( event.type === 'click' ) {
-		this.model.set( 'state', 'active' );
-	}
+	switch ( event.type ) {
+		case 'mouseup':
+			this.mediator.trigger( 'document:mouseup', event );
+			break;
+	};
 };
 
 			/**************************
-			 *     Mediator orders    *
+			 *     Mediator events    *
 			 **************************/
 
+// Controller.prototype.manageSome = function() {
+
+// };
+
 module.exports = { 
-	Model: Model,
 	View: View,
 	Controller: Controller
 };
