@@ -2,14 +2,13 @@
 var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
+var IScroll = require( 'iscroll' );
 
 /******************** Model ********************/
 
 var Model = Backbone.Model.extend({
 	defaults: {
 		width: 0,
-		step: 0,
-		offset: 0
 	}
 });
 
@@ -17,13 +16,30 @@ var Model = Backbone.Model.extend({
 
 var View = Backbone.View.extend({
 
-	setWidth: function( width ) {
-		this.$el.css( 'width', width );
-		return this;
+	initialize: function() {
+		this.productBox = this.el.querySelector( '[data-entity="product-box"]' );
+		this.scrollbar = this.el.querySelector( '[data-entity="scrollbar"]' );
+	},
+
+	setScroll: function() {
+		var scroll = new IScroll( this.el, {
+			scrollX: true,
+			scrollY: false,
+			indicators: {
+				el: this.scrollbar,
+				ignoreBoundaries: false,
+				fade: false,
+				interactive: true,
+				listenX: true,
+				listenY: false,
+				resize: false
+			}
+		} );
 	},
 
 	render: function( value ) {
-		this.$el.css( 'marginLeft', -value );
+		$( this.productBox ).css( 'width', value );
+		this.setScroll();
 		return this;
 	},
 
@@ -42,9 +58,6 @@ var Controller = function( mediator, model, view ) {
 
 	// set event listeners
 	this.listenTo( this.model, 'change:width', this.manageWidthChange );
-	this.listenTo( this.model, 'change:offset', this.manageOffset );
-	this.listenTo( this.mediator, 'scrollbarWidth', this.setStep );
-	this.listenTo( this.mediator, 'handleChange', this.setOffset );
 
 };
 			/**************************
@@ -63,7 +76,7 @@ Controller.prototype.setWidth = function() {
 
 	var width = 0;
 
-	this.view.$el.children().each( function() {
+	$( this.view.productBox ).children().each( function() {
 		width += $( this ).outerWidth( true );
 	} );
 
@@ -75,43 +88,9 @@ Controller.prototype.setWidth = function() {
 			 **************************/
 
 Controller.prototype.manageWidthChange = function( model, value ) {
-	this.view.setWidth( value );
-};
-
-Controller.prototype.manageOffset = function( model, value ) {
 	this.view.render( value );
 };
 
-			/**************************
-			 *       User input       *
-			 **************************/
-
-Controller.prototype.manageAction = function( event ) {
-
-	switch ( event.type ) {
-		case 'resize':
-			console.log( 'resize' );
-			break;
-	};
-	
-};
-
-			/**************************
-			 *     Mediator events    *
-			 **************************/
-
-Controller.prototype.setStep = function( scrollbarWidth ) {
-	var width = this.model.get( 'width' );
-	var value = width / ( scrollbarWidth * 2 );
-
-	// considering the viewport which is exactly as scrollbarWidth
-	this.model.set( 'step', value );
-};
-
-Controller.prototype.setOffset = function( value ) {
-	var step = this.model.get( 'step' );
-	this.model.set( 'offset', step * value );
-};
 
 module.exports = { 
 	Model: Model,

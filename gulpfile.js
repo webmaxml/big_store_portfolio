@@ -12,7 +12,9 @@
             rename = require("gulp-rename"),
              jsdoc = require('gulp-jsdoc3'),
         browserify = require('browserify'),
-            source = require('vinyl-source-stream');
+            source = require('vinyl-source-stream'),
+            buffer = require('vinyl-buffer'),
+            uglify = require('gulp-uglify');
 
 
 // watch tasks
@@ -78,6 +80,10 @@ gulp.task( 'scripts', function() {
             this.emit('end');
         })
         .pipe( source('app.min.js') )
+        .pipe( buffer() )
+        .pipe( sourcemaps.init({ loadMaps: true }) )
+        .pipe( uglify() )
+        .pipe( sourcemaps.write('./') )
         .pipe( gulp.dest( './dist/js/' ) );
 } );
 

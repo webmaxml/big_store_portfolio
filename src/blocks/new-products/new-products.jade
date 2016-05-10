@@ -2,9 +2,9 @@
 include ../product-item/product-item.jade
 
 // new-products 
-article.new-products( data-module="product-scroll" )
+article.new-products
 	h2.new-products__header New products
-	.new-products__content
+	.new-products__content( data-module="product-scroll" )
 		ul.new-products__product-box( data-entity="product-box" )
 			+product-item({
 				href: 'product.html',

@@ -3,14 +3,12 @@ var $ = require( 'jquery' );
 var _ = require( 'underscore' );
 var Backbone = require( 'backbone' );
 
-
 /******************** View ********************/
 
 var View = Backbone.View.extend({
 
 	events: {
 		'mouseup' : 'delegateController',
-		'mousemove' : 'delegateController',
 	},
 
 	// delegate managing user actions to controller
@@ -34,9 +32,6 @@ var Controller = function( mediator, model, view ) {
 	this.model = model;
 	this.view = view;
 	this.view.controller = this;
-
-	// set event listeners
-	// this.listenTo( this.mediator, 'some', this.manageSome );
 };
 
 			/**************************
@@ -48,19 +43,9 @@ Controller.prototype.manageAction = function( event ) {
 		case 'mouseup':
 			this.mediator.trigger( 'document:mouseup', event );
 			break;
-		case 'mousemove':
-			this.mediator.trigger( 'document:mousemove', event );
-			break;
 	};
 };
 
-			/**************************
-			 *     Mediator events    *
-			 **************************/
-
-// Controller.prototype.manageSome = function() {
-
-// };
 
 module.exports = { 
 	View: View,

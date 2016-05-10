@@ -2,40 +2,18 @@ function init( productContainers ) {
 	// import modules
 	var $ = require( 'jquery' );
 	var _ = require( 'underscore' );
-	var ProductBox = require( './entities/productbox' );
-	var Scrollbar = require( './entities/scrollbar' );
-	var Handle = require( './entities/handle' );
+	var Container = require( './entities/container' );
 	var Mediator = require( './mediator' );
 
 	$( productContainers ).each( function() {
 
 		var mediator = new Mediator();
 
-		// DOM elements
-		var productBox = this.querySelector( '[data-entity="product-box"]' );
-		var scrollbar = this.querySelector( '[data-entity="scrollbar"]' );
-		var handle = this.querySelector( '[data-entity="handle"]' );
+		var containerModel = new Container.Model();
+		var containerView = new Container.View({ el: this });
+		var containerController = new Container.Controller( mediator, containerModel, containerView );
 
-		// productBox set
-		var productBoxModel = new ProductBox.Model();
-		var productBoxView = new ProductBox.View({ el: productBox });
-		var productBoxController = new ProductBox.Controller( mediator, productBoxModel, productBoxView );
-
-		productBoxController.init();
-
-		// scrollbar set
-		var scrollbarModel = new Scrollbar.Model();
-		var scrollbarView = new Scrollbar.View({ el: scrollbar });
-		var scrollbarController = new Scrollbar.Controller( mediator, scrollbarModel, scrollbarView );
-
-		scrollbarController.init();
-
-		// handle set
-		var handleModel = new Handle.Model();
-		var handleView = new Handle.View({ el: handle });
-		var handleController = new Handle.Controller( mediator, handleModel, handleView );
-
-		handleController.init();
+		containerController.init();
 
 	} );
 
