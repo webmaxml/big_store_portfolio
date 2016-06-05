@@ -41,9 +41,9 @@ class mobileMenu extends React.Component {
     	// for the initial render
     	if ( !this._menu ) { return }
     	if ( this.state.open ) {		
-    		TweenMax.fromTo( this._menu , 0.2, {opacity:0}, {opacity:1,display:'block'} )
+    		TweenMax.fromTo( this._menu , 0.2, {opacity:0, display: 'none'}, {opacity:1,display:'block'} )
     	} else {
-    		TweenMax.fromTo( this._menu , 0.2, {opacity:1,display:'block'}, {opacity:0} )
+    		TweenMax.fromTo( this._menu , 0.2, {opacity:1,display:'block'}, {opacity:0, display: 'none'} )
     	}
     	  
     }
@@ -52,8 +52,10 @@ class mobileMenu extends React.Component {
     	this.animate();
         return (
             <div className="mobile-menu" ref={ ref => this._menu = ref }>
-        		<SocialNav />
-        		<MainNav />
+                <div className="mobile-menu__wrap">
+            		<SocialNav />
+            		<MainNav />
+                </div>
 	        </div>
         );
     }

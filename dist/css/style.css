@@ -3277,7 +3277,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   color: #fff;
   text-align: center;
 }
-@media (min-width: 400px) {
+@media (min-width: 360px) {
   .social-nav {
     padding-top: 18px;
   }
@@ -3415,6 +3415,16 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   z-index: 15;
   display: none;
   background-color: rgba(0, 0, 0, 0.9);
+}
+.mobile-menu__wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 445px;
+  margin: auto;
 }
 
 /* logo */
