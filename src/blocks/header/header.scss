@@ -30,25 +30,11 @@
 		@extend %wrapper;
 	}
 
-	&__mobile-menu {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: $z_header__mobile-menu;
-
+	&__menu {
 		display: none;
 
-		width: 100%;
-		height: 100%;
-
-		background-color: $bgc_header__mobile-menu;
-
 		@media ( min-width: 990px ) {
-			position: static;
-
-			display: block !important;
-
-			background-color: inherit;
+			display: block;
 		}
 	}
 

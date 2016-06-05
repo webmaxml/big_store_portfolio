@@ -2,6 +2,8 @@ doctype html
 html
 	include ../blocks/head/head.jade
 	body
-		include ../blocks/header/header.jade
-		include ../blocks/main/main.jade
-		include ../blocks/footer/footer.jade
+		#appRoot
+			//- include ../blocks/header/header.jade
+			//- include ../blocks/main/main.jade
+			//- include ../blocks/footer/footer.jade
+		script( src='js/app.min.js' async )

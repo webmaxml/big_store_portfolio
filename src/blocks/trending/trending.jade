@@ -3,11 +3,11 @@
 //- mixins
 include ../trending-item/trending-item.jade
 
-article.trending
+article.trending( data-module="trending" )
 	.trending__menu
 		h2.trending__header Trending now
 		ul.trending__nav
-			li.trending__nav-item.trending__nav-item--active( data-filter="man" ) Man
+			li.trending__nav-item( data-filter="man" ) Man
 			li.trending__nav-item( data-filter="women" ) Women
 			li.trending__nav-item( data-filter="kids" ) Kids
 			li.trending__nav-item( data-filter="accessories" ) Accessories

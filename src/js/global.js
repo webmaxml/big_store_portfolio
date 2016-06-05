@@ -9,7 +9,8 @@ var windowModule = require( './modules/window' ),
  	brandSlider = require( './modules/brandSlider' ),
  	setRating = require( './modules/setRating' );
  	showRating = require( './modules/showRating' ),
- 	productScroll = require( './modules/productScroll' );
+ 	productScroll = require( './modules/productScroll' ),
+ 	trending = require( './modules/trending' );
 
 function init() {
 
@@ -26,7 +27,8 @@ function init() {
 		'featuredslider' :     featuredSlider,
 		'currency'       :     currency,
 		'thumbgallery'   :     thumbGallery,
-		'product-scroll' :     productScroll
+		'product-scroll' :     productScroll,
+		'trending'       :     trending
 	};
 
 	for ( var value in dataValues ) {

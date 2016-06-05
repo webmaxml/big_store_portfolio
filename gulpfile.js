@@ -73,7 +73,7 @@ gulp.task( 'jade', function() {
 
 // scripts processing
 gulp.task( 'scripts', function() {
-    browserify('./src/js/app.js')
+    browserify('./src/js/index.js')
         .bundle()
         .on('error', function(error) {
             console.log(error);
@@ -81,9 +81,7 @@ gulp.task( 'scripts', function() {
         })
         .pipe( source('app.min.js') )
         .pipe( buffer() )
-        .pipe( sourcemaps.init({ loadMaps: true }) )
         .pipe( uglify() )
-        .pipe( sourcemaps.write('./') )
         .pipe( gulp.dest( './dist/js/' ) );
 } );
 
@@ -112,6 +110,12 @@ gulp.task('doc', function (cb) {
     var config = require('./jsdoc.json');
     gulp.src(['README.md', './src/js/**/*.js'], {read: false})
         .pipe(jsdoc(config, cb));
+});
+
+
+// setting React production mode
+gulp.task('apply-prod-environment', function() {
+    process.env.NODE_ENV = 'production';
 });
 
 
