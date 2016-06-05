@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactTransitionGroup from 'react-addons-transition-group';
 
 import SocialNav from './socialNav';
 import MainNav from './mainNav';
 import MobileToggleContainer from '../containers/mobileToggleContainer';
+import NewsFeedContainer from '../containers/newsFeedContainer';
 import Logo from './logo';
 
 class Header extends React.Component {
@@ -25,6 +25,11 @@ class Header extends React.Component {
 	                	<MobileToggleContainer />
 	                	<Logo />
 	                </div>
+                </article>
+                <article className="header__news">
+                    <div className="header__wrap">
+                        <NewsFeedContainer />
+                    </div>
                 </article>
             </header>
         );
