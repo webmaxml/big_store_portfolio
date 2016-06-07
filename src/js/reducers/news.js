@@ -1,4 +1,6 @@
+// deps
 import _ from 'underscore';
+// actions
 import { REQUEST_NEWS, RECEIVE_NEWS } from '../actions';
 
 const initialState = {

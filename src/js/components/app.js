@@ -1,6 +1,9 @@
+// deps
 import React from 'react';
-
+// components
 import Header from './header';
+import Main from './main';
+// containers
 import MobileMenuContainer from '../containers/mobileMenuContainer';
 
 class App extends React.Component {
@@ -13,6 +16,7 @@ class App extends React.Component {
         return (
             <div id="app">
             	<Header />
+            	<Main />
 				<MobileMenuContainer />
             </div>
         );

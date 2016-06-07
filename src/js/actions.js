@@ -1,3 +1,4 @@
+// deps
 import fetch from 'isomorphic-fetch';
 
 export const MOBILE_MENU_TOGGLE = 'MOBILE_MENU_TOGGLE';

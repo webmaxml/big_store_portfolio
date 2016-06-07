@@ -1,11 +1,14 @@
+// deps
 import React from 'react';
-import { connect } from 'react-redux';
-
+// components
 import SocialNav from './socialNav';
 import MainNav from './mainNav';
+import Logo from './logo';
+import ShoppingCart from './shoppingCart';
+// containers
 import MobileToggleContainer from '../containers/mobileToggleContainer';
 import NewsFeedContainer from '../containers/newsFeedContainer';
-import Logo from './logo';
+
 
 class Header extends React.Component {
 
@@ -29,6 +32,7 @@ class Header extends React.Component {
                 <article className="header__news">
                     <div className="header__wrap">
                         <NewsFeedContainer />
+                        <ShoppingCart />
                     </div>
                 </article>
             </header>

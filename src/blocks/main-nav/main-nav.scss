@@ -43,11 +43,11 @@
 
 			@media ( min-width: 990px ) {
 				background: $bg_hv_main-nav__item;
-			}
-		}
 
-		&--last {
-			border-right: $bo_main-nav;
+				&:last-child {
+					border-right: $bo_main-nav;
+				}
+			}
 		}
 	}
 

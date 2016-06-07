@@ -1,4 +1,6 @@
+// deps
 import React from 'react';
+// components
 import SearchForm from './searchForm';
 
 class SocialNav extends React.Component {

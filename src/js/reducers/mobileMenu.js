@@ -1,3 +1,4 @@
+// actions
 import { MOBILE_MENU_TOGGLE } from '../actions';
 
 function mobileMenu( state = 'close', action ) {

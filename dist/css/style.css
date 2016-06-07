@@ -3395,9 +3395,9 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
   .main-nav__item:hover {
     background: #333333 url("../img/bg_overlay.png");
   }
-}
-.main-nav__item--last {
-  border-right: 1px solid #252525;
+  .main-nav__item:hover:last-child {
+    border-right: 1px solid #252525;
+  }
 }
 .main-nav__link {
   display: block;

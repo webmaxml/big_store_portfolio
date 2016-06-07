@@ -1,6 +1,8 @@
+// deps
 import { connect } from 'react-redux';
+// actions
 import { mobileMenuToggle } from '../actions';
-
+// components
 import MobileToggle from '../components/mobileToggle';
 
 function mapStateToProps( state ) {

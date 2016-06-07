@@ -1,4 +1,6 @@
+// deps
 import { combineReducers } from 'redux';
+// reducers
 import mobileMenu from './mobileMenu';
 import news from './news';
 

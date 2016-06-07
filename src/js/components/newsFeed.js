@@ -1,3 +1,4 @@
+// deps
 import React from 'react';
 
 class NewsFeed extends React.Component {
