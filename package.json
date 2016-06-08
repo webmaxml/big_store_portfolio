@@ -54,8 +54,7 @@
             "es2015",
             "react"
           ],
-          "compact": false,
-          "sourceMapsAbsolute": true
+          "compact": false
         }
       ],
       "jadeify",

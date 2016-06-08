@@ -1,8 +1,8 @@
 // deps
 import React from 'react';
 // components
-import TopSlider from './topSlider';
 // containers
+import TopSliderContainer from '../containers/topSliderContainer';
 
 class Main extends React.Component {
 
@@ -14,7 +14,7 @@ class Main extends React.Component {
         return (
             <section className="main">
                 <div className="main__wrap">
-                    <TopSlider />
+                    <TopSliderContainer />
                 </div>
             </section>
         );

@@ -8,44 +8,52 @@ class TopSlider extends React.Component {
     constructor(props) {
         super( props );
         this.state = {
-            items: [
-                {
-                    id: 1,
-                    imgSrc: 'img/slider_item.png',
-                    imgAlt: 'slider_item',
-                    desc: 'Fusce ultrices ornare velit, consectetur tempus eros dapibus et. Integer lobortis, dui in iaculis sollicitudin, felis nunc aliquam nibh, eu porta nisi urna nec odio. Duis suscipit viverra magna id sagittis. Quisque odio neque, condimentum cursus volutpat vel, pharetra ac nibh. Cras cursus libero id nunc facilisis luctus. Aenean ultricies, risus cursus sollicitudin congue, diam diam congue velit, ut sodales sem enim a nisl. Aenean elit diam, mollis fermentum',
-                    href: 'product.html'  
-                },
-                {   
-                    id: 2,
-                    imgSrc: 'img/slider_item.png',
-                    imgAlt: 'slider_item',
-                    desc: 'Fusce ultrices ornare velit, consectetur tempus eros dapibus et. Integer lobortis, dui in iaculis sollicitudin, felis nunc aliquam nibh, eu porta nisi urna nec odio. Duis suscipit viverra magna id sagittis. Quisque odio neque, condimentum cursus volutpat vel, pharetra ac nibh. Cras cursus libero id nunc facilisis luctus. Aenean ultricies, risus cursus sollicitudin congue, diam diam congue velit, ut sodales sem enim a nisl. Aenean elit diam, mollis fermentum',
-                    href: 'product.html'  
-                },
-                {   
-                    id: 3,
-                    imgSrc: 'img/slider_item.png',
-                    imgAlt: 'slider_item',
-                    desc: 'Fusce ultrices ornare velit, consectetur tempus eros dapibus et. Integer lobortis, dui in iaculis sollicitudin, felis nunc aliquam nibh, eu porta nisi urna nec odio. Duis suscipit viverra magna id sagittis. Quisque odio neque, condimentum cursus volutpat vel, pharetra ac nibh. Cras cursus libero id nunc facilisis luctus. Aenean ultricies, risus cursus sollicitudin congue, diam diam congue velit, ut sodales sem enim a nisl. Aenean elit diam, mollis fermentum',
-                    href: 'product.html'  
-                },
-                {   
-                    id: 4,
-                    imgSrc: 'img/slider_item.png',
-                    imgAlt: 'slider_item',
-                    desc: 'Fusce ultrices ornare velit, consectetur tempus eros dapibus et. Integer lobortis, dui in iaculis sollicitudin, felis nunc aliquam nibh, eu porta nisi urna nec odio. Duis suscipit viverra magna id sagittis. Quisque odio neque, condimentum cursus volutpat vel, pharetra ac nibh. Cras cursus libero id nunc facilisis luctus. Aenean ultricies, risus cursus sollicitudin congue, diam diam congue velit, ut sodales sem enim a nisl. Aenean elit diam, mollis fermentum',
-                    href: 'product.html'  
-                },
-            ]
+            items: []
         };
         this.movePrev = this.movePrev.bind( this );
         this.moveNext = this.moveNext.bind( this );
     }
 
     componentDidMount() {
+        this.props.fetchItems();
         this.$owlContainer = $( this.owlContainer );
+    }
 
+    componentWillReceiveProps( nextProps ) {
+        // for products initial updating, when props.items are empty
+        // and when items are not updating ( productList update only )
+        if ( nextProps.items.length === 0 || 
+             nextProps.items === this.props.items ) { return; }
+
+        let items = nextProps.items.map( item => {
+            let obj = nextProps.productList[ item ];
+            return {
+                id: obj.id,
+                imgSrc: obj.acf.image1.url,
+                imgAlt: obj.acf.image1.alt,
+                desc: obj.acf.short_desc,
+                href: `/${ obj.id }`
+            }
+        } );
+
+        console.log( 'updating state' );
+        this.setState({ items });
+    }
+
+    shouldComponentUpdate( nextProps, nextState ) {
+        // productList prop contains all of the products and
+        // will change for another components
+        // update only on state/props.items change
+        if ( this.props.items === nextProps.items &&
+             this.state === nextState ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    componentDidUpdate() {
+        console.log( 'did update' );
         this.$owlContainer.owlCarousel({
             singleItem: true,
             pagination: false,
@@ -63,6 +71,7 @@ class TopSlider extends React.Component {
     }
 
     render() {
+        console.log( 'render' );
         return (
             <div className="top-slider__wrap">
                 <div className="top-slider owl-carousel" ref={ ref => this.owlContainer = ref }>
