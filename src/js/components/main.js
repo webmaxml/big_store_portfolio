@@ -1,7 +1,7 @@
 // deps
 import React from 'react';
 // components
-import NewProducts from './newProducts';
+import Trending from './trending';
 // containers
 import TopSliderContainer from '../containers/topSliderContainer';
 import FeaturedSliderContainer from '../containers/featuredSliderContainer';
@@ -20,6 +20,7 @@ class Main extends React.Component {
                     <TopSliderContainer />
                     <FeaturedSliderContainer />
                     <NewProductsContainer />
+                    <Trending />
                 </div>
             </section>
         );
