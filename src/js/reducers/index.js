@@ -5,12 +5,14 @@ import mobileMenu from './mobileMenu';
 import news from './news';
 import products from './products';
 import topSlider from './topSlider';
+import featuredSlider from './featuredSlider';
 
 const rootReducer = combineReducers({
 	mobileMenu,
 	news,
 	products,
-	topSlider
+	topSlider,
+	featuredSlider
 });
 
 export default rootReducer;

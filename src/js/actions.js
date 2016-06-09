@@ -1,6 +1,7 @@
 // deps
 import fetch from 'isomorphic-fetch';
 
+
 /**
  * Mobile menu
  ************************/
@@ -12,6 +13,7 @@ export function mobileMenuToggle( forceClose = false ) {
 		forceClose: forceClose
 	};
 };
+
 
 /**
  * News
@@ -45,6 +47,7 @@ export function fetchNews() {
 	};
 };
 
+
 /**
  * Products
  ************************/
@@ -57,6 +60,7 @@ export function receiveProducts( json ) {
 		json
 	};
 };
+
 
 /**
  * Top slider
@@ -94,5 +98,45 @@ export function fetchTopSlider() {
 			   .then( json => dispatch( receiveProducts( json ) ) )
 			   // update top-slider items
 			   .then( prevAction => dispatch( receiveTopSlider( prevAction.json ) ) )
+	};
+};
+
+
+/**
+ * Featured slider
+ ************************/
+
+ // requesting slider item
+export const REQUEST_FEATURED_SLIDER_ITEMS = 'REQUEST_FEATURED_SLIDER_ITEMS';
+export function requestFeaturedSlider() {
+	return {
+		type: REQUEST_FEATURED_SLIDER_ITEMS,
+	};
+};
+
+// receiving slider items
+export const RECEIVE_FEATURED_SLIDER_ITEMS = 'RECEIVE_FEATURED_SLIDER_ITEMS';
+export function receiveFeaturedSlider( json ) {
+	return {
+		type: RECEIVE_FEATURED_SLIDER_ITEMS,
+		json
+	};
+};
+
+// requesting and receiving slider items
+export function fetchFeaturedSlider() {
+	return function( dispatch, getState, api ) {
+		dispatch( requestFeaturedSlider() );
+
+		const query = `/products?filter[posts_per_page]=-1&
+								 filter[meta_query][0][key]=featured&
+								 filter[meta_query][0][value]=1`;
+
+		return fetch( api + query )
+			   .then( response => response.json() )
+			   // update product List
+			   .then( json => dispatch( receiveProducts( json ) ) )
+			   // update featured-slider items
+			   .then( prevAction => dispatch( receiveFeaturedSlider( prevAction.json ) ) )
 	};
 };

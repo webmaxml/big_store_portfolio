@@ -10,55 +10,50 @@ class FeaturedSlider extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        	items: [
-        		{
-        			id: 1,
-	                imgSrc: "img/featured_item.jpg",
-	                imgAlt: "featured_item",
-	                name: "Herbal Sport",
-	                href: '/1',
-	                oldPrice: 69.99,
-	                newPrice: 101.88
-        		},
-        		{
-        			id: 2,
-	                imgSrc: "img/featured_item.jpg",
-	                imgAlt: "featured_item",
-	                name: "Herbal Sport",
-	                href: '/1',
-	                oldPrice: 69.99,
-	                newPrice: 101.88
-        		},
-        		{
-        			id: 3,
-	                imgSrc: "img/featured_item.jpg",
-	                imgAlt: "featured_item",
-	                name: "Herbal Sport",
-	                href: '/1',
-	                oldPrice: 69.99,
-	                newPrice: 101.88
-        		},
-        	]
+        	items: []
         };
         this.movePrev = this.movePrev.bind( this );
         this.moveNext = this.moveNext.bind( this );
     }
 
     componentDidMount() {
+        this.props.fetchItems();
         this.$owlContainer = $( this.owlContainer );
+    }
 
+    componentWillReceiveProps( nextProps ) {
+        // for products initial updating, when props.items are empty
+        // or when items are not updating ( productList update only )
+        if ( nextProps.items.length === 0 || 
+             nextProps.items === this.props.items ) { return; }
+
+        let items = nextProps.items.map( item => {
+            let obj = nextProps.productList[ item ];
+            return {
+                id: obj.id,
+                imgSrc: obj.acf.image1.url,
+                imgAlt: obj.acf.image1.alt,
+                name: obj.acf.name,
+                href: `/${ obj.id }`,
+                oldPrice: obj.acf.old_price,
+	            newPrice: obj.acf.new_price
+            }
+        } );
+        this.setState({ items });
+    }
+
+    shouldComponentUpdate( nextProps, nextState ) {
+        // update only on state change
+        return nextState === this.state ? false : true;
+    }
+
+    componentDidUpdate() {
         this.$owlContainer.owlCarousel({
 			singleItem: true,
 			pagination: false,
 			mouseDrag: false,
 			transitionStyle: 'backSlide'
 		});
-
-    }
-
-    shouldComponentUpdate( nextProps, nextState ) {
-        // update only on state change
-        return nextState === this.state ? false : true;
     }
 
     movePrev( event ) {
