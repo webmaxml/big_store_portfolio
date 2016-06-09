@@ -6,13 +6,15 @@ import news from './news';
 import products from './products';
 import topSlider from './topSlider';
 import featuredSlider from './featuredSlider';
+import newProducts from './newProducts';
 
 const rootReducer = combineReducers({
 	mobileMenu,
 	news,
 	products,
 	topSlider,
-	featuredSlider
+	featuredSlider,
+	newProducts
 });
 
 export default rootReducer;

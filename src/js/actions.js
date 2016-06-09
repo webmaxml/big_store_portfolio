@@ -140,3 +140,42 @@ export function fetchFeaturedSlider() {
 			   .then( prevAction => dispatch( receiveFeaturedSlider( prevAction.json ) ) )
 	};
 };
+
+/**
+ * New Products
+ ************************/
+
+ // requesting new products
+export const REQUEST_NEW_PRODUCTS = 'REQUEST_NEW_PRODUCTS';
+export function requestNewProducts() {
+	return {
+		type: REQUEST_NEW_PRODUCTS,
+	};
+};
+
+// receiving new products
+export const RECEIVE_NEW_PRODUCTS = 'RECEIVE_NEW_PRODUCTS';
+export function receiveNewProducts( json ) {
+	return {
+		type: RECEIVE_NEW_PRODUCTS,
+		json
+	};
+};
+
+// requesting and receiving new products
+export function fetchNewProducts() {
+	return function( dispatch, getState, api ) {
+		dispatch( requestNewProducts() );
+
+		const query = `/products?filter[posts_per_page]=-1&
+								 filter[meta_query][0][key]=new_products&
+								 filter[meta_query][0][value]=1`;
+
+		return fetch( api + query )
+			   .then( response => response.json() )
+			   // update product List
+			   .then( json => dispatch( receiveProducts( json ) ) )
+			   // update new products
+			   .then( prevAction => dispatch( receiveNewProducts( prevAction.json ) ) )
+	};
+};

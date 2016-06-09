@@ -21,7 +21,7 @@ class TopSlider extends React.Component {
 
     componentWillReceiveProps( nextProps ) {
         // for products initial updating, when props.items are empty
-        // and when items are not updating ( productList update only )
+        // or when items are not updating ( productList update only )
         if ( nextProps.items.length === 0 || 
              nextProps.items === this.props.items ) { return; }
 
@@ -35,7 +35,6 @@ class TopSlider extends React.Component {
                 href: `/${ obj.id }`
             }
         } );
-
         this.setState({ items });
     }
 

@@ -10,67 +10,43 @@ class NewProducts extends React.Component {
     constructor(props) {
         super();
         this.state = {
-        	items: [
-        		{
-        			id: 1,
-        			href: 'product.html',
-					imgSrc: 'img/new_item_1.png',
-					imgAlt: 'new_item_1',
-					name: 'Lorem ipsum dolor sit',
-					oldPrice: 69.99,
-					newPrice: 34.99
-        		},
-        		{
-        			id: 2,
-        			href: 'product.html',
-					imgSrc: 'img/new_item_2.png',
-					imgAlt: 'new_item_2',
-					name: 'Lorem ipsum dolor sit',
-					oldPrice: 69.99,
-					newPrice: 34.99
-        		},
-        		{
-        			id: 3,
-        			href: 'product.html',
-					imgSrc: 'img/new_item_3.png',
-					imgAlt: 'new_item_3',
-					name: 'Lorem ipsum dolor sit',
-					oldPrice: 69.99,
-					newPrice: 34.99
-        		},
-        		{
-        			id: 4,
-        			href: 'product.html',
-					imgSrc: 'img/new_item_1.png',
-					imgAlt: 'new_item_1',
-					name: 'Lorem ipsum dolor sit',
-					oldPrice: 69.99,
-					newPrice: 34.99
-        		},
-        		{
-        			id: 5,
-        			href: 'product.html',
-					imgSrc: 'img/new_item_2.png',
-					imgAlt: 'new_item_2',
-					name: 'Lorem ipsum dolor sit',
-					oldPrice: 69.99,
-					newPrice: 34.99
-        		},
-        		{
-        			id: 6,
-        			href: 'product.html',
-					imgSrc: 'img/new_item_3.png',
-					imgAlt: 'new_item_3',
-					name: 'Lorem ipsum dolor sit',
-					oldPrice: 69.99,
-					newPrice: 34.99
-        		},
-        	]
-        }
+        	items: []
+        };
     }
 
     componentDidMount() {
-    	// setting the width of the product item container
+    	// fetching initial data
+    	this.props.fetchItems();
+    }
+
+    componentWillReceiveProps( nextProps ) {
+        // for products initial updating, when props.items are empty
+        // or when items are not updating ( productList update only )
+        if ( nextProps.items.length === 0 || 
+             nextProps.items === this.props.items ) { return; }
+
+        let items = nextProps.items.map( item => {
+            let obj = nextProps.productList[ item ];
+            return {
+                id: obj.id,
+                imgSrc: obj.acf.image1.url,
+                imgAlt: obj.acf.image1.alt,
+                name: obj.acf.name,
+                href: `/${ obj.id }`,
+                oldPrice: obj.acf.old_price,
+	            newPrice: obj.acf.new_price
+            }
+        } );
+        this.setState({ items });
+    }
+
+    shouldComponentUpdate( nextProps, nextState ) {
+        // update only on state change
+        return nextState === this.state ? false : true;
+    }
+
+    componentDidUpdate() {
+        // setting the width of the product item container
     	let width = 0;
     	let $productBox = $( this.productBox );
 
