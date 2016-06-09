@@ -1,6 +1,7 @@
 // deps
 import React from 'react';
 // components
+import NewProducts from './newProducts';
 // containers
 import TopSliderContainer from '../containers/topSliderContainer';
 import FeaturedSliderContainer from '../containers/featuredSliderContainer';
@@ -17,6 +18,7 @@ class Main extends React.Component {
                 <div className="main__wrap">
                     <TopSliderContainer />
                     <FeaturedSliderContainer />
+                    <NewProducts />
                 </div>
             </section>
         );
