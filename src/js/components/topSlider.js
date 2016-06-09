@@ -36,24 +36,15 @@ class TopSlider extends React.Component {
             }
         } );
 
-        console.log( 'updating state' );
         this.setState({ items });
     }
 
     shouldComponentUpdate( nextProps, nextState ) {
-        // productList prop contains all of the products and
-        // will change for another components
-        // update only on state/props.items change
-        if ( this.props.items === nextProps.items &&
-             this.state === nextState ) {
-            return false;
-        }
-
-        return true;
+        // update only on state change
+        return nextState === this.state ? false : true;
     }
 
     componentDidUpdate() {
-        console.log( 'did update' );
         this.$owlContainer.owlCarousel({
             singleItem: true,
             pagination: false,
@@ -71,7 +62,6 @@ class TopSlider extends React.Component {
     }
 
     render() {
-        console.log( 'render' );
         return (
             <div className="top-slider__wrap">
                 <div className="top-slider owl-carousel" ref={ ref => this.owlContainer = ref }>
