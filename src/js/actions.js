@@ -179,3 +179,53 @@ export function fetchNewProducts() {
 			   .then( prevAction => dispatch( receiveNewProducts( prevAction.json ) ) )
 	};
 };
+
+/**
+ * Trending
+ ************************/
+
+ // requesting trending products
+export const REQUEST_TRENDING = 'REQUEST_TRENDING';
+export function requestTrending() {
+	return {
+		type: REQUEST_TRENDING,
+	};
+};
+
+// receiving trending products
+export const RECEIVE_TRENDING = 'RECEIVE_TRENDING';
+export function receiveTrending( json ) {
+	return {
+		type: RECEIVE_TRENDING,
+		json
+	};
+};
+
+// requesting and receiving trending products
+export function fetchTrending() {
+	return function( dispatch, getState, api ) {
+		dispatch( requestTrending() );
+
+		const query = `/products?filter[posts_per_page]=-1&
+								 filter[meta_query][0][key]=trending&
+								 filter[meta_query][0][value]=man&
+								 filter[meta_query][0][compare]=LIKE&
+								 filter[meta_query][1][key]=trending&
+								 filter[meta_query][1][value]=women&
+								 filter[meta_query][1][compare]=LIKE&
+								 filter[meta_query][2][key]=trending&
+								 filter[meta_query][2][value]=kids&
+								 filter[meta_query][2][compare]=LIKE&
+								 filter[meta_query][3][key]=trending&
+								 filter[meta_query][3][value]=accessories&
+								 filter[meta_query][3][compare]=LIKE&
+								 filter[meta_query][relation]=OR`;
+
+		return fetch( api + query )
+			   .then( response => response.json() )
+			   // update product List
+			   .then( json => dispatch( receiveProducts( json ) ) )
+			   // update trending products
+			   .then( prevAction => dispatch( receiveTrending( prevAction.json ) ) )
+	};
+};

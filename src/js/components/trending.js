@@ -11,86 +11,7 @@ class Trending extends React.Component {
     constructor(props) {
         super();
         this.state = {
-        	items: [
-        		{
-        			id: 1,
-        			filter: 'women',
-					href: 'product.html',
-					imgSrc: 'img/man_1.png',
-					imgAlt: 'trending-item',
-					name: 'Shop t-shirt',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-        		{
-        			id: 2,
-        			filter: 'women accessories',
-					href: 'product.html',
-					imgSrc: 'img/man_1.png',
-					imgAlt: 'trending-item',
-					name: 'Shop t-shirt',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-        		{
-        			id: 3,
-        			filter: 'women',
-					href: 'product.html',
-					imgSrc: 'img/man_1.png',
-					imgAlt: 'trending-item',
-					name: 'Shop t-shirt',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-        		{
-        			id: 4,
-        			filter: 'man accessories',
-					href: 'product.html',
-					imgSrc: 'img/man_2.png',
-					imgAlt: 'trending-item',
-					name: 'Sneaker',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-        		{
-        			id: 5,
-        			filter: 'man accessories',
-					href: 'product.html',
-					imgSrc: 'img/man_2.png',
-					imgAlt: 'trending-item',
-					name: 'Sneaker',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-        		{
-        			id: 6,
-        			filter: 'man',
-					href: 'product.html',
-					imgSrc: 'img/man_2.png',
-					imgAlt: 'trending-item',
-					name: 'Sneaker',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-        		{
-        			id: 7,
-        			filter: 'kids accessories',
-					href: 'product.html',
-					imgSrc: 'img/man_3.png',
-					imgAlt: 'trending-item',
-					name: 'Backpack',
-					desc: 'Lorem ipsum dolor sit amet, consectetur.',
-					newPrice: 34.99,
-					oldPrice: 69.99
-        		},
-
-        	]
+        	items: []
         };
 
         this.navSwitching = this.navSwitching.bind( this );
@@ -101,11 +22,43 @@ class Trending extends React.Component {
     }
 
     componentDidMount() {
+    	// fetching initial data
+    	this.props.fetchItems();
+    }
+
+    componentWillReceiveProps( nextProps ) {
+        // for products initial updating, when props.items are empty
+        // or when items are not updating ( productList update only )
+        if ( nextProps.items.length === 0 || 
+             nextProps.items === this.props.items ) { return; }
+
+        let items = nextProps.items.map( item => {
+            let obj = nextProps.productList[ item ];
+            return {
+                id: obj.id,
+                imgSrc: obj.acf.image1.url,
+                imgAlt: obj.acf.image1.alt,
+                name: obj.acf.name,
+                href: `/${ obj.id }`,
+                oldPrice: obj.acf.old_price,
+	            newPrice: obj.acf.new_price,
+	            desc: obj.acf.short_desc,
+	            filter: obj.acf.trending.join(' ')
+            }
+        } );
+        this.setState({ items });
+    }
+
+    shouldComponentUpdate( nextProps, nextState ) {
+        // update only on state change
+        return nextState === this.state ? false : true;
+    }
+
+    componentDidUpdate() {
     	// initiating an active nav item
     	this.$active = $( this.nav ).children()
 									.first()
-									.addClass( 'trending__nav-item--active' );
-
+									.addClass( 'trending__nav-item--active' );	
 		// instantiating Isotope
 		this.iso = new Isotope( this.grid, {
 			itemSelector: '.trending-item',
@@ -168,8 +121,12 @@ class Trending extends React.Component {
 										<span className="trending-item__current-value">{ item.newPrice }</span>
 									</div>
 									<div className="trending-item__old-price">
-										<span className="trending-item__currency">$</span>
-										<span className="trending-item__old-value">{ item.oldPrice }</span>
+										<span className="trending-item__currency">
+											{ item.oldPrice == 0 ? false : $ }
+										</span>
+										<span className="trending-item__old-value">
+											{ item.oldPrice == 0 ? false : item.oldPrice }
+										</span>
 									</div>
 									<BtnCart mode="trending" />
 								</div>
