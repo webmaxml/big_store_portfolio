@@ -81,7 +81,7 @@ gulp.task( 'scripts', function() {
         })
         .pipe( source('app.min.js') )
         .pipe( buffer() )
-        .pipe( uglify() )
+        // .pipe( uglify() )
         .pipe( gulp.dest( './dist/js/' ) );
 } );
 

@@ -1,5 +1,8 @@
 // deps
 import React from 'react';
+import $ from 'jquery';
+import Isotope from 'isotope-layout';
+import _ from 'underscore';
 // components
 import BtnCart from './btnCart';
 
@@ -88,22 +91,64 @@ class Trending extends React.Component {
         		},
 
         	]
-        }
+        };
+
+        this.navSwitching = this.navSwitching.bind( this );
+
+        // arrange callback receives every item as 'this'
+        // but we also need an access to the component object 
+        this.itemArrange = _.partial( this.itemArrange, this );
+    }
+
+    componentDidMount() {
+    	// initiating an active nav item
+    	this.$active = $( this.nav ).children()
+									.first()
+									.addClass( 'trending__nav-item--active' );
+
+		// instantiating Isotope
+		this.iso = new Isotope( this.grid, {
+			itemSelector: '.trending-item',
+			percentPosition: true,
+			masonry: {
+				columnWidth: '.trending-item'
+			},
+			filter: this.itemArrange
+		});
+    }
+
+    // callback for arranging items
+    itemArrange( self ) {
+    	let activeFilter = self.$active.data( 'filter' );
+		let itemFilter = $( this ).data( 'filter' );
+
+		// returns true if current item has an active filter
+		return ~itemFilter.indexOf( activeFilter ) ? true : false;
+    }
+
+    navSwitching( event ) {
+    	// switching nav items
+    	const $target = $( event.target );
+		this.$active.removeClass( 'trending__nav-item--active' );
+		this.$active = $target.addClass( 'trending__nav-item--active' );
+
+		// arranging trending items
+		this.iso.arrange( { filter: this.itemArrange } );
     }
 
     render() {
         return (
         	<article className="trending">
 				<div className="trending__menu">
-					<h2 className="trending__header">Trending now></h2>
-					<ul className="trending__nav">
+					<h2 className="trending__header">Trending now</h2>
+					<ul className="trending__nav" ref={ ref => this.nav = ref } onClick={ this.navSwitching }>
 						<li className="trending__nav-item" data-filter="man">Man</li>
 						<li className="trending__nav-item" data-filter="women">Women</li>
 						<li className="trending__nav-item" data-filter="kids">Kids</li>
 						<li className="trending__nav-item" data-filter="accessories">Accessories</li>
 					</ul>
 				</div>
-				<ul className="trending__item-box">
+				<ul className="trending__item-box" ref={ ref => this.grid = ref }>
 
 					{ this.state.items.map( item => {
 						return (
