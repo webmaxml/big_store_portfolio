@@ -1003,7 +1003,7 @@ if (typeof Object.create !== "function") {
                     handlers,
                     owlStopEvent;
 
-                ev.target = ev.target || ev.srcElement;
+                // ev.target = ev.target || ev.srcElement;
 
                 locals.dragging = false;
 
