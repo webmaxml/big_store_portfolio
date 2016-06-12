@@ -4659,7 +4659,6 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 @media (min-width: 500px) {
   .tweets__twitter-link {
     float: left;
-    margin: 0 20px 0 0;
   }
 }
 .tweets__twitter-link:hover {
@@ -4674,7 +4673,7 @@ head:hover ~ .header__wrap:before, head:hover ~ .main__wrap:before, head:hover ~
 }
 @media (min-width: 500px) {
   .tweets__info {
-    float: left;
+    margin-left: 67px;
     text-align: left;
   }
 }
