@@ -1,7 +1,8 @@
 // deps
 import React from 'react';
 // components
-import BrandSlider from './brandSlider';
+// containers
+import BrandSliderContainer from '../containers/brandSliderContainer';
 
 class Footer extends React.Component {
 
@@ -13,7 +14,7 @@ class Footer extends React.Component {
         return (
         	<section className="footer">
 				<div className="footer__wrap">
-					<BrandSlider />
+					<BrandSliderContainer />
 				</div>
 			</section>
         );

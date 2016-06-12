@@ -8,80 +8,7 @@ class brandSlider extends React.Component {
     constructor(props) {
         super();
         this.state = {
-        	items: [
-        		{
-        			id: 1,
-        			href: '#',
-        			imgSrc: 'img/brand_1.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 2,
-        			href: '#',
-        			imgSrc: 'img/brand_2.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 3,
-        			href: '#',
-        			imgSrc: 'img/brand_3.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 4,
-        			href: '#',
-        			imgSrc: 'img/brand_1.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 5,
-        			href: '#',
-        			imgSrc: 'img/brand_2.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 6,
-        			href: '#',
-        			imgSrc: 'img/brand_3.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 7,
-        			href: '#',
-        			imgSrc: 'img/brand_1.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 8,
-        			href: '#',
-        			imgSrc: 'img/brand_2.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 9,
-        			href: '#',
-        			imgSrc: 'img/brand_3.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 10,
-        			href: '#',
-        			imgSrc: 'img/brand_1.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 11,
-        			href: '#',
-        			imgSrc: 'img/brand_2.png',
-        			imgAlt: 'brand_item'
-        		},
-        		{
-        			id: 12,
-        			href: '#',
-        			imgSrc: 'img/brand_3.png',
-        			imgAlt: 'brand_item'
-        		},
-        	]
+        	items: []
         };
 
         this.movePrev = this.movePrev.bind( this );
@@ -89,8 +16,22 @@ class brandSlider extends React.Component {
     }
 
     componentDidMount() {
-    	this.$owlContainer = $( this.owlContainer );
+    	// fetching initial data
+    	this.props.fetchItems();
 
+    	this.$owlContainer = $( this.owlContainer );	
+    }
+
+    componentWillReceiveProps( nextProps ) {
+        this.setState({ items: nextProps.items });
+    }
+
+    shouldComponentUpdate( nextProps, nextState ) {
+        // update only on state change
+        return nextState === this.state ? false : true;
+    }
+
+    componentDidUpdate() {
     	this.$owlContainer.owlCarousel({
 			itemsCustom: [ [0, 1], [540, 2], [780, 3], [1150, 4] ],
 			pagination: false,

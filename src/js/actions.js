@@ -229,3 +229,37 @@ export function fetchTrending() {
 			   .then( prevAction => dispatch( receiveTrending( prevAction.json ) ) )
 	};
 };
+
+/**
+ * Brands
+ ************************/
+
+ // requesting brands
+export const REQUEST_BRANDS = 'REQUEST_BRANDS';
+export function requestBrands() {
+	return {
+		type: REQUEST_BRANDS,
+	};
+};
+
+// receiving brands
+export const RECEIVE_BRANDS = 'RECEIVE_BRANDS';
+export function receiveBrands( json ) {
+	return {
+		type: RECEIVE_BRANDS,
+		json
+	};
+};
+
+// requesting and receiving brands
+export function fetchBrands() {
+	return function( dispatch, getState, api ) {
+		dispatch( requestBrands() );
+
+		const query = `/brands`;
+
+		return fetch( api + query )
+			   .then( response => response.json() )
+			   .then( json => dispatch( receiveBrands( json ) ) )
+	};
+};
