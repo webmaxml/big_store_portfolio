@@ -4,6 +4,7 @@ import $ from 'jquery';
 import 'owlCarousel';
 // components
 import BtnCart from './btnCart';
+import ProductItem from './productItem';
 
 class FeaturedSlider extends React.Component {
 
@@ -81,25 +82,7 @@ class FeaturedSlider extends React.Component {
 					{ this.state.items.map( item => {
 						return (
 							<li className="featured__item" key={ item.id }>
-								<a className="featured__link" href={ item.href }>
-									<img className="featured__img" src={ item.imgSrc } alt={ item.imgAlt } />
-								</a>
-								<div className="featured__info">
-									<div className="featured__about">
-										<h3 className="featured__item-name"> 
-											<a className="featured__link" href="product.html">{ item.name }</a>
-										</h3>
-										<div className="featured__current-price">
-											<span className="featured__currency">$</span>
-											<span className="featured__current-value">{ item.newPrice }</span>
-										</div>
-										<div className="featured__old-price">
-											<span className="featured__currency">$</span>
-											<span className="featured__old-value">{ item.oldPrice }</span>
-										</div>
-									</div>
-									<BtnCart mode="default" />
-								</div>
+                                <ProductItem mode="featured" { ...item }/>
 							</li>
 						);
 					} ) }

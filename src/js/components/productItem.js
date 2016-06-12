@@ -25,10 +25,13 @@ class ProductItem extends React.Component {
     		case 'related':
     			classes += ' product-item--related';
     			break;
+    		case 'featured':
+    			classes += ' product-item--featured';
+    			break;
     	}
 
         return (
-        	<li className={ classes }>
+        	<div className={ classes }>
 				<div className="product-item__img-line">
 					<a className="product-item__img-link" href={ this.state.href }>
 						<img className="product-item__img" src={ this.state.imgSrc } alt={ this.state.imgAlt } />
@@ -54,9 +57,11 @@ class ProductItem extends React.Component {
 							</div>
 						</div>
 					</div>
-					<BtnCart mode="default" />
+					<div className="product-item__btn-grouper">
+						<BtnCart mode="default" />
+					</div>
 				</div>
-			</li>
+			</div>
         );
     }
 

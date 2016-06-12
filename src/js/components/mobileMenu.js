@@ -1,6 +1,5 @@
 // deps
 import React from 'react';
-import TweenMax from 'gsap';
 import _ from 'underscore';
 // components
 import SocialNav from './socialNav';
@@ -42,9 +41,11 @@ class mobileMenu extends React.Component {
     	// for the initial render
     	if ( !this._menu ) { return }
     	if ( this.state.open ) {		
-    		TweenMax.fromTo( this._menu , 0.2, {opacity:0, display: 'none'}, {opacity:1, display:'block'} )
+            this._menu.style.width = '100%';
+            this._menu.style.opacity = 1;
     	} else {
-    		TweenMax.fromTo( this._menu , 0.2, {opacity:1, display:'block'}, {opacity:0, display: 'none'} )
+            this._menu.style.width = '0%';
+            this._menu.style.opacity = 0;
     	}
     	  
     }

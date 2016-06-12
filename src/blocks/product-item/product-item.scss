@@ -1,16 +1,37 @@
 /* product-item */
 .product-item {
 
-	/***** grouper *****/
+	/***** line *****/
 
-	display: inline-block;
-	vertical-align: middle;
+	&__price-line {
+		display: block;
 
-	width: 256px;
-
-	&:not(:last-child) {
-		margin-right: 24px;
+		font-size: 0;
+		line-height: 0;
+		text-align: left;
 	}
+
+	&__name-line {
+		display: block;
+
+		margin-bottom: $base-lh;
+
+		font-size: 0;
+		line-height: 0;
+		text-align: left;
+	}
+
+	&__info-line {
+		display: block;
+		overflow: hidden;
+
+		margin-top: $base-lh;
+
+		font-size: 0;
+		line-height: 0;
+	}
+
+	/***** grouper *****/
 
 	&__currency-grouper {
 		display: inline-block;
@@ -35,44 +56,17 @@
 	}
 
 	&__about-grouper {
-		display: inline-block;
-		vertical-align: middle;
+		float: left;
 
 		font-size: 0;
 		line-height: 0;
 	}
 
-	/***** line *****/
-
-	&__price-line {
-		display: block;
+	&__btn-grouper {
+		float: right;
 
 		font-size: 0;
-		line-height: 0;
-		text-align: left;
-	}
-
-	&__name-line {
-		display: block;
-
-		margin-bottom: $base-lh;
-
-		font-size: 0;
-		line-height: 0;
-		text-align: left;
-	}
-
-	&__info-line {
-		display: block;
-
-		margin-top: $base-lh;
-		margin-bottom: $base-lh;
-
-		font-size: 1px;
-		line-height: 0;
-		text-align: justify;
-
-		@extend %justify-helper;
+		line-height: $base-lh * 3;
 	}
 
 	/***** content *****/

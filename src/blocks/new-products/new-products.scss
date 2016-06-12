@@ -63,6 +63,17 @@
 		text-align: left;
 	}
 
+	&__item-wrap {
+		display: inline-block;
+		vertical-align: middle;
+
+		width: 256px;
+
+		&:not(:last-child) {
+			margin-right: 24px;
+		}
+	}
+
 	&__handle {
 		position: absolute;
 		top: -4px;

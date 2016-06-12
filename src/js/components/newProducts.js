@@ -81,7 +81,9 @@ class NewProducts extends React.Component {
 
 						{ this.state.items.map( item => {
 							return (
-								<ProductItem key={ item.id } mode="default" { ...item }/>
+                                <li className="new-products__item-wrap" key={ item.id }>
+								    <ProductItem mode="default" { ...item }/>
+                                </li>
 							);
 						} ) }
 
