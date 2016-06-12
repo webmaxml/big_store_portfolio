@@ -2,6 +2,7 @@
 import React from 'react';
 // components
 import About from './about';
+import Categories from './categories';
 // containers
 import BrandSliderContainer from '../containers/brandSliderContainer';
 
@@ -17,6 +18,7 @@ class Footer extends React.Component {
 				<div className="footer__wrap">
 					<BrandSliderContainer />
 					<About />
+					<Categories />
 				</div>
 			</section>
         );
