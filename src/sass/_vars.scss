@@ -138,8 +138,8 @@ $bsh_main-nav__item: -1px 1px 0 0 #404040 inset;
 $bg_hv_main-nav__item: darken(#363636, 1%) url('../img/bg_overlay.png');
 // logo
 $c_logo: #fff;
-$bg_logo: linear-gradient(top, #fe1f1f 0%, #fe1f1f 80%, #000 160%);
-$bg_before_logo: linear-gradient(top, #fe1f1f 0%, #000 315%);
+$bg_logo: linear-gradient(to top, #fe1f1f 0%, #fe1f1f 80%, #000 160%);
+$bg_before_logo: linear-gradient(to top, #fe1f1f 0%, #000 315%);
 $bgc_after_logo: #4d0000;
 // news-feed
 $c_news-feed: #9a9a9a;
@@ -149,8 +149,8 @@ $c_shopping-cart__amount: #fff;
 $c_shopping-cart__currency: #fff;
 $c_shopping-cart__price: #fff;
 $c_shopping-cart__taggle: #fff;
-$bg_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, #b20101 100%);
-$bg_hv_shopping-cart__taggle: linear-gradient(top, #fe1f1f 0%, darken(#b20101, 6%) 100%);
+$bg_shopping-cart__taggle: linear-gradient(to top, #fe1f1f 0%, #b20101 100%);
+$bg_hv_shopping-cart__taggle: linear-gradient(to top, #fe1f1f 0%, darken(#b20101, 6%) 100%);
 $bo_shopping-cart__taggle: 1px solid #fe1f1f;
 $tsh_shopping-cart__taggle: 0 1px 0 #000;
 // shoppipng-basket
