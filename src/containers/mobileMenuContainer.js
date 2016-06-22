@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { mobileMenuToggle } from '../actions';
 // components
-import MobileMenu from '../components/mobileMenu';
+import MobileMenu from '../components/mobileMenu/mobileMenu';
 
 function mapStateToProps( state ) {
 	return {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { fetchNews } from '../actions';
 // components
-import NewsFeed from '../components/newsFeed';
+import NewsFeed from '../components/newsFeed/newsFeed';
 
 function mapStateToProps( state ) {
 	return {

@@ -35,7 +35,7 @@ module.exports = {
         alias: {
           'masonry': 'masonry-layout',
           'isotope': 'isotope-layout',
-          'owlCarousel': '../libs/owlCarousel.js' // only when require in components/
+          'owlCarousel': '../../libs/owlCarousel.js' // only when require in components/
         }
     },
 

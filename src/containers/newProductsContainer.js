@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { fetchNewProducts } from '../actions';
 // components
-import NewProducts from '../components/newProducts';
+import NewProducts from '../components/newProducts/newProducts';
 
 function mapStateToProps( state ) {
 	return { 

@@ -1,3 +1,4 @@
+@import 'utilities';
 // 
 // base
 //
@@ -219,8 +220,8 @@ $c_sale-badge: #fff;
 $bgc_before_sale-badge: rgba(white, .4);
 $bob_sale-badge: 30px solid #f21717;
 $bol_sale-badge: 30px solid transparent;
-$bot_sale-badge__back: 5px solid #a42929;
-$bor_sale-badge__back: 5px solid transparent;
+$bot_sale-badge__back: 7px solid #a42929;
+$bor_sale-badge__back: 7px solid transparent;
 // trending
 $boi_trending: linear-gradient(to top, #fff 0%, #d2d2d2 100%) 99.9%;
 $bgc_trending: #f9f9f9;

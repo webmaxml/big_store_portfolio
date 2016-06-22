@@ -12,9 +12,9 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // reducers
 import rootReducer from './reducers/index';
 // components
-import App from './components/app';
-import Home from './components/home';
-import ProductSection from './components/productSection';
+import App from './components/app/app';
+import Home from './components/home/home';
+import ProductSection from './components/productSection/productSection';
 
 const api = 'http://api.webmaxml.ru/wp-json/wp/v2';
 

@@ -1,0 +1,16 @@
+/* home */
+.home {
+	font-size: 0;
+	text-align: center;
+
+	background-color: $bgc_main;
+
+	@media ( min-width: 780px ) {
+		background: $bg_main;
+		background-color: $bgc_main;
+	}
+
+	&__wrap {
+		@extend %wrapper;
+	}
+}

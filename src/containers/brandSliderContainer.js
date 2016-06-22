@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { fetchBrands } from '../actions';
 // components
-import BrandSlider from '../components/brandSlider';
+import BrandSlider from '../components/brandSlider/brandSlider';
 
 function mapStateToProps( state ) {
 	return { 

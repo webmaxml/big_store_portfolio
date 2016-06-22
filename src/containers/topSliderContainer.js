@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { fetchTopSlider } from '../actions';
 // components
-import TopSlider from '../components/topSlider';
+import TopSlider from '../components/topSlider/topSlider';
 
 function mapStateToProps( state ) {
 	return { 

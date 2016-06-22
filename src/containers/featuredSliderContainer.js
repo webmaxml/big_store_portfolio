@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { fetchFeaturedSlider } from '../actions';
 // components
-import FeaturedSlider from '../components/featuredSlider';
+import FeaturedSlider from '../components/featuredSlider/featuredSlider';
 
 function mapStateToProps( state ) {
 	return { 

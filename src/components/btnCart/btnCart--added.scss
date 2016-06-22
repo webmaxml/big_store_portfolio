@@ -1,0 +1,16 @@
+.btn-cart--added {
+
+	& .btn-cart__icon {
+		border: $bo_btn-cart--added__icon;
+
+		background: $bg_btn-cart--added__icon;
+	}
+
+	&:hover .btn-cart__icon { 
+		background: $bg_btn-cart--added__icon;
+	}
+
+	&:hover .btn-cart__text { 
+		background: $bg_btn-cart__text;
+	}
+}

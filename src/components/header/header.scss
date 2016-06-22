@@ -1,0 +1,40 @@
+/* header */
+.header {
+	width: 100%;
+
+	&__nav {	
+		position: relative;
+
+		height: $base-lh * 4;
+
+		background: $bg_header__nav;
+
+		@media ( min-width: 990px ) {
+			height: auto;
+		}
+	}
+
+	&__news {
+		position: relative;
+		z-index: $z_header__news;
+
+		border-top: $bo_header__news;
+		border-bottom: $bo_header__news;
+
+		background-color: $bgc_header__news;	
+	}
+
+	&__wrap {
+		position: relative;
+
+		@extend %wrapper;
+	}
+
+	&__menu {
+		display: none;
+
+		@media ( min-width: 990px ) {
+			display: block;
+		}
+	}
+}

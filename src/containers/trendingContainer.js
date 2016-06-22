@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { fetchTrending } from '../actions';
 // components
-import Trending from '../components/trending';
+import Trending from '../components/trending/trending';
 
 function mapStateToProps( state ) {
 	return {

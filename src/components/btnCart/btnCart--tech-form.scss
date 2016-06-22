@@ -1,0 +1,32 @@
+.btn-cart--tech-form {
+	float: left;
+	clear: none;
+
+	margin-top: 0;
+
+	& .btn-cart__icon {
+		float: left;
+
+		border-radius: 6px 0 0 6px;
+
+		line-height: $base-lh * 2 - 2;
+	}
+
+	& .btn-cart__text {
+		float: left;
+
+		width: 90px;
+		border: $bo_btn-cart__text;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+
+		font-family: $ff_text;
+		font-weight: bold;
+		font-size: $fz_btn-cart__text;
+		line-height: $base-lh * 2 - 2;
+		color: $c_btn-cart__text;
+		text-align: center;
+
+		background: $bg_btn-cart__text;
+	}
+}
