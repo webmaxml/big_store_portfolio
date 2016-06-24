@@ -7,8 +7,7 @@ import NewsFeed from './newsFeed';
 
 function mapStateToProps( state ) {
 	return {
-		date: state.news.itemDate,
-		content: state.news.itemContent
+		item: state.news.item
 	};
 };
 

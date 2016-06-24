@@ -5,8 +5,7 @@ import { REQUEST_NEWS, RECEIVE_NEWS } from '../actions';
 
 const initialState = {
 	isFetching: false,
-	itemDate: '',
-	itemContent: ''
+	item: {}
 };
 
 function news( state = initialState, action ) {
@@ -18,8 +17,10 @@ function news( state = initialState, action ) {
 		case RECEIVE_NEWS:
 			return _.extend( {}, state, {
 				isFetching: false,
-				itemDate: new Date( action.json.modified ).toLocaleDateString(),
-				itemContent: action.json.acf.content
+				item: {
+					itemDate: new Date( action.json.modified ).toLocaleDateString(),
+					itemContent: action.json.acf.content
+				}
 			} );
 		default:
 			return state;
