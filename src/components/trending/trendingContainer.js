@@ -1,9 +1,9 @@
 // deps
 import { connect } from 'react-redux';
 // actions
-import { fetchTrending } from '../actions';
+import { fetchTrending } from '../../actions';
 // components
-import Trending from '../components/trending/trending';
+import Trending from './trending';
 
 function mapStateToProps( state ) {
 	return {

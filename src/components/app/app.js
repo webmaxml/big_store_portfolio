@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 // containers
-import MobileMenuContainer from '../../containers/mobileMenuContainer';
+import MobileMenuContainer from '../mobileMenu/mobileMenuContainer';
 
 class App extends React.Component {
 

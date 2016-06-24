@@ -5,7 +5,7 @@ import About from '../about/about';
 import Categories from '../categories/categories';
 import Tweets from '../tweets/tweets';
 // containers
-import BrandSliderContainer from '../../containers/brandSliderContainer';
+import BrandSliderContainer from '../brandSlider/brandSliderContainer';
 
 class Footer extends React.Component {
 

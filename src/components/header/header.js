@@ -6,8 +6,8 @@ import MainNav from '../mainNav/mainNav';
 import Logo from '../logo/logo';
 import ShoppingCart from '../shoppingCart/shoppingCart';
 // containers
-import MobileToggleContainer from '../../containers/mobileToggleContainer';
-import NewsFeedContainer from '../../containers/newsFeedContainer';
+import MobileToggleContainer from '../mobileToggle/mobileToggleContainer';
+import NewsFeedContainer from '../newsFeed/newsFeedContainer';
 
 
 class Header extends React.Component {

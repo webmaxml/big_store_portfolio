@@ -1,9 +1,9 @@
 // deps
 import { connect } from 'react-redux';
 // actions
-import { fetchBrands } from '../actions';
+import { fetchBrands } from '../../actions';
 // components
-import BrandSlider from '../components/brandSlider/brandSlider';
+import BrandSlider from './brandSlider';
 
 function mapStateToProps( state ) {
 	return { 

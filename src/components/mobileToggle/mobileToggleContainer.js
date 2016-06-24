@@ -1,9 +1,9 @@
 // deps
 import { connect } from 'react-redux';
 // actions
-import { mobileMenuToggle } from '../actions';
+import { mobileMenuToggle } from '../../actions';
 // components
-import MobileMenu from '../components/mobileMenu/mobileMenu';
+import MobileToggle from './mobileToggle';
 
 function mapStateToProps( state ) {
 	return {
@@ -13,15 +13,15 @@ function mapStateToProps( state ) {
 
 function mapDispatchToProps( dispatch ) {
 	return {
-		closeMenu: () => {
-			dispatch( mobileMenuToggle( true ) );
+		onClick: () => {
+			dispatch( mobileMenuToggle() );
 		}
 	};
 };
 
-const MobileMenuContainer = connect(
+const MobileToggleContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)( MobileMenu );
+)( MobileToggle );
 
-export default MobileMenuContainer;
+export default MobileToggleContainer;

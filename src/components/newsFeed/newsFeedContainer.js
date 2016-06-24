@@ -1,9 +1,9 @@
 // deps
 import { connect } from 'react-redux';
 // actions
-import { fetchNews } from '../actions';
+import { fetchNews } from '../../actions';
 // components
-import NewsFeed from '../components/newsFeed/newsFeed';
+import NewsFeed from './newsFeed';
 
 function mapStateToProps( state ) {
 	return {

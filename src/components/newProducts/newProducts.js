@@ -31,11 +31,9 @@ class NewProducts extends React.Component {
 
     componentWillReceiveProps( nextProps ) {
         // update only when items prop changes
-        console.log( 'receiving' );
         if ( nextProps.items === this.props.items ) { return; }
 
         let items = this.constructState( nextProps.items );
-        console.log( 'updating' );
         this.setState({ items: items, needToFetch: false });
     }
 
@@ -74,7 +72,7 @@ class NewProducts extends React.Component {
     }
 
     /**
-     * Sets and initializes IScroll
+     * Sets and initializes IScroll, updates the corresponding state
      */
 
     initScroll() {
@@ -102,10 +100,11 @@ class NewProducts extends React.Component {
                 resize: false
             }
         } );
+
+        this.setState({ scrollInit: true });
     }
 
     render() {
-        console.log( 'render' );
         return (
         	<article className="new-products">
 				<h2 className="new-products__header">New products</h2>
