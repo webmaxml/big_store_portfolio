@@ -14,7 +14,7 @@ import rootReducer from './reducers/index';
 // components
 import App from './components/app/app';
 import Home from './components/home/home';
-import ProductSection from './components/productSection/productSection';
+import ProductSectionContainer from './components/productSection/productSectionСontainer';
 
 const api = 'http://api.webmaxml.ru/wp-json/wp/v2';
 
@@ -28,7 +28,7 @@ render(
 		<Router history={ browserHistory }>
 			<Route path="/" component={ App }>
 				<IndexRoute component={ Home } />
-				<Route path="product/:id" component={ ProductSection } />
+				<Route path="product/:id" component={ ProductSectionContainer } />
 			</Route>
 		</Router>
 	</Provider>, 

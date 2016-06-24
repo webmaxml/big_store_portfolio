@@ -8,13 +8,23 @@ function products( state = {}, action ) {
 		case RECEIVE_PRODUCT_ITEMS:
 			let newState = _.extend( {}, state );
 
-			// json - [ {...}, {...}, ... ]
-			// we need { 'id':{...}, 'id':{...}, ... }
-			action.json.map( item => {
+			if ( _.isArray( action.json ) ) {
+				// json - [ {...}, {...}, ... ]
+				// we need - { 'id':{...}, 'id':{...}, ... }
+				action.json.map( item => {
+					let obj = {};
+					obj[item.id] = item;
+					_.extend( newState, obj );
+				} )
+			};
+
+			if ( _.isObject( action.json ) ) {
+				// json - {...}
+				// we need - { 'id':{...} }
 				let obj = {};
-				obj[item.id] = item;
+				obj[ action.json.id ] = action.json;
 				_.extend( newState, obj );
-			} )
+			};
 
 			return newState;
 		default:

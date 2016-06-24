@@ -9,6 +9,7 @@ import featuredSlider from './featuredSlider';
 import newProducts from './newProducts';
 import trending from './trending';
 import brands from './brands';
+import productSection from './productSection';
 
 const rootReducer = combineReducers({
 	mobileMenu,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
 	featuredSlider,
 	newProducts,
 	trending,
-	brands
+	brands,
+	productSection
 });
 
 export default rootReducer;

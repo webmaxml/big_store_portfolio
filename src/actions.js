@@ -263,3 +263,40 @@ export function fetchBrands() {
 			   .then( json => dispatch( receiveBrands( json ) ) )
 	};
 };
+
+/**
+ * ProductSection
+ ************************/
+
+ // requesting product section item
+export const REQUEST_PRODUCT_SECTION_ITEM = 'REQUEST_PRODUCT_SECTION_ITEM';
+export function requestProductSection() {
+	return {
+		type: REQUEST_PRODUCT_SECTION_ITEM,
+	};
+};
+
+// receiving product section item
+export const RECEIVE_PRODUCT_SECTION_ITEM = 'RECEIVE_PRODUCT_SECTION_ITEM';
+export function receiveProductSection( json ) {
+	return {
+		type: RECEIVE_PRODUCT_SECTION_ITEM,
+		json
+	};
+};
+
+// requesting and receiving product section item
+export function fetchProductSectionItem( id ) {
+	return function( dispatch, getState, api ) {
+		dispatch( requestProductSection() );
+
+		const query = `/products/${ id }`;
+
+		return fetch( api + query )
+			   .then( response => response.json() )
+			   // update product List
+			   .then( json => dispatch( receiveProducts( json ) ) )
+			   // update product section item
+			   .then( prevAction => dispatch( receiveProductSection( prevAction.json ) ) )
+	};
+};
