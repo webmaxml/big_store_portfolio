@@ -18,8 +18,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-### Sass ###
+### Cache ###
 .sass-cache/
+.babel-cache/
 
 ### SublimeText ###
 *.tmlanguage.cache

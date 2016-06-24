@@ -18,14 +18,7 @@ function brands( state = initialState, action ) {
 		case RECEIVE_BRANDS:
 			return _.extend( {}, state, {
 				isFetching: false,
-				items: action.json.map( item => {
-					return {
-						id: item.id,
-						href: item.acf.href,
-						imgSrc: item.acf.image.url,
-						imgAlt: item.acf.image.alt,
-					};
-				} )
+				items: action.json
 			} );
 		default:
 			return state;

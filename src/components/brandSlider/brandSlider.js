@@ -5,9 +5,17 @@ import 'owlCarousel';
 class brandSlider extends React.Component {
 
     constructor(props) {
-        super();
+        super( props );
+
+        // check if we have to fetch items and
+        // construct array of items object if we dont need to
+        let needToFetch = props.items.length === 0 ? true : false;
+        let items = needToFetch ? [] : this.constructState( props.items );
+
         this.state = {
-        	items: []
+            items,
+            needToFetch,
+            owlInit: false
         };
 
         this.movePrev = this.movePrev.bind( this );
@@ -15,26 +23,62 @@ class brandSlider extends React.Component {
     }
 
     componentDidMount() {
-    	// fetching initial data
-    	this.props.fetchItems();
-
-    	this.$owlContainer = $( this.owlContainer );	
+    	if ( this.state.needToFetch ) {
+            this.props.fetchItems();          
+        } else {
+            this.initCarousel();
+        }
     }
 
     componentWillReceiveProps( nextProps ) {
-        this.setState({ items: nextProps.items });
+        // update only when items prop changes
+        if ( nextProps.items === this.props.items ) { return; }
+
+        let items = this.constructState( nextProps.items );
+        this.setState({ items: items, needToFetch: false });
     }
 
     shouldComponentUpdate( nextProps, nextState ) {
-        // update only on state change
-        return nextState === this.state ? false : true;
+        // update only on items state change
+        return nextState.items === this.state.items ? false : true;
     }
 
     componentDidUpdate() {
-    	this.$owlContainer.owlCarousel({
-			itemsCustom: [ [0, 1], [540, 2], [780, 3], [1150, 4] ],
-			pagination: false,
-		});
+    	// check if carousel is already initialized
+        if ( this.state.owlInit ) { return; }
+        this.initCarousel();
+    }
+
+    /**
+     * Constructs an array of item objects
+     *
+     * @param {array} items Array of item id's
+     * @returns {array} array of item objects
+     */
+
+    constructState( items ) {
+        return items.map( item => {
+            return {
+                id: item.id,
+                imgSrc: item.acf.image.url,
+                imgAlt: item.acf.image.alt,
+                href: item.acf.href
+            }
+        } );
+    }
+
+    /**
+     * Initializes owl carousel and updates the corresponding state
+     */
+
+    initCarousel() {
+        this.$owlContainer = $( this.owlContainer );
+        this.$owlContainer.owlCarousel({
+            itemsCustom: [ [0, 1], [540, 2], [780, 3], [1150, 4] ],
+            pagination: false,
+        });
+
+        this.setState({ owlInit: true });
     }
 
     movePrev() {
