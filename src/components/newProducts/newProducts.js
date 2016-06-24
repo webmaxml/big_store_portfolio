@@ -7,23 +7,59 @@ import ProductItem from '../productItem/productItem';
 class NewProducts extends React.Component {
 
     constructor(props) {
-        super();
+        super( props );
+
+        // check if we have to fetch items and
+        // construct array of items object if we dont need to
+        let needToFetch = props.items.length === 0 ? true : false;
+        let items = needToFetch ? [] : this.constructState( props.items );
+
         this.state = {
-        	items: []
+            items,
+            needToFetch,
+            scrollInit: false
         };
     }
 
     componentDidMount() {
-    	// fetching initial data
-    	this.props.fetchItems();
+    	if ( this.state.needToFetch ) {
+            this.props.fetchItems();          
+        } else {
+            this.initScroll();
+        }
     }
 
     componentWillReceiveProps( nextProps ) {
         // update only when items prop changes
+        console.log( 'receiving' );
         if ( nextProps.items === this.props.items ) { return; }
 
-        let items = nextProps.items.map( item => {
-            let obj = nextProps.productList[ item ];
+        let items = this.constructState( nextProps.items );
+        console.log( 'updating' );
+        this.setState({ items: items, needToFetch: false });
+    }
+
+    shouldComponentUpdate( nextProps, nextState ) {
+        // update only on items state change
+        return nextState.items === this.state.items ? false : true;
+    }
+
+    componentDidUpdate() {
+        // check if IScroll is already initialized
+        if ( this.state.scrollInit ) { return; }
+        this.initScroll();
+    }
+
+    /**
+     * Constructs an array of item objects
+     *
+     * @param {array} items Array of item id's
+     * @returns {array} array of item objects
+     */
+
+    constructState( items ) {
+        return items.map( item => {
+            let obj = this.props.productList[ item ];
             return {
                 id: obj.id,
                 imgSrc: obj.acf.image1.url,
@@ -32,45 +68,44 @@ class NewProducts extends React.Component {
                 href: `product/${ obj.id }`,
                 oldPrice: obj.acf.old_price,
                 newPrice: obj.acf.new_price,
-	            saleBadge: obj.acf.sale_badge
+                saleBadge: obj.acf.sale_badge
             }
         } );
-        this.setState({ items });
     }
 
-    shouldComponentUpdate( nextProps, nextState ) {
-        // update only on state change
-        return nextState === this.state ? false : true;
-    }
+    /**
+     * Sets and initializes IScroll
+     */
 
-    componentDidUpdate() {
+    initScroll() {
         // setting the width of the product item container
-    	let width = 0;
-    	let $productBox = $( this.productBox );
+        let width = 0;
+        let $productBox = $( this.productBox );
 
-		$productBox.children().each( function() {
-			width += $( this ).outerWidth( true );
-		} )
+        $productBox.children().each( function() {
+            width += $( this ).outerWidth( true );
+        } )
 
-		$productBox.css( 'width', width );
+        $productBox.css( 'width', width );
 
-    	// initializing IScroll
-    	let scroll = new IScroll( this.scrollContainer, {
-			scrollX: true,
-			scrollY: false,
-			indicators: {
-				el: this.scrollbar,
-				ignoreBoundaries: false,
-				fade: false,
-				interactive: true,
-				listenX: true,
-				listenY: false,
-				resize: false
-			}
-		} );
+        // initializing IScroll
+        let scroll = new IScroll( this.scrollContainer, {
+            scrollX: true,
+            scrollY: false,
+            indicators: {
+                el: this.scrollbar,
+                ignoreBoundaries: false,
+                fade: false,
+                interactive: true,
+                listenX: true,
+                listenY: false,
+                resize: false
+            }
+        } );
     }
 
     render() {
+        console.log( 'render' );
         return (
         	<article className="new-products">
 				<h2 className="new-products__header">New products</h2>

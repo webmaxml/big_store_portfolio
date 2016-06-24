@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 // containers
 import TopSliderContainer from '../topSlider/topSliderContainer';
 import FeaturedSliderContainer from '../featuredSlider/featuredSliderContainer';
-import NewProductsContainer from '../../containers/newProductsContainer';
+import NewProductsContainer from '../newProducts/newProductsContainer';
 import TrendingContainer from '../../containers/trendingContainer';
 
 class Home extends React.Component {

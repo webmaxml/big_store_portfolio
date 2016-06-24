@@ -8,7 +8,7 @@ import ProductItem from '../productItem/productItem';
 class FeaturedSlider extends React.Component {
 
     constructor(props) {
-        super(props);
+        super( props );
 
         // check if we have to fetch items and
         // construct array of items object if we dont need to
