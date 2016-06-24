@@ -1,9 +1,9 @@
 // deps
 import { connect } from 'react-redux';
 // actions
-import { fetchFeaturedSlider } from '../actions';
+import { fetchFeaturedSlider } from '../../actions';
 // components
-import FeaturedSlider from '../components/featuredSlider/featuredSlider';
+import FeaturedSlider from './featuredSlider';
 
 function mapStateToProps( state ) {
 	return { 

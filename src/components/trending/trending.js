@@ -15,8 +15,8 @@ class Trending extends React.Component {
 
         this.navSwitching = this.navSwitching.bind( this );
 
-        // arrange callback receives every item as 'this'
-        // but we also need an access to the component object 
+        // arrange callback receives this as window
+        // but we need to access the component object 
         this.itemArrange = _.partial( this.itemArrange, this );
     }
 
@@ -26,10 +26,8 @@ class Trending extends React.Component {
     }
 
     componentWillReceiveProps( nextProps ) {
-        // for products initial updating, when props.items are empty
-        // or when items are not updating ( productList update only )
-        if ( nextProps.items.length === 0 || 
-             nextProps.items === this.props.items ) { return; }
+        // update only when items prop changes
+        if ( nextProps.items === this.props.items ) { return; }
 
         let items = nextProps.items.map( item => {
             let obj = nextProps.productList[ item ];
@@ -38,7 +36,7 @@ class Trending extends React.Component {
                 imgSrc: obj.acf.image1.url,
                 imgAlt: obj.acf.image1.alt,
                 name: obj.acf.name,
-                href: `/${ obj.id }`,
+                href: `product/${ obj.id }`,
                 oldPrice: obj.acf.old_price,
 	            newPrice: obj.acf.new_price,
 	            desc: obj.acf.short_desc,

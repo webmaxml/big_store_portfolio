@@ -1,5 +1,6 @@
 // deps
 import React from 'react';
+import { Link } from 'react-router';
 // components
 import BtnCart from '../btnCart/btnCart';
 import SaleBadge from '../saleBadge/saleBadge';
@@ -35,15 +36,15 @@ class ProductItem extends React.Component {
         return (
         	<div className={ classes }>
 				<div className="product-item__img-line">
-					<a className="product-item__img-link" href={ this.state.href }>
+					<Link className="product-item__img-link" to={ this.state.href }>
 						<img className="product-item__img" src={ this.state.imgSrc } alt={ this.state.imgAlt } />
-					</a>
+					</Link>
 					{ this.state.saleBadge ? <SaleBadge mode="default" /> : false }
 				</div>
 				<div className="product-item__info-line">
 					<div className="product-item__about-grouper">
 						<h3 className="product-item__name-line">
-							<a className="product-item__name" href={ this.state.href }>{ this.state.name }</a>
+							<Link className="product-item__name" to={ this.state.href }>{ this.state.name }</Link>
 						</h3>
 						<div className="product-item__price-line">
 							<div className="product-item__price-grouper">

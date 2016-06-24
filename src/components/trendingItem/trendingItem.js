@@ -1,5 +1,6 @@
 // deps
 import React from 'react';
+import { Link } from 'react-router';
 // components
 import BtnCart from '../btnCart/btnCart';
 import SaleBadge from '../saleBadge/saleBadge';
@@ -26,13 +27,13 @@ class TrendingItem extends React.Component {
 		return (
 			<li className="trending-item" data-filter={ this.state.filter }>
 				<div className="trending-item__img-box">
-					<a className="trending-item__link" href={ this.state.href }>
+					<Link className="trending-item__link" to={ this.state.href }>
 						<img className="trending-item__img" src={ this.state.imgSrc } alt={ this.state.imgAlt } />
-					</a>
+					</Link>
 				</div>
 				<div className="trending-item__info">
 					<h3 className="trending-item__item-name"> 
-						<a className="trending-item__link" href={ this.state.href }>{ this.state.name }</a>
+						<Link className="trending-item__link" to={ this.state.href }>{ this.state.name }</Link>
 					</h3>
 					<p className="trending-item__item-text">{ this.state.desc }</p>
 					<div className="trending-item__current-price">

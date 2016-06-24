@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 // containers
-import TopSliderContainer from '../../containers/topSliderContainer';
-import FeaturedSliderContainer from '../../containers/featuredSliderContainer';
+import TopSliderContainer from '../topSlider/topSliderContainer';
+import FeaturedSliderContainer from '../featuredSlider/featuredSliderContainer';
 import NewProductsContainer from '../../containers/newProductsContainer';
 import TrendingContainer from '../../containers/trendingContainer';
 

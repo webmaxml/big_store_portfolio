@@ -39,6 +39,10 @@
 
 		&.breadcrumbs__link--active {
 			color: #f71818;
+			
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 
